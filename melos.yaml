@@ -1,0 +1,14 @@
+name: pub_packages
+
+repository: https://github.com/fischerscode/pub.packages
+
+packages:
+  - packages/**
+
+ide:
+  intellij:
+    enabled: false
+
+command:
+  version:
+    workspaceChangelog: false
