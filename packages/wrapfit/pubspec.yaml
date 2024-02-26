@@ -1,6 +1,6 @@
 name: wrapfit
 description: "A new way to fit children of Wrap."
-version: 0.1.0
+version: 0.1.0+1
 repository: https://github.com/fischerscode/pub.packages/tree/main/packages/wrapfit
 issue_tracker: https://github.com/fischerscode/pub.packages/issues
 
