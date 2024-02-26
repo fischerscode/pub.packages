@@ -12,3 +12,4 @@ ide:
 command:
   version:
     workspaceChangelog: false
+    branch: main
