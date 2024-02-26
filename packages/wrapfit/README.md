@@ -26,7 +26,7 @@ Mainly, this package allows developers to stretch a child of `Wrap2` to fill the
 
 ## Usage
 
-(Also have a look at the [full app example](https://pub.dev/packages/location/example).)
+(Also have a look at the [full app example](https://pub.dev/packages/wrapfit/example).)
 
 ```dart
 Wrap2(
