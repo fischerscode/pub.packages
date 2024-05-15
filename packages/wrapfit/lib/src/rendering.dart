@@ -38,12 +38,12 @@ enum WrapFit {
   /// The child is placed either in the current or the next run, depending on
   /// its min intrinsic size in the [Wrap.direction].
   ///
-  /// Within this run, it is forced to fill the entire run, unless either the
-  /// next child does not fit in this run or the [Wrap] has no max size
-  /// constraint in the run direction.
+  /// If this is the last child or the next child wont fits into this run, then
+  /// the child is forced to fill the remaining space in the current run unless
+  /// the [Wrap] has no max size constraint in the run direction.
   ///
   /// This setting is more expensive, because it also computes the minimal
-  /// size of the child. Avoid using it for complex children.
+  /// size of the child and the next child. Avoid using it for complex children.
   runMaybeTight(false),
 
   /// The child is placed either in the current or the next run, depending on
@@ -65,10 +65,10 @@ enum WrapFit {
 
   const WrapFit(this.isTight);
 
-  /// `true` if the [WrapFit] forces the child to fill the assigned run.
+  /// `true` if the [WrapFit] always forces the child to fill the assigned run.
   final bool isTight;
 
-  /// `true` if the [WrapFit] allows the child to only fill the assigned run
+  /// `true` if the [WrapFit] may allow the child to only fill the assigned run
   /// partially.
   bool get isLoose => !isTight;
 }
