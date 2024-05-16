@@ -38,6 +38,17 @@ enum WrapFit {
   /// The child is placed either in the current or the next run, depending on
   /// its min intrinsic size in the [Wrap.direction].
   ///
+  /// If this is the last child or the next child wont fits into this run, then
+  /// the child is forced to fill the remaining space in the current run unless
+  /// the [Wrap] has no max size constraint in the run direction.
+  ///
+  /// This setting is more expensive, because it also computes the minimal
+  /// size of the child and the next child. Avoid using it for complex children.
+  runMaybeTight(false),
+
+  /// The child is placed either in the current or the next run, depending on
+  /// its min intrinsic size in the [Wrap.direction].
+  ///
   /// This setting is more expensive, because it also computes the minimal
   /// size of the child. Avoid using it for complex children.
   runLoose(false),
@@ -54,10 +65,10 @@ enum WrapFit {
 
   const WrapFit(this.isTight);
 
-  /// `true` if the [WrapFit] forces the child to fill the assigned run.
+  /// `true` if the [WrapFit] always forces the child to fill the assigned run.
   final bool isTight;
 
-  /// `true` if the [WrapFit] allows the child to only fill the assigned run
+  /// `true` if the [WrapFit] may allow the child to only fill the assigned run
   /// partially.
   bool get isLoose => !isTight;
 }
@@ -749,15 +760,25 @@ class RenderWrap2 extends RenderBox
     int childCount = 0; // Number of children in the current run.
     int runCount = 0; // Number of finished runs.
 
+    double? nextChildMinIntrinsicMainAxisExtent;
     while (child != null) {
       final Wrap2ParentData childParentData =
           child.parentData! as Wrap2ParentData;
+
+      final RenderBox thisChild = child;
+      final $cachedChildMinIntrinsicMainAxisExtent =
+          nextChildMinIntrinsicMainAxisExtent;
+      nextChildMinIntrinsicMainAxisExtent = null;
+      late final childMinIntrinsicMainAxisExtent =
+          $cachedChildMinIntrinsicMainAxisExtent ??
+              getChildMinIntrinsicMainAxisExtent(thisChild, double.infinity);
       WrapFit fit = childParentData.fit;
 
       // Downgrade the [WrapFit] in an unbound scenario.
       if (mainAxisLimit.isInfinite) {
         switch (fit) {
           case WrapFit.runTight:
+          case WrapFit.runMaybeTight:
             fit = WrapFit.runLoose;
           case WrapFit.tight:
             fit = WrapFit.loose;
@@ -767,6 +788,8 @@ class RenderWrap2 extends RenderBox
       }
 
       final Size childSize;
+
+      late RenderBox? nextChild = next(thisChild, childParentData);
 
       switch (fit) {
         case WrapFit.runTight:
@@ -797,6 +820,37 @@ class RenderWrap2 extends RenderBox
                   child, childConstraintsFittingLooseInRun(mainAxisLimit));
             }
           }
+        case WrapFit.runMaybeTight:
+          double runLimit;
+          if (runMainAxisExtent != 0 &&
+              runMainAxisExtent + childMinIntrinsicMainAxisExtent + spacing <=
+                  mainAxisLimit) {
+            runLimit = mainAxisLimit - runMainAxisExtent - spacing;
+          } else {
+            runLimit = mainAxisLimit;
+          }
+
+          bool tighten;
+          if (nextChild != null) {
+            nextChildMinIntrinsicMainAxisExtent =
+                getChildMinIntrinsicMainAxisExtent(nextChild, double.infinity);
+            if (childMinIntrinsicMainAxisExtent +
+                    nextChildMinIntrinsicMainAxisExtent +
+                    spacing <=
+                runLimit) {
+              tighten = false;
+            } else {
+              tighten = true;
+            }
+          } else {
+            tighten = true;
+          }
+
+          childSize = layoutChild(
+              child,
+              (tighten
+                  ? childConstraintsFittingTightInRun
+                  : childConstraintsFittingLooseInRun)(runLimit));
         case WrapFit.tight:
           childSize = layoutChild(child, childConstraintsTight);
         case WrapFit.loose:
@@ -836,7 +890,7 @@ class RenderWrap2 extends RenderBox
       if (onLayoutChild != null) {
         onLayoutChild(childParentData, runCount);
       }
-      child = next(child, childParentData);
+      child = nextChild;
     }
 
     if (childCount > 0) {
