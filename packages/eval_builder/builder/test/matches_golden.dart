@@ -34,7 +34,7 @@ class MatchesGoldenFile extends AsyncMatcher {
     } else {
       var golden = await file.readAsString();
 
-      if (matches(golden).matches(item, {})) {
+      if (equals(golden).matches(item, {})) {
         return null;
       } else {
         return equals(golden)
@@ -48,4 +48,5 @@ class MatchesGoldenFile extends AsyncMatcher {
 Matcher matchesGolden(String path, [String? pathBaseDirectory]) =>
     MatchesGoldenFile(
         File(pathBaseDirectory != null ? join(pathBaseDirectory, path) : path),
-        bool.fromEnvironment('TEST_UPDATE_GOLDENS'));
+        (bool.tryParse(Platform.environment['TEST_UPDATE_GOLDENS'] ?? '') ??
+            false));
