@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Update goldens (dart)",
+            "type": "dart",
+            "request": "launch",
+            "env": {
+                "TEST_UPDATE_GOLDENS": "true"
+            },
+            "templateFor": "test",
+            "codeLens": {
+                "for": [
+                    "run-test",
+                    "run-test-file"
+                ],
+                "title": "Update goldens"
+            },
+        }
+    ]
+}

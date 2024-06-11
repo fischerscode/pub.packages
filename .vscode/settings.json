@@ -1,0 +1,7 @@
+{
+    "dart.runPubGetOnPubspecChanges": "never",
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns": {
+        "*_test.dart": "${basename}-*, ${basename}.*",
+    }
+}
