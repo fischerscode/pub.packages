@@ -2,6 +2,7 @@ import 'package:code_builder/code_builder.dart';
 
 import 'types.dart';
 
+/// Represents types with wrappers defined in [stdlib/core](https://pub.dev/documentation/dart_eval/latest/dart_eval.stdlib.core/dart_eval.stdlib.core-library.html)
 enum CoreType implements AnalyzedType {
   bool,
   comparable,
