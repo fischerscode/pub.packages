@@ -14,10 +14,9 @@ class $BasicClass implements $Instance {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
           returns: $type.annotate,
-          params: [],
+          params: ['finalString'.param(CoreTypes.string.ref.annotateNullable)],
           namedParams: [
-            'finalString'.param(CoreTypes.string.ref.annotateNullable),
-            'finalNullableString'.param(CoreTypes.string.ref.annotate),
+            'finalNullableString'.param(CoreTypes.string.ref.annotate)
           ],
           generics: {},
         ),
@@ -310,7 +309,18 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $BasicClass.wrap(BasicClass());
+    return $BasicClass.wrap(BasicClass(
+      () {
+        final $ = args[0];
+        final $$ = (args[0] as dynamic);
+        return $$ is! String ? ($?.$reified as String) : $$;
+      }(),
+      finalNullableString: () {
+        final $ = args[1];
+        final $$ = (args[1] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+    ));
   }
 
   @override

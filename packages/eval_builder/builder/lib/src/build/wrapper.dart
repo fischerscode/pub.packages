@@ -141,7 +141,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
                       .access(parameter.type)
             ], {
               for (var (index, parameter) in constructor.parameters.indexed)
-                if (parameter.isPositional)
+                if (parameter.isNamed)
                   parameter.name: code
                       .refer('args')
                       .index(code.literalNum(index))
