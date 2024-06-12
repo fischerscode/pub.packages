@@ -23,14 +23,14 @@ class MatchesGoldenFile extends AsyncMatcher {
     if (item is! String) {
       return 'is no string';
     }
+    if (updateGolden) {
+      print('Note: Updating golden file $file.');
+      await file.writeAsString(item);
+      return null;
+    }
 
     if (!await file.exists()) {
-      if (updateGolden) {
-        await file.writeAsString(item);
-        return null;
-      } else {
-        return 'can not be tested, since the golden file "${file.path}" does not exist.';
-      }
+      return 'can not be tested, since the golden file "${file.path}" does not exist.';
     } else {
       var golden = await file.readAsString();
 
