@@ -30,4 +30,28 @@ class BasicClass {
       _staticAccessedNullableString;
   static set staticNullableStringSetter(String? value) =>
       _staticAccessedNullableString = value;
+
+  String stringTestMethod(String s1, [String? s2, String s3 = 's3Default']) {
+    return '$s1, $s2, $s3';
+  }
+
+  String nullableStringTestMethod(String? s1,
+      [String? s2, String? s3 = 's3Default']) {
+    return '$s1, $s2, $s3';
+  }
+
+  String stringTestMethodNamed({
+    String s1 = 's1Default',
+    required String s2,
+  }) {
+    return '$s1, $s2';
+  }
+
+  String nullableStringTestMethodNamed({
+    String? s1,
+    required String? s2,
+    String? s3 = 's3Default',
+  }) {
+    return '$s1, $s2, $s3';
+  }
 }

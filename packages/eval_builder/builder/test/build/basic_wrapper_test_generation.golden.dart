@@ -23,7 +23,59 @@ class $BasicClass implements $Instance {
         isFactory: false,
       )
     },
-    methods: {},
+    methods: {
+      'stringTestMethod': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: $type.annotate,
+          params: [
+            's1'.param(CoreTypes.string.ref.annotateNullable),
+            's2'.paramOptional(CoreTypes.string.ref.annotate),
+            's3'.paramOptional(CoreTypes.string.ref.annotateNullable),
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'nullableStringTestMethod': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: $type.annotate,
+          params: [
+            's1'.param(CoreTypes.string.ref.annotate),
+            's2'.paramOptional(CoreTypes.string.ref.annotate),
+            's3'.paramOptional(CoreTypes.string.ref.annotate),
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'stringTestMethodNamed': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: $type.annotate,
+          params: [],
+          namedParams: [
+            's1'.paramOptional(CoreTypes.string.ref.annotateNullable),
+            's2'.param(CoreTypes.string.ref.annotateNullable),
+          ],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'nullableStringTestMethodNamed': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: $type.annotate,
+          params: [],
+          namedParams: [
+            's1'.paramOptional(CoreTypes.string.ref.annotate),
+            's2'.param(CoreTypes.string.ref.annotate),
+            's3'.paramOptional(CoreTypes.string.ref.annotate),
+          ],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+    },
     getters: {
       'finalString': BridgeMethodDef(
         BridgeFunctionDef(
@@ -287,6 +339,14 @@ class $BasicClass implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
+      case 'stringTestMethod':
+        return $Function($BasicClass._getM0);
+      case 'nullableStringTestMethod':
+        return $Function($BasicClass._getM1);
+      case 'stringTestMethodNamed':
+        return $Function($BasicClass._getM2);
+      case 'nullableStringTestMethodNamed':
+        return $Function($BasicClass._getM3);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -412,5 +472,96 @@ class $BasicClass implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type.spec!);
+  }
+
+  static $Value? _getM0(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as BasicClass).stringTestMethod(
+      () {
+        final $ = args[0];
+        final $$ = (args[0] as dynamic);
+        return $$ is! String ? ($?.$reified as String) : $$;
+      }(),
+      () {
+        final $ = args[1];
+        final $$ = (args[1] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+      () {
+        final $ = args[2];
+        final $$ = (args[2] as dynamic);
+        return $$ is! String ? ($?.$reified as String) : $$;
+      }(),
+    ));
+  }
+
+  static $Value? _getM1(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as BasicClass).nullableStringTestMethod(
+      () {
+        final $ = args[0];
+        final $$ = (args[0] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+      () {
+        final $ = args[1];
+        final $$ = (args[1] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+      () {
+        final $ = args[2];
+        final $$ = (args[2] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+    ));
+  }
+
+  static $Value? _getM2(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as BasicClass).stringTestMethodNamed(
+      s1: () {
+        final $ = args[0];
+        final $$ = (args[0] as dynamic);
+        return $$ is! String ? ($?.$reified as String) : $$;
+      }(),
+      s2: () {
+        final $ = args[1];
+        final $$ = (args[1] as dynamic);
+        return $$ is! String ? ($?.$reified as String) : $$;
+      }(),
+    ));
+  }
+
+  static $Value? _getM3(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as BasicClass).nullableStringTestMethodNamed(
+      s1: () {
+        final $ = args[0];
+        final $$ = (args[0] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+      s2: () {
+        final $ = args[1];
+        final $$ = (args[1] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+      s3: () {
+        final $ = args[2];
+        final $$ = (args[2] as dynamic);
+        return $$ is! String? ? ($?.$reified as String?) : $$;
+      }(),
+    ));
   }
 }
