@@ -180,14 +180,14 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
     ])
     ..body = code.Block.of([
       'switch(identifier) {'.toCode(),
-      for (var (index, method) in methods.indexed) ...[
+      for (var method in methods) ...[
         "case '${method.name}':".toCode(),
         _$Function
             .newInstance([
               (method.isStatic
                       ? element.thisType.refer()
                       : code.refer(className))
-                  .property('_getM$index')
+                  .property('_${method.name}')
             ])
             .returned
             .statement,
@@ -247,10 +247,10 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
         .returned
         .statement));
 
-  for (var (index, method) in methods.indexed) {
+  for (var method in methods) {
     builder.methods.add(code.Method(
       (b) => b
-        ..name = '_getM$index'
+        ..name = '_${method.name}'
         ..static = true
         ..returns = _$Value.nullable(true)
         ..requiredParameters.addAll([

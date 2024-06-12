@@ -340,13 +340,13 @@ class $BasicClass implements $Instance {
   ) {
     switch (identifier) {
       case 'stringTestMethod':
-        return $Function($BasicClass._getM0);
+        return $Function($BasicClass._stringTestMethod);
       case 'nullableStringTestMethod':
-        return $Function($BasicClass._getM1);
+        return $Function($BasicClass._nullableStringTestMethod);
       case 'stringTestMethodNamed':
-        return $Function($BasicClass._getM2);
+        return $Function($BasicClass._stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
-        return $Function($BasicClass._getM3);
+        return $Function($BasicClass._nullableStringTestMethodNamed);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -474,7 +474,7 @@ class $BasicClass implements $Instance {
     return runtime.lookupType($type.spec!);
   }
 
-  static $Value? _getM0(
+  static $Value? _stringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -498,7 +498,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _getM1(
+  static $Value? _nullableStringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -522,7 +522,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _getM2(
+  static $Value? _stringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -541,7 +541,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _getM3(
+  static $Value? _nullableStringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
