@@ -336,11 +336,11 @@ class $BasicClass implements $Instance {
       case '_accessedString':
         return $String($value._accessedString);
       case 'staticFinalString':
-        return $String($value.staticFinalString);
+        return $String(BasicClass.staticFinalString);
       case 'staticString':
-        return $String($value.staticString);
+        return $String(BasicClass.staticString);
       case '_staticAccessedString':
-        return $String($value._staticAccessedString);
+        return $String(BasicClass._staticAccessedString);
       case 'finalNullableString':
         return $String($value.finalNullableString);
       case 'nullableString':
@@ -348,19 +348,19 @@ class $BasicClass implements $Instance {
       case '_accessedNullableString':
         return $String($value._accessedNullableString);
       case 'staticFinalNullableString':
-        return $String($value.staticFinalNullableString);
+        return $String(BasicClass.staticFinalNullableString);
       case 'staticNullableString':
-        return $String($value.staticNullableString);
+        return $String(BasicClass.staticNullableString);
       case '_staticAccessedNullableString':
-        return $String($value._staticAccessedNullableString);
+        return $String(BasicClass._staticAccessedNullableString);
       case 'stringGetter':
         return $String($value.stringGetter);
       case 'staticStringGetter':
-        return $String($value.staticStringGetter);
+        return $String(BasicClass.staticStringGetter);
       case 'nullableStringGetter':
         return $String($value.nullableStringGetter);
       case 'staticNullableStringGetter':
-        return $String($value.staticNullableStringGetter);
+        return $String(BasicClass.staticNullableStringGetter);
     }
   }
 
@@ -384,13 +384,13 @@ class $BasicClass implements $Instance {
           return $$ is! String ? ($.$reified as String) : $$;
         }();
       case 'staticString':
-        $value.staticString = () {
+        BasicClass.staticString = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }();
       case '_staticAccessedString':
-        $value._staticAccessedString = () {
+        BasicClass._staticAccessedString = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
@@ -408,13 +408,13 @@ class $BasicClass implements $Instance {
           return $$ is! String? ? ($.$reified as String?) : $$;
         }();
       case 'staticNullableString':
-        $value.staticNullableString = () {
+        BasicClass.staticNullableString = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String? ? ($.$reified as String?) : $$;
         }();
       case '_staticAccessedNullableString':
-        $value._staticAccessedNullableString = () {
+        BasicClass._staticAccessedNullableString = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String? ? ($.$reified as String?) : $$;
@@ -426,7 +426,7 @@ class $BasicClass implements $Instance {
           return $$ is! String ? ($.$reified as String) : $$;
         }();
       case 'staticStringSetter':
-        $value.staticStringSetter = () {
+        BasicClass.staticStringSetter = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
@@ -438,7 +438,7 @@ class $BasicClass implements $Instance {
           return $$ is! String? ? ($.$reified as String?) : $$;
         }();
       case 'staticNullableStringSetter':
-        $value.staticNullableStringSetter = () {
+        BasicClass.staticNullableStringSetter = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String? ? ($.$reified as String?) : $$;

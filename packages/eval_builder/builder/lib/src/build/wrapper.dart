@@ -171,12 +171,20 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
       'switch(identifier) {'.toCode(),
       for (var (index, method) in methods.indexed) ...[
         "case '${method.name}':".toCode(),
-        _$Function.newInstance([code.refer('_getM$index')]).returned.statement,
+        _$Function
+            .newInstance([
+              (method.isStatic
+                      ? element.thisType.refer()
+                      : code.refer(className))
+                  .property('_getM$index')
+            ])
+            .returned
+            .statement,
       ],
       for (var (index, getter)
           in accessors.where((e) => e.isGetter).indexed) ...[
         "case '${getter.name}':".toCode(),
-        _$value
+        (getter.isStatic ? element.thisType.refer() : _$value)
             .property(getter.name)
             .wrapped(getter.returnType)
             .returned
@@ -205,7 +213,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
       for (var (index, setter)
           in accessors.where((e) => e.isSetter).indexed) ...[
         "case '${setter.name.substring(0, setter.name.length - 1)}':".toCode(),
-        _$value
+        (setter.isStatic ? element.thisType.refer() : _$value)
             .property(setter.name.substring(0, setter.name.length - 1))
             .assign(
                 code.refer('value').access(setter.parameters.first.type, false))
