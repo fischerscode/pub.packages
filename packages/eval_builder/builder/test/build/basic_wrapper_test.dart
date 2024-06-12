@@ -22,7 +22,7 @@ void main() {
     expect(element, isNotNull);
     expect(
         createPartFile('basic_wrapper_test_generation.dart',
-            [buildWrapper(element!, Wrapper())]),
+            [buildWrapper(element!, Wrapper(bimodal: false))]),
         specMatches(
             matchesGolden(
                 'basic_wrapper_test_generation.golden.dart', ['build']),
