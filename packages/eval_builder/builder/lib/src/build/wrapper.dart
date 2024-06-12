@@ -37,8 +37,8 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
     ]).property('ref').code));
 
   //TODO: Polymorphism
-  var methods = element.methods;
-  var accessors = element.accessors;
+  var methods = element.methods.where((e) => !e.isStatic || !e.isPrivate);
+  var accessors = element.accessors.where((e) => !e.isStatic || !e.isPrivate);
 
   builder.fields.add(code.Field((b) => b
     ..name = r'$declaration'
