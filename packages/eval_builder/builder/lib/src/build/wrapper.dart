@@ -36,12 +36,14 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
       code.literalString(element.name)
     ]).property('ref').code));
 
+  var constructors = element.constructors.where((e) => !e.isPrivate);
+
   //TODO: Polymorphism
-  var methods = element.methods.where((e) => !e.isStatic || !e.isPrivate);
-  var accessors = element.accessors.where((e) => !e.isStatic || !e.isPrivate);
+  var methods = element.methods.where((e) => !e.isPrivate);
+  var accessors = element.accessors.where((e) => !e.isPrivate);
 
   bool hasOptionalParameterWithDefault = Iterable<ExecutableElement>.empty()
-      .followedBy(element.constructors)
+      .followedBy(constructors)
       .followedBy(methods)
       .any(
         (e) => e.parameters.any((p) => p.hasDefaultValue),
@@ -69,7 +71,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
       ],
       {
         'constructors': code.literalMap({
-          for (var constructor in element.constructors)
+          for (var constructor in constructors)
             code.literalString(constructor.name): _BridgeConstructorDef.call(
                 [constructor.functionDef()],
                 {'isFactory': code.literalBool(constructor.isFactory)}),
@@ -121,7 +123,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
       ..name = r'$value'))
     ..constant = true));
 
-  for (var constructor in element.constructors) {
+  for (var constructor in constructors) {
     builder.methods.add(code.Method((b) => b
       ..name = constructor.name.isEmpty ? r'$new' : '\$${constructor.name}'
       ..returns = _$Value.nullable(true)

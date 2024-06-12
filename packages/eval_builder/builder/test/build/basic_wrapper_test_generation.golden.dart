@@ -95,15 +95,6 @@ class $BasicClass implements $Instance {
         ),
         isStatic: false,
       ),
-      '_accessedString': BridgeMethodDef(
-        BridgeFunctionDef(
-          returns: $type.annotate,
-          params: [],
-          namedParams: [],
-          generics: {},
-        ),
-        isStatic: false,
-      ),
       'staticFinalString': BridgeMethodDef(
         BridgeFunctionDef(
           returns: $type.annotate,
@@ -132,15 +123,6 @@ class $BasicClass implements $Instance {
         isStatic: false,
       ),
       'nullableString': BridgeMethodDef(
-        BridgeFunctionDef(
-          returns: $type.annotate,
-          params: [],
-          namedParams: [],
-          generics: {},
-        ),
-        isStatic: false,
-      ),
-      '_accessedNullableString': BridgeMethodDef(
         BridgeFunctionDef(
           returns: $type.annotate,
           params: [],
@@ -214,17 +196,6 @@ class $BasicClass implements $Instance {
         ),
         isStatic: false,
       ),
-      '_accessedString': BridgeMethodDef(
-        BridgeFunctionDef(
-          returns: $type.annotate,
-          params: [
-            '__accessedString'.param(CoreTypes.string.ref.annotateNullable)
-          ],
-          namedParams: [],
-          generics: {},
-        ),
-        isStatic: false,
-      ),
       'staticString': BridgeMethodDef(
         BridgeFunctionDef(
           returns: $type.annotate,
@@ -240,17 +211,6 @@ class $BasicClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.annotate,
           params: ['_nullableString'.param(CoreTypes.string.ref.annotate)],
-          namedParams: [],
-          generics: {},
-        ),
-        isStatic: false,
-      ),
-      '_accessedNullableString': BridgeMethodDef(
-        BridgeFunctionDef(
-          returns: $type.annotate,
-          params: [
-            '__accessedNullableString'.param(CoreTypes.string.ref.annotate)
-          ],
           namedParams: [],
           generics: {},
         ),
@@ -351,8 +311,6 @@ class $BasicClass implements $Instance {
         return $String($value.finalString);
       case 'string':
         return $String($value.string);
-      case '_accessedString':
-        return $String($value._accessedString);
       case 'staticFinalString':
         return $String(BasicClass.staticFinalString);
       case 'staticString':
@@ -365,11 +323,6 @@ class $BasicClass implements $Instance {
       case 'nullableString':
         return () {
           final $ = $value.nullableString;
-          return $ == null ? const $null() : $String($);
-        }();
-      case '_accessedNullableString':
-        return () {
-          final $ = $value._accessedNullableString;
           return $ == null ? const $null() : $String($);
         }();
       case 'staticFinalNullableString':
@@ -412,12 +365,6 @@ class $BasicClass implements $Instance {
           final $$ = (value as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }();
-      case '_accessedString':
-        $value._accessedString = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String ? ($.$reified as String) : $$;
-        }();
       case 'staticString':
         BasicClass.staticString = () {
           final $ = value;
@@ -426,12 +373,6 @@ class $BasicClass implements $Instance {
         }();
       case 'nullableString':
         $value.nullableString = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String? ? ($.$reified as String?) : $$;
-        }();
-      case '_accessedNullableString':
-        $value._accessedNullableString = () {
           final $ = value;
           final $$ = (value as dynamic);
           return $$ is! String? ? ($.$reified as String?) : $$;
