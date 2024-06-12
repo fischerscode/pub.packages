@@ -12,6 +12,8 @@ dependencies:
   eval_builder_annotations: ^0.0.0
   code_builder: ^4.10.0
   dart_style: ^2.3.6
+  analyzer: ^6.5.0
+  dart_eval: ^0.7.9
 
 dev_dependencies:
   lints: ^3.0.0
