@@ -298,23 +298,44 @@ class $BasicClass implements $Instance {
       case 'staticString':
         return $String(BasicClass.staticString);
       case 'finalNullableString':
-        return $String($value.finalNullableString);
+        return () {
+          final $ = $value.finalNullableString;
+          return $ == null ? const $null() : $String($);
+        }();
       case 'nullableString':
-        return $String($value.nullableString);
+        return () {
+          final $ = $value.nullableString;
+          return $ == null ? const $null() : $String($);
+        }();
       case '_accessedNullableString':
-        return $String($value._accessedNullableString);
+        return () {
+          final $ = $value._accessedNullableString;
+          return $ == null ? const $null() : $String($);
+        }();
       case 'staticFinalNullableString':
-        return $String(BasicClass.staticFinalNullableString);
+        return () {
+          final $ = BasicClass.staticFinalNullableString;
+          return $ == null ? const $null() : $String($);
+        }();
       case 'staticNullableString':
-        return $String(BasicClass.staticNullableString);
+        return () {
+          final $ = BasicClass.staticNullableString;
+          return $ == null ? const $null() : $String($);
+        }();
       case 'stringGetter':
         return $String($value.stringGetter);
       case 'staticStringGetter':
         return $String(BasicClass.staticStringGetter);
       case 'nullableStringGetter':
-        return $String($value.nullableStringGetter);
+        return () {
+          final $ = $value.nullableStringGetter;
+          return $ == null ? const $null() : $String($);
+        }();
       case 'staticNullableStringGetter':
-        return $String(BasicClass.staticNullableStringGetter);
+        return () {
+          final $ = BasicClass.staticNullableStringGetter;
+          return $ == null ? const $null() : $String($);
+        }();
     }
   }
 

@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
@@ -408,12 +409,28 @@ extension on code.Expression {
 
   /// Wraps this (has Type [type]) as a [$Value].
   code.Expression wrapped(DartType type) {
-    if (type.isDartCoreString) {
-      return code.refer(r'$String').newInstance([this]);
+    code.Expression wrap(code.Expression inner) {
+      if (type.isDartCoreString) {
+        return code.refer(r'$String').newInstance([inner]);
+      }
+
+      //TODO: Impement wrapped
+      return code.refer(r'$Object').newInstanceNamed('wrap', [inner]);
     }
 
-    //TODO: Impement wrapped
-    return code.refer(r'$Object').newInstanceNamed('wrap', [this]);
+    if (type.isNullable) {
+      return code.Method((b) => b.body = code.Block.of([
+            code.declareFinal(r'$').assign(this).statement,
+            code
+                .refer(r'$')
+                .equalTo(code.literalNull)
+                .conditional(_$null.constInstance([]), wrap(code.refer(r'$')))
+                .returned
+                .statement,
+          ])).closure.call([]);
+    } else {
+      return wrap(this);
+    }
   }
 }
 
@@ -437,6 +454,7 @@ final _$Value = code.TypeReference((b) => b
   ..symbol = r'$Value'
   ..url = _dart_eval_bridge);
 final _$value = code.refer(r'$value');
+final _$null = code.refer(r'$null');
 
 final _Runtime = code.TypeReference((b) => b
   ..symbol = r'Runtime'
