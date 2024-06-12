@@ -1,4 +1,3 @@
-import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
@@ -40,6 +39,17 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
   //TODO: Polymorphism
   var methods = element.methods.where((e) => !e.isStatic || !e.isPrivate);
   var accessors = element.accessors.where((e) => !e.isStatic || !e.isPrivate);
+
+  bool hasOptionalParameterWithDefault = Iterable<ExecutableElement>.empty()
+      .followedBy(element.constructors)
+      .followedBy(methods)
+      .any(
+        (e) => e.parameters.any((p) => p.hasDefaultValue),
+      );
+  if (hasOptionalParameterWithDefault) {
+    print('Default values are currently not supported. '
+        'They will never be used.');
+  }
 
   builder.fields.add(code.Field((b) => b
     ..name = r'$declaration'
