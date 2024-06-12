@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:path/path.dart' show join;
+import 'package:path/path.dart' show join, joinAll, split;
 import 'package:test/test.dart';
 // ignore: depend_on_referenced_packages
 import 'package:matcher/src/expect/async_matcher.dart';
@@ -45,8 +45,16 @@ class MatchesGoldenFile extends AsyncMatcher {
   }
 }
 
-Matcher matchesGolden(String path, [String? pathBaseDirectory]) =>
-    MatchesGoldenFile(
-        File(pathBaseDirectory != null ? join(pathBaseDirectory, path) : path),
-        (bool.tryParse(Platform.environment['TEST_UPDATE_GOLDENS'] ?? '') ??
-            false));
+/// Matches a [String] against a golden [file].
+///
+/// If [path] is null, assume that [file] is in the test/ directory.
+/// If [path] is not null, those parts will be appended to test/.
+Matcher matchesGolden(String file, [List<String>? path]) {
+  final updateGolden =
+      (bool.tryParse(Platform.environment['TEST_UPDATE_GOLDENS'] ?? '') ??
+          false);
+  return MatchesGoldenFile(
+      File(joinAll(
+          [...split(Directory.current.absolute.path), 'test', ...?path, file])),
+      updateGolden);
+}
