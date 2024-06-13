@@ -1,3 +1,5 @@
+import 'package:dart_eval/dart_eval_bridge.dart';
+
 class Wrapper {
   /// The name of the generated class.
   final String? name;
@@ -10,13 +12,17 @@ class Wrapper {
   /// (e.g. 'package:myPackage/file.dart')
   final String? libIdentifier;
 
-  /// Maps a [Type] to the [Type] of the wrapper that should be used, to
-  /// wrap elements of this [Type].
+  /// Maps a [Type] to a known wrapper for that type.
   ///
   /// @[Wrapper] annotated [Type]s don't have to be added to this, since they
   /// are discoverd automatically. [knownWrappers] takes priority over auto
   /// discovery.
-  final Map<Type, Type> knownWrappers;
+  final Map<
+      Type,
+      ({
+        BridgeTypeSpec ref,
+        $Instance Function(Never) wrap,
+      })> knownWrappers;
 
   /// The strategy for dealing with default parameters.
   /// Defaults to [DefaultParameterStrategy.copyCode].

@@ -2,7 +2,6 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
-import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/well_known_wrappers.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
@@ -10,20 +9,17 @@ import 'package:meta/meta.dart';
 
 import 'well_known_type_references.dart';
 
-class WrapperSettings implements Wrapper {
-  @override
+typedef KnownWrapperMap = Map<DartType, ({String spec, String wrap})>;
+
+class WrapperSettings {
   final bool bimodal;
 
-  @override
   final DefaultParameterStrategy defaultParameterStrategy;
 
-  @override
-  final Map<Type, Type> knownWrappers;
+  final KnownWrapperMap knownWrappers;
 
-  @override
   final String libIdentifier;
 
-  @override
   final String name;
 
   const WrapperSettings(
@@ -91,24 +87,24 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
           for (var constructor in constructors)
             code.literalString(constructor.name):
                 WellKnownTypeReferences.bridgeConstructorDef.call(
-                    [constructor.functionDef()],
+                    [constructor.functionDef(settings)],
                     {'isFactory': code.literalBool(constructor.isFactory)}),
         }),
         'methods': code.literalMap({
           for (var method in methods)
-            code.literalString(method.name): method.methodDef(),
+            code.literalString(method.name): method.methodDef(settings),
         }),
         'getters': code.literalMap({
           for (var accessor in accessors)
             if (accessor.isGetter)
-              code.literalString(accessor.name): accessor.methodDef(),
+              code.literalString(accessor.name): accessor.methodDef(settings),
         }),
         'setters': code.literalMap({
           for (var accessor in accessors)
             if (accessor.isSetter)
               code.literalString(
                       accessor.name.substring(0, accessor.name.length - 1)):
-                  accessor.methodDef(),
+                  accessor.methodDef(settings),
         }),
         // 'fields': code.literalMap({
         //   for (var field in element.fields)
@@ -221,7 +217,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
         "case '${getter.name}':".toCode(),
         (getter.isStatic ? element.thisType.refer() : _$value)
             .property(getter.name)
-            .wrapped(getter.returnType)
+            .wrapped(getter.returnType, settings.knownWrappers)
             .returned
             .statement,
       ],
@@ -317,7 +313,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
                       .access(parameter.type,
                           parameter.defaultValueCode?.asExpression())
             })
-            .wrapped(method.returnType)
+            .wrapped(method.returnType, settings.knownWrappers)
             .returned
             .statement,
     ));
@@ -408,10 +404,22 @@ extension DartTypeToCode on DartType {
       ]));
   }
 
-  code.Expression annotated() {
+  code.Expression annotated(KnownWrapperMap knownWrapper) {
     var this$ = this;
     switch (this$) {
       case ParameterizedType():
+        var known = knownWrapper.entries
+            .where((e) => e.key.element!.id == element!.id)
+            .firstOrNull
+            ?.value
+            .spec;
+        if (known != null) {
+          return known
+              .asExpression()
+              .property('ref')
+              .property(isNullable ? 'annotate' : 'annotateNullable');
+        }
+
         var wellKnown = WellKnownWrapper.get(this);
 
         if (wellKnown != null) {
@@ -437,17 +445,17 @@ extension DartTypeToCode on DartType {
 }
 
 extension on ExecutableElement {
-  code.Expression methodDef() {
+  code.Expression methodDef(WrapperSettings settings) {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeMethodDef'
       ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([
-      functionDef()
+      functionDef(settings)
     ], {
       'isStatic': code.literalBool(isStatic) //TODO: Static methods
     });
   }
 
-  code.Expression functionDef() {
+  code.Expression functionDef(WrapperSettings settings) {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeFunctionDef'
       ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([], {
@@ -458,7 +466,7 @@ extension on ExecutableElement {
             code
                 .literalString(param.name)
                 .property(param.isRequired ? 'param' : 'paramOptional')
-                .call({param.type.annotated()})
+                .call({param.type.annotated(settings.knownWrappers)})
       ]),
       'namedParams': code.literalList([
         for (var param in parameters)
@@ -466,7 +474,7 @@ extension on ExecutableElement {
             code
                 .literalString(param.name)
                 .property(param.isRequired ? 'param' : 'paramOptional')
-                .call({param.type.annotated()})
+                .call({param.type.annotated(settings.knownWrappers)})
       ]),
       'generics': code.literalMap({
         //TODO: Generics
@@ -561,10 +569,22 @@ extension on code.Expression {
   }
 
   /// Wraps this (has Type [type]) as a [$Value].
-  code.Expression wrapped(DartType type) {
-    final wellKnown = WellKnownWrapper.get(type);
+  code.Expression wrapped(DartType type, KnownWrapperMap knownWrappers) {
+    code.Expression Function(code.Expression)? wrap;
 
-    if (wellKnown != null) {
+    var known = knownWrappers.entries
+        .where((k) => k.key.element!.id == type.element!.id)
+        .firstOrNull
+        ?.value
+        .wrap;
+
+    if (known != null) {
+      wrap = (e) => known.asExpression().call([e]);
+    }
+
+    wrap ??= WellKnownWrapper.get(type)?.wrap;
+
+    if (wrap != null) {
       if (type.isNullable) {
         return code.Method((b) => b.body = code.Block.of([
               code.declareFinal(r'$').assign(this).statement,
@@ -572,12 +592,12 @@ extension on code.Expression {
                   .refer(r'$')
                   .equalTo(code.literalNull)
                   .conditional(WellKnownTypeReferences.$null.constInstance([]),
-                      wellKnown.wrap(code.refer(r'$')))
+                      wrap!(code.refer(r'$')))
                   .returned
                   .statement,
             ])).closure.call([]);
       } else {
-        return wellKnown.wrap(this);
+        return wrap(this);
       }
     } else {
       //TODO: Detect annotated classes and use known wrappers
