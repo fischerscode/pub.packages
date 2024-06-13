@@ -1,11 +1,11 @@
-part of 'basic_wrapper_test_generation.dart';
+part of 'bimodal_wrapper_test_generation.dart';
 
-class $BasicClass implements $Instance {
-  const $BasicClass.wrap(this.$value);
+class $BimodalClass implements BimodalClass, $Instance {
+  const $BimodalClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
-    'BasicClass',
+    'BimodalClass',
   ).ref;
 
   static final $declaration = BridgeClassDef(
@@ -346,7 +346,7 @@ class $BasicClass implements $Instance {
   );
 
   @override
-  final BasicClass $value;
+  final BimodalClass $value;
 
   @override
   get $reified => $value;
@@ -356,7 +356,7 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $BasicClass.wrap(BasicClass(
+    return $BimodalClass.wrap(BimodalClass(
       ($Value $) {
         final $$ = ($ as dynamic);
         return $$ is! String ? ($.$reified as String) : $$;
@@ -379,21 +379,21 @@ class $BasicClass implements $Instance {
   ) {
     switch (identifier) {
       case 'stringTestMethod':
-        return $Function($BasicClass._stringTestMethod);
+        return $Function($BimodalClass._stringTestMethod);
       case 'nullableStringTestMethod':
-        return $Function($BasicClass._nullableStringTestMethod);
+        return $Function($BimodalClass._nullableStringTestMethod);
       case 'stringTestMethodNamed':
-        return $Function($BasicClass._stringTestMethodNamed);
+        return $Function($BimodalClass._stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
-        return $Function($BasicClass._nullableStringTestMethodNamed);
+        return $Function($BimodalClass._nullableStringTestMethodNamed);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
         return $String($value.string);
       case 'staticFinalString':
-        return $String(BasicClass.staticFinalString);
+        return $String(BimodalClass.staticFinalString);
       case 'staticString':
-        return $String(BasicClass.staticString);
+        return $String(BimodalClass.staticString);
       case 'finalNullableString':
         return () {
           final $ = $value.finalNullableString;
@@ -406,18 +406,18 @@ class $BasicClass implements $Instance {
         }();
       case 'staticFinalNullableString':
         return () {
-          final $ = BasicClass.staticFinalNullableString;
+          final $ = BimodalClass.staticFinalNullableString;
           return $ == null ? const $null() : $String($);
         }();
       case 'staticNullableString':
         return () {
-          final $ = BasicClass.staticNullableString;
+          final $ = BimodalClass.staticNullableString;
           return $ == null ? const $null() : $String($);
         }();
       case 'stringGetter':
         return $String($value.stringGetter);
       case 'staticStringGetter':
-        return $String(BasicClass.staticStringGetter);
+        return $String(BimodalClass.staticStringGetter);
       case 'nullableStringGetter':
         return () {
           final $ = $value.nullableStringGetter;
@@ -425,7 +425,7 @@ class $BasicClass implements $Instance {
         }();
       case 'staticNullableStringGetter':
         return () {
-          final $ = BasicClass.staticNullableStringGetter;
+          final $ = BimodalClass.staticNullableStringGetter;
           return $ == null ? const $null() : $String($);
         }();
     }
@@ -444,7 +444,7 @@ class $BasicClass implements $Instance {
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
       case 'staticString':
-        BasicClass.staticString = ($Value $) {
+        BimodalClass.staticString = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
@@ -458,7 +458,7 @@ class $BasicClass implements $Instance {
                   : $$;
         }(value);
       case 'staticNullableString':
-        BasicClass.staticNullableString = ($Value $) {
+        BimodalClass.staticNullableString = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is $null
               ? null
@@ -472,7 +472,7 @@ class $BasicClass implements $Instance {
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
       case 'staticStringSetter':
-        BasicClass.staticStringSetter = ($Value $) {
+        BimodalClass.staticStringSetter = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
@@ -486,7 +486,7 @@ class $BasicClass implements $Instance {
                   : $$;
         }(value);
       case 'staticNullableStringSetter':
-        BasicClass.staticNullableStringSetter = ($Value $) {
+        BimodalClass.staticNullableStringSetter = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is $null
               ? null
@@ -507,7 +507,7 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $String((target!.$value as BasicClass).stringTestMethod(
+    return $String((target!.$value as BimodalClass).stringTestMethod(
       ($Value $) {
         final $$ = ($ as dynamic);
         return $$ is! String ? ($.$reified as String) : $$;
@@ -536,7 +536,7 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $String((target!.$value as BasicClass).nullableStringTestMethod(
+    return $String((target!.$value as BimodalClass).nullableStringTestMethod(
       ($Value $) {
         final $$ = ($ as dynamic);
         return $$ is $null
@@ -571,7 +571,7 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $String((target!.$value as BasicClass).stringTestMethodNamed(
+    return $String((target!.$value as BimodalClass).stringTestMethodNamed(
       s1: ($Value? $) {
         final $$ = ($ as dynamic);
         return $ == null
@@ -592,7 +592,8 @@ class $BasicClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $String((target!.$value as BasicClass).nullableStringTestMethodNamed(
+    return $String(
+        (target!.$value as BimodalClass).nullableStringTestMethodNamed(
       s1: ($Value $) {
         final $$ = ($ as dynamic);
         return $$ is $null
@@ -621,4 +622,98 @@ class $BasicClass implements $Instance {
       }(args[2]),
     ));
   }
+
+  @override
+  String stringTestMethod(
+    String s1, [
+    String? s2,
+    String s3 = 's3Default',
+  ]) {
+    return $value.stringTestMethod(
+      s1,
+      s2,
+      s3,
+    );
+  }
+
+  @override
+  String nullableStringTestMethod(
+    String? s1, [
+    String? s2,
+    String? s3 = 's3Default',
+  ]) {
+    return $value.nullableStringTestMethod(
+      s1,
+      s2,
+      s3,
+    );
+  }
+
+  @override
+  String stringTestMethodNamed({
+    String s1 = 's1Default',
+    required String s2,
+  }) {
+    return $value.stringTestMethodNamed(
+      s1: s1,
+      s2: s2,
+    );
+  }
+
+  @override
+  String nullableStringTestMethodNamed({
+    String? s1,
+    required String? s2,
+    String? s3 = 's3Default',
+  }) {
+    return $value.nullableStringTestMethodNamed(
+      s1: s1,
+      s2: s2,
+      s3: s3,
+    );
+  }
+
+  @override
+  String get finalString => $value.finalString;
+
+  @override
+  String get string => $value.string;
+
+  @override
+  set string(String value) => $value.string = value;
+
+  @override
+  String get _accessedString => $value._accessedString;
+
+  @override
+  set _accessedString(String value) => $value._accessedString = value;
+
+  @override
+  String? get finalNullableString => $value.finalNullableString;
+
+  @override
+  String? get nullableString => $value.nullableString;
+
+  @override
+  set nullableString(String? value) => $value.nullableString = value;
+
+  @override
+  String? get _accessedNullableString => $value._accessedNullableString;
+
+  @override
+  set _accessedNullableString(String? value) =>
+      $value._accessedNullableString = value;
+
+  @override
+  String get stringGetter => $value.stringGetter;
+
+  @override
+  set stringSetter(String value) => $value.stringSetter = value;
+
+  @override
+  String? get nullableStringGetter => $value.nullableStringGetter;
+
+  @override
+  set nullableStringSetter(String? value) =>
+      $value.nullableStringSetter = value;
 }

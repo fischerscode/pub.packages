@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:eval_builder/src/build/prefix_resolver.dart';
+import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:test/test.dart';
 
 import '../analyzer.dart';
@@ -37,7 +38,7 @@ void main() {
 
     var lib1 = testLib1.getClass('Lib1');
 
-    expect(resolver.allocate(IdReference.fromDartType(lib1!.thisType)), 'Lib1');
+    expect(resolver.allocate(lib1!.thisType.refer()), 'Lib1');
 
     expect(resolver.allocate(Reference('String', 'dart:core')), 'String');
 
@@ -45,9 +46,9 @@ void main() {
     var lib2Nullable = lib1.fields.skip(1).first.type;
     var future = lib1.fields.skip(2).first.type;
 
-    expect(resolver.allocate(IdReference.fromDartType(lib2)), 'Lib2');
-    expect(resolver.allocate(IdReference.fromDartType(lib2Nullable)), 'Lib2');
-    expect(resolver.allocate(IdReference.fromDartType(future)), 'Future');
+    expect(resolver.allocate(lib2.refer()), 'Lib2');
+    expect(resolver.allocate(lib2Nullable.refer()), 'Lib2');
+    expect(resolver.allocate(future.refer()), 'Future');
 
     expect(resolver.allocate(Reference('Lib2')), 'Lib2');
     expect(
@@ -90,7 +91,7 @@ void main() {
 
     var lib2 = testLib2.getClass('Lib2');
 
-    expect(resolver.allocate(IdReference.fromDartType(lib2!.thisType)), 'Lib2');
+    expect(resolver.allocate(lib2!.thisType.refer()), 'Lib2');
 
     expect(resolver.allocate(Reference('String', 'dart:core')), 'core.String');
     expect(resolver.allocate(Reference('int', 'dart:core')), 'core2.int');
@@ -100,9 +101,9 @@ void main() {
     var lib1Nullable = lib2.fields.skip(1).first.type;
     var future = lib2.fields.skip(2).first.type;
 
-    expect(resolver.allocate(IdReference.fromDartType(lib1)), 'l.Lib1');
-    expect(resolver.allocate(IdReference.fromDartType(lib1Nullable)), 'l.Lib1');
-    expect(resolver.allocate(IdReference.fromDartType(future)), 'lib3.Future');
+    expect(resolver.allocate(lib1.refer()), 'l.Lib1');
+    expect(resolver.allocate(lib1Nullable.refer()), 'l.Lib1');
+    expect(resolver.allocate(future.refer()), 'lib3.Future');
 
     expect(resolver.allocate(Reference('Lib1')), 'Lib1');
 

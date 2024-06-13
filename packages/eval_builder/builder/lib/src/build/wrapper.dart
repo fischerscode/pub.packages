@@ -6,6 +6,7 @@ import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/well_known_wrappers.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:meta/meta.dart';
 
 import 'well_known_type_references.dart';
 
@@ -38,7 +39,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   builder
     ..name = settings.name
     ..implements.addAll([
-      //TODO: bimodal
+      if (settings.bimodal) element.thisType.refer(),
       code.TypeReference((b) => b
         ..symbol = r'$Instance'
         ..url = WellKnownTypeReferences.dartEvalBridgePackage)
@@ -63,8 +64,11 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   var constructors = element.constructors.where((e) => !e.isPrivate);
 
   //TODO: Polymorphism
-  var methods = element.methods.where((e) => !e.isPrivate);
-  var accessors = element.accessors.where((e) => !e.isPrivate);
+  var methodsWithPrivate = element.methods;
+  var accessorsWithPrivate = element.accessors;
+
+  var methods = methodsWithPrivate.where((e) => !e.isPrivate);
+  var accessors = accessorsWithPrivate.where((e) => !e.isPrivate);
 
   builder.fields.add(code.Field((b) => b
     ..name = r'$declaration'
@@ -319,12 +323,89 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ));
   }
 
+  if (settings.bimodal) {
+    builder.methods.addAll([
+      for (var method in methodsWithPrivate)
+        if (!method.isStatic)
+          code.Method((b) => b
+            ..name = method.name
+            ..annotations.add(WellKnownTypeReferences.override)
+            ..returns = method.returnType.refer()
+            ..requiredParameters.addAll([
+              for (var parameter in method.parameters)
+                if (parameter.isRequiredPositional)
+                  code.Parameter((b) => b
+                    ..name = parameter.name
+                    ..type = parameter.type.refer()
+                    ..named = parameter.isNamed)
+            ])
+            ..optionalParameters.addAll([
+              for (var parameter in method.parameters)
+                if (!parameter.isRequiredPositional)
+                  code.Parameter((b) => b
+                    ..required = parameter.isRequired
+                    ..name = parameter.name
+                    ..type = parameter.type.refer()
+                    ..defaultTo = parameter.defaultValueCode?.toCode()
+                    ..named = parameter.isNamed)
+            ])
+            ..body = _$value
+                .property(method.name)
+                .call([
+                  for (var parameter in method.parameters)
+                    if (parameter.isPositional) code.refer(parameter.name),
+                ], {
+                  for (var parameter in method.parameters)
+                    if (parameter.isNamed)
+                      parameter.name: code.refer(parameter.name),
+                }, [
+                  //TODO: Generics
+                ])
+                .returned
+                .statement),
+      for (var accessor in accessorsWithPrivate)
+        if (!accessor.isStatic)
+          if (accessor.isGetter)
+            code.Method((b) => b
+              ..name = accessor.name
+              ..annotations.add(WellKnownTypeReferences.override)
+              ..returns = accessor.returnType.refer()
+              ..type = code.MethodType.getter
+              ..body = _$value.property(accessor.name).code
+              ..lambda = true)
+          else if (accessor.isSetter)
+            code.Method((b) => b
+              ..name = accessor.name.substring(0, accessor.name.length - 1)
+              ..annotations.add(WellKnownTypeReferences.override)
+              ..type = code.MethodType.setter
+              ..requiredParameters.addAll([
+                for (var parameter in accessor.parameters.take(1))
+                  code.Parameter((b) => b
+                    ..name = 'value'
+                    ..type = parameter.type.refer())
+              ])
+              ..body = _$value
+                  .property(
+                      accessor.name.substring(0, accessor.name.length - 1))
+                  .assign(code.refer('value'))
+                  .code
+              ..lambda = true)
+    ]);
+  }
+
   return builder.build();
 }
 
-extension on DartType {
-  code.Reference refer() {
-    return IdReference.fromDartType(this);
+@visibleForTesting
+extension DartTypeToCode on DartType {
+  code.TypeReference refer() {
+    return code.TypeReference((b) => b
+      ..symbol = element!.name
+      ..isNullable = isNullable
+      ..url = '_library_with_element:${element!.id}'
+      ..types.addAll([
+        //TODO: Generics
+      ]));
   }
 
   code.Expression annotated() {
