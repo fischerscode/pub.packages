@@ -5,8 +5,7 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
 
-const _dart_eval_bridge = 'package:dart_eval/dart_eval_bridge.dart';
-final _override = code.refer('override');
+import 'well_known_type_references.dart';
 
 class WrapperSettings implements Wrapper {
   @override
@@ -40,7 +39,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       //TODO: bimodal
       code.TypeReference((b) => b
         ..symbol = r'$Instance'
-        ..url = _dart_eval_bridge)
+        ..url = WellKnownTypeReferences.dartEvalBridgePackage)
     ]);
 
   builder.types.addAll([
@@ -51,10 +50,13 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = r'$type'
     ..static = true
     ..modifier = code.FieldModifier.final$
-    ..assignment = _BridgeTypeSpec.call([
-      code.literalString(settings.libIdentifier),
-      code.literalString(element.name)
-    ]).property('ref').code));
+    ..assignment = WellKnownTypeReferences.bridgeTypeSpec
+        .call([
+          code.literalString(settings.libIdentifier),
+          code.literalString(element.name)
+        ])
+        .property('ref')
+        .code));
 
   var constructors = element.constructors.where((e) => !e.isPrivate);
 
@@ -77,9 +79,9 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = r'$declaration'
     ..static = true
     ..modifier = code.FieldModifier.final$
-    ..assignment = _BridgeClassDef.newInstance(
+    ..assignment = WellKnownTypeReferences.bridgeClassDef.newInstance(
       [
-        _BridgeClassType.newInstance([
+        WellKnownTypeReferences.bridgeClassType.newInstance([
           code.refer(r'$type')
         ], {
           // r'$extends': //TODO: Polymorphism
@@ -92,9 +94,10 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       {
         'constructors': code.literalMap({
           for (var constructor in constructors)
-            code.literalString(constructor.name): _BridgeConstructorDef.call(
-                [constructor.functionDef()],
-                {'isFactory': code.literalBool(constructor.isFactory)}),
+            code.literalString(constructor.name):
+                WellKnownTypeReferences.bridgeConstructorDef.call(
+                    [constructor.functionDef()],
+                    {'isFactory': code.literalBool(constructor.isFactory)}),
         }),
         'methods': code.literalMap({
           for (var method in methods)
@@ -125,13 +128,13 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
   builder.fields.add(code.Field((b) => b
     ..name = r'$value'
-    ..annotations.add(_override)
+    ..annotations.add(WellKnownTypeReferences.override)
     ..modifier = code.FieldModifier.final$
     ..type = element.thisType.refer()));
 
   builder.methods.add(code.Method((b) => b
     ..name = r'$reified'
-    ..annotations.add(_override)
+    ..annotations.add(WellKnownTypeReferences.override)
     ..type = code.MethodType.getter
     ..body = _$value.code
     ..lambda = true));
@@ -146,20 +149,20 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   for (var constructor in constructors) {
     builder.methods.add(code.Method((b) => b
       ..name = constructor.name.isEmpty ? r'$new' : '\$${constructor.name}'
-      ..returns = _$Value.nullable(true)
+      ..returns = WellKnownTypeReferences.$Value.nullable(true)
       ..static = true
       ..requiredParameters.addAll([
         code.Parameter((b) => b
           ..name = 'runtime'
-          ..type = _Runtime),
+          ..type = WellKnownTypeReferences.runtime),
         code.Parameter((b) => b
           ..name = 'target'
-          ..type = _$Value.nullable(true)),
+          ..type = WellKnownTypeReferences.$Value.nullable(true)),
         code.Parameter((b) => b
           ..name = 'args'
           ..type = code.TypeReference((b) => b
             ..symbol = 'List'
-            ..types.add(_$Value.nullable(true)))),
+            ..types.add(WellKnownTypeReferences.$Value.nullable(true)))),
       ])
       ..body = code.TypeReference((b) => b.symbol = settings.name)
           .newInstanceNamed('wrap', [
@@ -194,21 +197,21 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
   builder.methods.add(code.Method((b) => b
     ..name = r'$getProperty'
-    ..annotations.add(_override)
-    ..returns = _$Value.nullable(true)
+    ..annotations.add(WellKnownTypeReferences.override)
+    ..returns = WellKnownTypeReferences.$Value.nullable(true)
     ..requiredParameters.addAll([
       code.Parameter((b) => b
         ..name = 'runtime'
-        ..type = _Runtime),
+        ..type = WellKnownTypeReferences.runtime),
       code.Parameter((b) => b
         ..name = 'identifier'
-        ..type = _String),
+        ..type = WellKnownTypeReferences.string),
     ])
     ..body = code.Block.of([
       'switch(identifier) {'.toCode(),
       for (var method in methods) ...[
         "case '${method.name}':".toCode(),
-        _$Function
+        WellKnownTypeReferences.$Function
             .newInstance([
               (method.isStatic
                       ? element.thisType.refer()
@@ -231,18 +234,18 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
   builder.methods.add(code.Method((b) => b
     ..name = r'$setProperty'
-    ..annotations.add(_override)
-    ..returns = _$Value.nullable(true)
+    ..annotations.add(WellKnownTypeReferences.override)
+    ..returns = WellKnownTypeReferences.$Value.nullable(true)
     ..requiredParameters.addAll([
       code.Parameter((b) => b
         ..name = 'runtime'
-        ..type = _Runtime),
+        ..type = WellKnownTypeReferences.runtime),
       code.Parameter((b) => b
         ..name = 'identifier'
-        ..type = _String),
+        ..type = WellKnownTypeReferences.string),
       code.Parameter((b) => b
         ..name = 'value'
-        ..type = _$Value)
+        ..type = WellKnownTypeReferences.$Value)
     ])
     ..body = code.Block.of([
       'switch(identifier) {'.toCode(),
@@ -260,12 +263,12 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
   builder.methods.add(code.Method((b) => b
     ..name = r'$getRuntimeType'
-    ..annotations.add(_override)
-    ..returns = _int
+    ..annotations.add(WellKnownTypeReferences.override)
+    ..returns = WellKnownTypeReferences.int
     ..requiredParameters.addAll([
       code.Parameter((b) => b
         ..name = 'runtime'
-        ..type = _Runtime)
+        ..type = WellKnownTypeReferences.runtime)
     ])
     ..body = code
         .refer('runtime')
@@ -279,19 +282,19 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       (b) => b
         ..name = '_${method.name}'
         ..static = true
-        ..returns = _$Value.nullable(true)
+        ..returns = WellKnownTypeReferences.$Value.nullable(true)
         ..requiredParameters.addAll([
           code.Parameter((b) => b
             ..name = 'runtime'
-            ..type = _Runtime),
+            ..type = WellKnownTypeReferences.runtime),
           code.Parameter((b) => b
             ..name = 'target'
-            ..type = _$Value.nullable(true)),
+            ..type = WellKnownTypeReferences.$Value.nullable(true)),
           code.Parameter((b) => b
             ..name = 'args'
             ..type = code.TypeReference((b) => b
               ..symbol = r'List'
-              ..types.add(_$Value.nullable(true)))),
+              ..types.add(WellKnownTypeReferences.$Value.nullable(true)))),
         ])
         ..body = code
             .refer('target')
@@ -339,7 +342,7 @@ extension on DartType {
         //TODO: Other tyes then core types.
         final name = getDisplayString(withNullability: false);
         return code
-            .refer('CoreTypes', _dart_eval_bridge)
+            .refer('CoreTypes', WellKnownTypeReferences.dartEvalBridgePackage)
             .property('${name[0].toLowerCase()}${name.substring(1)}')
             .property('ref')
             .property(isNullable ? 'annotate' : 'annotateNullable');
@@ -357,7 +360,7 @@ extension on ExecutableElement {
   code.Expression methodDef() {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeMethodDef'
-      ..url = _dart_eval_bridge).newInstance([
+      ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([
       functionDef()
     ], {
       'isStatic': code.literalBool(isStatic) //TODO: Static methods
@@ -367,7 +370,7 @@ extension on ExecutableElement {
   code.Expression functionDef() {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeFunctionDef'
-      ..url = _dart_eval_bridge).newInstance([], {
+      ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([], {
       'returns': code.refer(r'$type').property('annotate'),
       'params': code.literalList([
         for (var param in parameters)
@@ -453,7 +456,7 @@ extension on code.Expression {
     var maybeNull = type.isNullable
         ? code
             .refer(r'$$')
-            .isA(_$null)
+            .isA(WellKnownTypeReferences.$null)
             .conditional(code.literalNull, maybeUnpack)
         : maybeUnpack;
     var maybeWithDefault = defaultExpression != null
@@ -466,7 +469,8 @@ extension on code.Expression {
     return code.Method((b) => b
       ..requiredParameters.add(code.Parameter((b) => b
         ..name = r'$'
-        ..type = _$Value.nullable(defaultExpression != null)))
+        ..type =
+            WellKnownTypeReferences.$Value.nullable(defaultExpression != null)))
       ..body = code.Block.of([
         code
             .declareFinal(r'$$')
@@ -493,7 +497,8 @@ extension on code.Expression {
             code
                 .refer(r'$')
                 .equalTo(code.literalNull)
-                .conditional(_$null.constInstance([]), wrap(code.refer(r'$')))
+                .conditional(WellKnownTypeReferences.$null.constInstance([]),
+                    wrap(code.refer(r'$')))
                 .returned
                 .statement,
           ])).closure.call([]);
@@ -503,36 +508,7 @@ extension on code.Expression {
   }
 }
 
-final _BridgeTypeSpec = code.TypeReference((b) => b
-  ..symbol = 'BridgeTypeSpec'
-  ..url = _dart_eval_bridge);
-final _BridgeClassDef = code.TypeReference((b) => b
-  ..symbol = 'BridgeClassDef'
-  ..url = _dart_eval_bridge);
-final _BridgeClassType = code.TypeReference((b) => b
-  ..symbol = 'BridgeClassType'
-  ..url = _dart_eval_bridge);
-final _BridgeConstructorDef = code.TypeReference((b) => b
-  ..symbol = 'BridgeConstructorDef'
-  ..url = _dart_eval_bridge);
-final _BridgeFieldDef = code.TypeReference((b) => b
-  ..symbol = 'BridgeFieldDef'
-  ..url = _dart_eval_bridge);
-
-final _$Value = code.TypeReference((b) => b
-  ..symbol = r'$Value'
-  ..url = _dart_eval_bridge);
 final _$value = code.refer(r'$value');
-final _$null = code.refer(r'$null');
-
-final _Runtime = code.TypeReference((b) => b
-  ..symbol = r'Runtime'
-  ..url = _dart_eval_bridge);
-final _$Function = code.TypeReference((b) => b
-  ..symbol = r'$Function'
-  ..url = _dart_eval_bridge);
-final _String = code.TypeReference((b) => b..symbol = r'String');
-final _int = code.TypeReference((b) => b..symbol = r'int');
 
 extension on code.TypeReference {
   code.TypeReference nullable(bool nullable) =>
