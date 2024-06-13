@@ -2,6 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
+import 'package:eval_builder/src/build/well_known_wrappers.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
 
@@ -147,11 +148,12 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
         code.Parameter((b) => b
           ..name = 'target'
           ..type = WellKnownTypeReferences.$Value.nullable(true)),
-        code.Parameter((b) => b
-          ..name = 'args'
-          ..type = code.TypeReference((b) => b
-            ..symbol = 'List'
-            ..types.add(WellKnownTypeReferences.$Value.nullable(true)))),
+        code.Parameter(
+          (b) => b
+            ..name = 'args'
+            ..type = WellKnownTypeReferences.list
+                .withGeneric(WellKnownTypeReferences.$Value.nullable(true)),
+        ),
       ])
       ..body = code.TypeReference((b) => b.symbol = settings.name)
           .newInstanceNamed('wrap', [
@@ -328,16 +330,23 @@ extension on DartType {
     var this$ = this;
     switch (this$) {
       case ParameterizedType():
+        var wellKnown = WellKnownWrapper.get(this);
+
+        if (wellKnown != null) {
+          return WellKnownTypeReferences.bridgeTypeSpec
+              .newInstance([
+                code.literalString(wellKnown.wrappedTypeOwner),
+                code.literalString(wellKnown.wrappedTypeSymbol)
+              ])
+              .property('ref')
+              .property(isNullable ? 'annotate' : 'annotateNullable');
+        }
         //TODO: Other tyes then core types.
-        final name = getDisplayString(withNullability: false);
-        return code
-            .refer('CoreTypes', WellKnownTypeReferences.dartEvalBridgePackage)
-            .property('${name[0].toLowerCase()}${name.substring(1)}')
-            .property('ref')
-            .property(isNullable ? 'annotate' : 'annotateNullable');
+        throw UnimplementedError(
+            "Unknown bridgeTypeSpec for ${getDisplayString()}.");
     }
     throw UnimplementedError(
-        "Can annotate $runtimeType. Only CoreTypes are currently supported.");
+        "Can not annotate $runtimeType. Only CoreTypes are currently supported.");
   }
 
   bool get isNullable {
@@ -463,7 +472,7 @@ extension on code.Expression {
       ..body = code.Block.of([
         code
             .declareFinal(r'$$')
-            .assign(code.refer(r'$').asA(code.refer('dynamic')))
+            .assign(code.refer(r'$').asA(WellKnownTypeReferences.dynamic))
             .statement,
         maybeWithDefault.returned.statement,
       ])).closure.call([this]);
@@ -471,28 +480,26 @@ extension on code.Expression {
 
   /// Wraps this (has Type [type]) as a [$Value].
   code.Expression wrapped(DartType type) {
-    code.Expression wrap(code.Expression inner) {
-      if (type.isDartCoreString) {
-        return code.refer(r'$String').newInstance([inner]);
+    final wellKnown = WellKnownWrapper.get(type);
+
+    if (wellKnown != null) {
+      if (type.isNullable) {
+        return code.Method((b) => b.body = code.Block.of([
+              code.declareFinal(r'$').assign(this).statement,
+              code
+                  .refer(r'$')
+                  .equalTo(code.literalNull)
+                  .conditional(WellKnownTypeReferences.$null.constInstance([]),
+                      wellKnown.wrap(code.refer(r'$')))
+                  .returned
+                  .statement,
+            ])).closure.call([]);
+      } else {
+        return wellKnown.wrap(this);
       }
-
-      //TODO: Impement wrapped
-      return code.refer(r'$Object').newInstanceNamed('wrap', [inner]);
-    }
-
-    if (type.isNullable) {
-      return code.Method((b) => b.body = code.Block.of([
-            code.declareFinal(r'$').assign(this).statement,
-            code
-                .refer(r'$')
-                .equalTo(code.literalNull)
-                .conditional(WellKnownTypeReferences.$null.constInstance([]),
-                    wrap(code.refer(r'$')))
-                .returned
-                .statement,
-          ])).closure.call([]);
     } else {
-      return wrap(this);
+      //TODO: Detect annotated classes and use known wrappers
+      throw UnsupportedError('No wrapper known for ${type.getDisplayString()}');
     }
   }
 }
@@ -502,4 +509,10 @@ final _$value = code.refer(r'$value');
 extension on code.TypeReference {
   code.TypeReference nullable(bool nullable) =>
       (toBuilder()..isNullable = nullable).build();
+  code.TypeReference withGeneric(code.TypeReference generic) => (toBuilder()
+        ..types.clear()
+        ..types.add(generic))
+      .build();
+  code.TypeReference addGeneric(code.TypeReference generic) =>
+      (toBuilder()..types.add(generic)).build();
 }
