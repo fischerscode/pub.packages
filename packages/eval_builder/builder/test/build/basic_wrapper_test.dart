@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:eval_builder/src/build/allocator.dart';
+import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:path/path.dart';
@@ -34,12 +34,6 @@ void main() {
         specMatches(
             matchesGolden(
                 'basic_wrapper_test_generation.golden.dart', ['build']),
-            await _createAllocator('basic_wrapper_test_generation.dart')));
+            PrefixResolver(element.library.prefixes)));
   });
-}
-
-_createAllocator(String filename) async {
-  var file = File(join('test', 'build', filename));
-  return PrefixAllocator.from(
-      await file.readAsString(), file.absolute.parent.uri);
 }

@@ -3419,40 +3419,36 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varCompleter':
         $value.varCompleter = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Completer<dynamic>
-              ? ($.$reified as async.Completer<dynamic>)
-              : $$;
+          return $$ is! async.Completer ? ($.$reified as async.Completer) : $$;
         }(value);
       case 'varCompleterNullable':
         $value.varCompleterNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Completer<dynamic>?
-                  ? ($.$reified as async.Completer<dynamic>?)
+              : $$ is! async.Completer
+                  ? ($.$reified as async.Completer)
                   : $$;
         }(value);
       case 'varStream':
         $value.varStream = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Stream<dynamic>
-              ? ($.$reified as async.Stream<dynamic>)
-              : $$;
+          return $$ is! async.Stream ? ($.$reified as async.Stream) : $$;
         }(value);
       case 'varStreamNullable':
         $value.varStreamNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Stream<dynamic>?
-                  ? ($.$reified as async.Stream<dynamic>?)
+              : $$ is! async.Stream
+                  ? ($.$reified as async.Stream)
                   : $$;
         }(value);
       case 'varStreamController':
         $value.varStreamController = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamController<dynamic>
-              ? ($.$reified as async.StreamController<dynamic>)
+          return $$ is! async.StreamController
+              ? ($.$reified as async.StreamController)
               : $$;
         }(value);
       case 'varStreamControllerNullable':
@@ -3460,15 +3456,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamController<dynamic>?
-                  ? ($.$reified as async.StreamController<dynamic>?)
+              : $$ is! async.StreamController
+                  ? ($.$reified as async.StreamController)
                   : $$;
         }(value);
       case 'varStreamSink':
         $value.varStreamSink = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamSink<dynamic>
-              ? ($.$reified as async.StreamSink<dynamic>)
+          return $$ is! async.StreamSink
+              ? ($.$reified as async.StreamSink)
               : $$;
         }(value);
       case 'varStreamSinkNullable':
@@ -3476,15 +3472,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamSink<dynamic>?
-                  ? ($.$reified as async.StreamSink<dynamic>?)
+              : $$ is! async.StreamSink
+                  ? ($.$reified as async.StreamSink)
                   : $$;
         }(value);
       case 'varStreamSubscription':
         $value.varStreamSubscription = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamSubscription<dynamic>
-              ? ($.$reified as async.StreamSubscription<dynamic>)
+          return $$ is! async.StreamSubscription
+              ? ($.$reified as async.StreamSubscription)
               : $$;
         }(value);
       case 'varStreamSubscriptionNullable':
@@ -3492,15 +3488,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamSubscription<dynamic>?
-                  ? ($.$reified as async.StreamSubscription<dynamic>?)
+              : $$ is! async.StreamSubscription
+                  ? ($.$reified as async.StreamSubscription)
                   : $$;
         }(value);
       case 'varStreamTransformer':
         $value.varStreamTransformer = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamTransformer<dynamic, dynamic>
-              ? ($.$reified as async.StreamTransformer<dynamic, dynamic>)
+          return $$ is! async.StreamTransformer
+              ? ($.$reified as async.StreamTransformer)
               : $$;
         }(value);
       case 'varStreamTransformerNullable':
@@ -3508,15 +3504,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamTransformer<dynamic, dynamic>?
-                  ? ($.$reified as async.StreamTransformer<dynamic, dynamic>?)
+              : $$ is! async.StreamTransformer
+                  ? ($.$reified as async.StreamTransformer)
                   : $$;
         }(value);
       case 'varStreamView':
         $value.varStreamView = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamView<dynamic>
-              ? ($.$reified as async.StreamView<dynamic>)
+          return $$ is! async.StreamView
+              ? ($.$reified as async.StreamView)
               : $$;
         }(value);
       case 'varStreamViewNullable':
@@ -3524,15 +3520,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamView<dynamic>?
-                  ? ($.$reified as async.StreamView<dynamic>?)
+              : $$ is! async.StreamView
+                  ? ($.$reified as async.StreamView)
                   : $$;
         }(value);
       case 'varLinkedHashMap':
         $value.varLinkedHashMap = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! collection.LinkedHashMap<dynamic, dynamic>
-              ? ($.$reified as collection.LinkedHashMap<dynamic, dynamic>)
+          return $$ is! collection.LinkedHashMap
+              ? ($.$reified as collection.LinkedHashMap)
               : $$;
         }(value);
       case 'varLinkedHashMapNullable':
@@ -3540,31 +3536,29 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! collection.LinkedHashMap<dynamic, dynamic>?
-                  ? ($.$reified as collection.LinkedHashMap<dynamic, dynamic>?)
+              : $$ is! collection.LinkedHashMap
+                  ? ($.$reified as collection.LinkedHashMap)
                   : $$;
         }(value);
       case 'varCodec':
         $value.varCodec = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! convert.Codec<dynamic, dynamic>
-              ? ($.$reified as convert.Codec<dynamic, dynamic>)
-              : $$;
+          return $$ is! convert.Codec ? ($.$reified as convert.Codec) : $$;
         }(value);
       case 'varCodecNullable':
         $value.varCodecNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Codec<dynamic, dynamic>?
-                  ? ($.$reified as convert.Codec<dynamic, dynamic>?)
+              : $$ is! convert.Codec
+                  ? ($.$reified as convert.Codec)
                   : $$;
         }(value);
       case 'varConverter':
         $value.varConverter = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! convert.Converter<dynamic, dynamic>
-              ? ($.$reified as convert.Converter<dynamic, dynamic>)
+          return $$ is! convert.Converter
+              ? ($.$reified as convert.Converter)
               : $$;
         }(value);
       case 'varConverterNullable':
@@ -3572,8 +3566,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Converter<dynamic, dynamic>?
-                  ? ($.$reified as convert.Converter<dynamic, dynamic>?)
+              : $$ is! convert.Converter
+                  ? ($.$reified as convert.Converter)
                   : $$;
         }(value);
       case 'varEncoding':
@@ -3588,8 +3582,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Encoding?
-                  ? ($.$reified as convert.Encoding?)
+              : $$ is! convert.Encoding
+                  ? ($.$reified as convert.Encoding)
                   : $$;
         }(value);
       case 'varJsonCodec':
@@ -3604,8 +3598,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.JsonCodec?
-                  ? ($.$reified as convert.JsonCodec?)
+              : $$ is! convert.JsonCodec
+                  ? ($.$reified as convert.JsonCodec)
                   : $$;
         }(value);
       case 'varJsonDecoder':
@@ -3620,8 +3614,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.JsonDecoder?
-                  ? ($.$reified as convert.JsonDecoder?)
+              : $$ is! convert.JsonDecoder
+                  ? ($.$reified as convert.JsonDecoder)
                   : $$;
         }(value);
       case 'varJsonEncoder':
@@ -3636,8 +3630,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.JsonEncoder?
-                  ? ($.$reified as convert.JsonEncoder?)
+              : $$ is! convert.JsonEncoder
+                  ? ($.$reified as convert.JsonEncoder)
                   : $$;
         }(value);
       case 'varUtf8Codec':
@@ -3652,8 +3646,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Utf8Codec?
-                  ? ($.$reified as convert.Utf8Codec?)
+              : $$ is! convert.Utf8Codec
+                  ? ($.$reified as convert.Utf8Codec)
                   : $$;
         }(value);
       case 'varUtf8Decoder':
@@ -3668,8 +3662,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Utf8Decoder?
-                  ? ($.$reified as convert.Utf8Decoder?)
+              : $$ is! convert.Utf8Decoder
+                  ? ($.$reified as convert.Utf8Decoder)
                   : $$;
         }(value);
       case 'varArgumentError':
@@ -3684,8 +3678,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.ArgumentError?
-                  ? ($.$reified as core.ArgumentError?)
+              : $$ is! core.ArgumentError
+                  ? ($.$reified as core.ArgumentError)
                   : $$;
         }(value);
       case 'varAssertionError':
@@ -3700,8 +3694,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.AssertionError?
-                  ? ($.$reified as core.AssertionError?)
+              : $$ is! core.AssertionError
+                  ? ($.$reified as core.AssertionError)
                   : $$;
         }(value);
       case 'varbool':
@@ -3714,24 +3708,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.bool?
-                  ? ($.$reified as core.bool?)
+              : $$ is! core.bool
+                  ? ($.$reified as core.bool)
                   : $$;
         }(value);
       case 'varComparable':
         $value.varComparable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Comparable<dynamic>
-              ? ($.$reified as core.Comparable<dynamic>)
-              : $$;
+          return $$ is! core.Comparable ? ($.$reified as core.Comparable) : $$;
         }(value);
       case 'varComparableNullable':
         $value.varComparableNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Comparable<dynamic>?
-                  ? ($.$reified as core.Comparable<dynamic>?)
+              : $$ is! core.Comparable
+                  ? ($.$reified as core.Comparable)
                   : $$;
         }(value);
       case 'varDateTime':
@@ -3744,8 +3736,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.DateTime?
-                  ? ($.$reified as core.DateTime?)
+              : $$ is! core.DateTime
+                  ? ($.$reified as core.DateTime)
                   : $$;
         }(value);
       case 'vardouble':
@@ -3758,8 +3750,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.double?
-                  ? ($.$reified as core.double?)
+              : $$ is! core.double
+                  ? ($.$reified as core.double)
                   : $$;
         }(value);
       case 'varDuration':
@@ -3772,8 +3764,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Duration?
-                  ? ($.$reified as core.Duration?)
+              : $$ is! core.Duration
+                  ? ($.$reified as core.Duration)
                   : $$;
         }(value);
       case 'varError':
@@ -3786,8 +3778,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Error?
-                  ? ($.$reified as core.Error?)
+              : $$ is! core.Error
+                  ? ($.$reified as core.Error)
                   : $$;
         }(value);
       case 'varException':
@@ -3800,8 +3792,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Exception?
-                  ? ($.$reified as core.Exception?)
+              : $$ is! core.Exception
+                  ? ($.$reified as core.Exception)
                   : $$;
         }(value);
       case 'varFormatException':
@@ -3816,24 +3808,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.FormatException?
-                  ? ($.$reified as core.FormatException?)
+              : $$ is! core.FormatException
+                  ? ($.$reified as core.FormatException)
                   : $$;
         }(value);
       case 'varFuture':
         $value.varFuture = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Future<dynamic>
-              ? ($.$reified as async.Future<dynamic>)
-              : $$;
+          return $$ is! async.Future ? ($.$reified as async.Future) : $$;
         }(value);
       case 'varFutureNullable':
         $value.varFutureNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Future<dynamic>?
-                  ? ($.$reified as async.Future<dynamic>?)
+              : $$ is! async.Future
+                  ? ($.$reified as async.Future)
                   : $$;
         }(value);
       case 'varint':
@@ -3846,72 +3836,64 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.int?
-                  ? ($.$reified as core.int?)
+              : $$ is! core.int
+                  ? ($.$reified as core.int)
                   : $$;
         }(value);
       case 'varIterable':
         $value.varIterable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Iterable<dynamic>
-              ? ($.$reified as core.Iterable<dynamic>)
-              : $$;
+          return $$ is! core.Iterable ? ($.$reified as core.Iterable) : $$;
         }(value);
       case 'varIterableNullable':
         $value.varIterableNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Iterable<dynamic>?
-                  ? ($.$reified as core.Iterable<dynamic>?)
+              : $$ is! core.Iterable
+                  ? ($.$reified as core.Iterable)
                   : $$;
         }(value);
       case 'varList':
         $value.varList = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.List<dynamic>
-              ? ($.$reified as core.List<dynamic>)
-              : $$;
+          return $$ is! core.List ? ($.$reified as core.List) : $$;
         }(value);
       case 'varListNullable':
         $value.varListNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.List<dynamic>?
-                  ? ($.$reified as core.List<dynamic>?)
+              : $$ is! core.List
+                  ? ($.$reified as core.List)
                   : $$;
         }(value);
       case 'varMap':
         $value.varMap = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Map<dynamic, dynamic>
-              ? ($.$reified as core.Map<dynamic, dynamic>)
-              : $$;
+          return $$ is! core.Map ? ($.$reified as core.Map) : $$;
         }(value);
       case 'varMapNullable':
         $value.varMapNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Map<dynamic, dynamic>?
-                  ? ($.$reified as core.Map<dynamic, dynamic>?)
+              : $$ is! core.Map
+                  ? ($.$reified as core.Map)
                   : $$;
         }(value);
       case 'varMapEntry':
         $value.varMapEntry = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.MapEntry<dynamic, dynamic>
-              ? ($.$reified as core.MapEntry<dynamic, dynamic>)
-              : $$;
+          return $$ is! core.MapEntry ? ($.$reified as core.MapEntry) : $$;
         }(value);
       case 'varMapEntryNullable':
         $value.varMapEntryNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.MapEntry<dynamic, dynamic>?
-                  ? ($.$reified as core.MapEntry<dynamic, dynamic>?)
+              : $$ is! core.MapEntry
+                  ? ($.$reified as core.MapEntry)
                   : $$;
         }(value);
       case 'varMatch':
@@ -3924,8 +3906,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Match?
-                  ? ($.$reified as core.Match?)
+              : $$ is! core.Match
+                  ? ($.$reified as core.Match)
                   : $$;
         }(value);
       case 'varnum':
@@ -3938,8 +3920,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.num?
-                  ? ($.$reified as core.num?)
+              : $$ is! core.num
+                  ? ($.$reified as core.num)
                   : $$;
         }(value);
       case 'varObject':
@@ -3952,8 +3934,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Object?
-                  ? ($.$reified as core.Object?)
+              : $$ is! core.Object
+                  ? ($.$reified as core.Object)
                   : $$;
         }(value);
       case 'varPattern':
@@ -3966,8 +3948,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Pattern?
-                  ? ($.$reified as core.Pattern?)
+              : $$ is! core.Pattern
+                  ? ($.$reified as core.Pattern)
                   : $$;
         }(value);
       case 'varRangeError':
@@ -3980,8 +3962,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.RangeError?
-                  ? ($.$reified as core.RangeError?)
+              : $$ is! core.RangeError
+                  ? ($.$reified as core.RangeError)
                   : $$;
         }(value);
       case 'varRegExp':
@@ -3994,8 +3976,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.RegExp?
-                  ? ($.$reified as core.RegExp?)
+              : $$ is! core.RegExp
+                  ? ($.$reified as core.RegExp)
                   : $$;
         }(value);
       case 'varRegExpMatch':
@@ -4010,8 +3992,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.RegExpMatch?
-                  ? ($.$reified as core.RegExpMatch?)
+              : $$ is! core.RegExpMatch
+                  ? ($.$reified as core.RegExpMatch)
                   : $$;
         }(value);
       case 'varStackTrace':
@@ -4024,8 +4006,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.StackTrace?
-                  ? ($.$reified as core.StackTrace?)
+              : $$ is! core.StackTrace
+                  ? ($.$reified as core.StackTrace)
                   : $$;
         }(value);
       case 'varStateError':
@@ -4038,8 +4020,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.StateError?
-                  ? ($.$reified as core.StateError?)
+              : $$ is! core.StateError
+                  ? ($.$reified as core.StateError)
                   : $$;
         }(value);
       case 'varString':
@@ -4052,8 +4034,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.String?
-                  ? ($.$reified as core.String?)
+              : $$ is! core.String
+                  ? ($.$reified as core.String)
                   : $$;
         }(value);
       case 'varStringBuffer':
@@ -4068,8 +4050,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.StringBuffer?
-                  ? ($.$reified as core.StringBuffer?)
+              : $$ is! core.StringBuffer
+                  ? ($.$reified as core.StringBuffer)
                   : $$;
         }(value);
       case 'varUnimplementedError':
@@ -4084,8 +4066,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.UnimplementedError?
-                  ? ($.$reified as core.UnimplementedError?)
+              : $$ is! core.UnimplementedError
+                  ? ($.$reified as core.UnimplementedError)
                   : $$;
         }(value);
       case 'varUnsupportedError':
@@ -4100,8 +4082,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.UnsupportedError?
-                  ? ($.$reified as core.UnsupportedError?)
+              : $$ is! core.UnsupportedError
+                  ? ($.$reified as core.UnsupportedError)
                   : $$;
         }(value);
       case 'varUri':
@@ -4114,8 +4096,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Uri?
-                  ? ($.$reified as core.Uri?)
+              : $$ is! core.Uri
+                  ? ($.$reified as core.Uri)
                   : $$;
         }(value);
       case 'varDirectory':
@@ -4128,8 +4110,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.Directory?
-                  ? ($.$reified as io.Directory?)
+              : $$ is! io.Directory
+                  ? ($.$reified as io.Directory)
                   : $$;
         }(value);
       case 'varFile':
@@ -4142,8 +4124,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.File?
-                  ? ($.$reified as io.File?)
+              : $$ is! io.File
+                  ? ($.$reified as io.File)
                   : $$;
         }(value);
       case 'varFileSystemEntity':
@@ -4158,29 +4140,29 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.FileSystemEntity?
-                  ? ($.$reified as io.FileSystemEntity?)
+              : $$ is! io.FileSystemEntity
+                  ? ($.$reified as io.FileSystemEntity)
                   : $$;
         }(value);
       case 'varHttpClient':
         $value.varHttpClient = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! HttpClient ? ($.$reified as HttpClient) : $$;
+          return $$ is! io.HttpClient ? ($.$reified as io.HttpClient) : $$;
         }(value);
       case 'varHttpClientNullable':
         $value.varHttpClientNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! HttpClient?
-                  ? ($.$reified as HttpClient?)
+              : $$ is! io.HttpClient
+                  ? ($.$reified as io.HttpClient)
                   : $$;
         }(value);
       case 'varHttpClientRequest':
         $value.varHttpClientRequest = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! HttpClientRequest
-              ? ($.$reified as HttpClientRequest)
+          return $$ is! io.HttpClientRequest
+              ? ($.$reified as io.HttpClientRequest)
               : $$;
         }(value);
       case 'varHttpClientRequestNullable':
@@ -4188,15 +4170,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! HttpClientRequest?
-                  ? ($.$reified as HttpClientRequest?)
+              : $$ is! io.HttpClientRequest
+                  ? ($.$reified as io.HttpClientRequest)
                   : $$;
         }(value);
       case 'varHttpClientResponse':
         $value.varHttpClientResponse = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! HttpClientResponse
-              ? ($.$reified as HttpClientResponse)
+          return $$ is! io.HttpClientResponse
+              ? ($.$reified as io.HttpClientResponse)
               : $$;
         }(value);
       case 'varHttpClientResponseNullable':
@@ -4204,8 +4186,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! HttpClientResponse?
-                  ? ($.$reified as HttpClientResponse?)
+              : $$ is! io.HttpClientResponse
+                  ? ($.$reified as io.HttpClientResponse)
                   : $$;
         }(value);
       case 'varInternetAddress':
@@ -4220,8 +4202,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.InternetAddress?
-                  ? ($.$reified as io.InternetAddress?)
+              : $$ is! io.InternetAddress
+                  ? ($.$reified as io.InternetAddress)
                   : $$;
         }(value);
       case 'varInternetAddressType':
@@ -4236,8 +4218,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.InternetAddressType?
-                  ? ($.$reified as io.InternetAddressType?)
+              : $$ is! io.InternetAddressType
+                  ? ($.$reified as io.InternetAddressType)
                   : $$;
         }(value);
       case 'varIOSink':
@@ -4250,8 +4232,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! io.IOSink?
-                  ? ($.$reified as io.IOSink?)
+              : $$ is! io.IOSink
+                  ? ($.$reified as io.IOSink)
                   : $$;
         }(value);
       case 'varStringSink':
@@ -4264,22 +4246,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.StringSink?
-                  ? ($.$reified as core.StringSink?)
+              : $$ is! core.StringSink
+                  ? ($.$reified as core.StringSink)
                   : $$;
         }(value);
       case 'varPoint':
         $value.varPoint = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! math.Point<num> ? ($.$reified as math.Point<num>) : $$;
+          return $$ is! math.Point ? ($.$reified as math.Point) : $$;
         }(value);
       case 'varPointNullable':
         $value.varPointNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! math.Point<num>?
-                  ? ($.$reified as math.Point<num>?)
+              : $$ is! math.Point
+                  ? ($.$reified as math.Point)
                   : $$;
         }(value);
       case 'varByteBuffer':
@@ -4294,8 +4276,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! typed_data.ByteBuffer?
-                  ? ($.$reified as typed_data.ByteBuffer?)
+              : $$ is! typed_data.ByteBuffer
+                  ? ($.$reified as typed_data.ByteBuffer)
                   : $$;
         }(value);
       case 'varByteData':
@@ -4310,8 +4292,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! typed_data.ByteData?
-                  ? ($.$reified as typed_data.ByteData?)
+              : $$ is! typed_data.ByteData
+                  ? ($.$reified as typed_data.ByteData)
                   : $$;
         }(value);
       case 'varTypedData':
@@ -4326,8 +4308,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! typed_data.TypedData?
-                  ? ($.$reified as typed_data.TypedData?)
+              : $$ is! typed_data.TypedData
+                  ? ($.$reified as typed_data.TypedData)
                   : $$;
         }(value);
       case 'varUint8List':
@@ -4342,8 +4324,8 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! typed_data.Uint8List?
-                  ? ($.$reified as typed_data.Uint8List?)
+              : $$ is! typed_data.Uint8List
+                  ? ($.$reified as typed_data.Uint8List)
                   : $$;
         }(value);
     }

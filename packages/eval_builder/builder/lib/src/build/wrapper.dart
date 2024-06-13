@@ -2,6 +2,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
+import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/well_known_wrappers.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
@@ -323,7 +324,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
 extension on DartType {
   code.Reference refer() {
-    return code.refer(toString(), element?.library?.identifier);
+    return IdReference.fromDartType(this);
   }
 
   code.Expression annotated() {
