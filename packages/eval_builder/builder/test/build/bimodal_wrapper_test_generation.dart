@@ -12,6 +12,9 @@ class BimodalClass {
   String _accessedString = 'default accessed string';
   String get stringGetter => _accessedString;
   set stringSetter(String value) => _accessedString = value;
+  //TODO: Support operators
+  // String operator [](String other) => other;
+  // String operator +(String other) => other;
   static final String staticFinalString = 'default static final string';
   static String staticString = 'default static string';
   static String _staticAccessedString = 'default accessed string';
@@ -23,6 +26,8 @@ class BimodalClass {
   String? _accessedNullableString;
   String? get nullableStringGetter => _accessedNullableString;
   set nullableStringSetter(String? value) => _accessedNullableString = value;
+  //TODO: Support operators
+  // String? operator -(String? other) => other;
   static final String? staticFinalNullableString = null;
   static String? staticNullableString;
   static String? _staticAccessedNullableString;
