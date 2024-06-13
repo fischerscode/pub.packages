@@ -23,7 +23,8 @@ class PrefixResolver implements Allocator {
           reference.symbol!;
     }
 
-    for (var prefix in _prefixes) {
+    for (var prefix
+        in _prefixes.sorted((p0, p1) => p0.name.compareTo(p1.name))) {
       for (var import in prefix.imports) {
         if (import.combinators.every(
           (combinator) => switch (combinator) {
@@ -79,5 +80,13 @@ extension on LibraryElement {
         exportedLibraries.any(
           (l) => l.exportedLibraries.any((l) => l.exports(uri)),
         );
+  }
+}
+
+extension<T> on Iterable<T> {
+  Iterable<T> sorted([int Function(T, T)? compare]) {
+    var list = toList();
+    list.sort(compare);
+    return list;
   }
 }
