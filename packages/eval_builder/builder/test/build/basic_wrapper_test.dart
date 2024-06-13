@@ -21,8 +21,16 @@ void main() {
     var element = resolved!.element.getClass('BasicClass');
     expect(element, isNotNull);
     expect(
-        createPartFile('basic_wrapper_test_generation.dart',
-            [buildWrapper(element!, Wrapper(bimodal: false))]),
+        createPartFile('basic_wrapper_test_generation.dart', [
+          buildWrapper(
+              element!,
+              WrapperSettings(
+                  bimodal: false,
+                  name: r'$BasicClass',
+                  libIdentifier: 'package:my_eval/types.dart',
+                  defaultParameterStrategy: DefaultParameterStrategy.copyCode,
+                  knownWrappers: {}))
+        ]),
         specMatches(
             matchesGolden(
                 'basic_wrapper_test_generation.golden.dart', ['build']),

@@ -8,14 +8,34 @@ import 'package:code_builder/code_builder.dart' as code;
 const _dart_eval_bridge = 'package:dart_eval/dart_eval_bridge.dart';
 final _override = code.refer('override');
 
-code.Class buildWrapper(ClassElement element, Wrapper annotation) {
-  final className = annotation.name ?? '\$${element.name}';
-  final libIdentifier =
-      annotation.libIdentifier ?? 'package:my_eval/types.dart';
+class WrapperSettings implements Wrapper {
+  @override
+  final bool bimodal;
 
+  @override
+  final DefaultParameterStrategy defaultParameterStrategy;
+
+  @override
+  final Map<Type, Type> knownWrappers;
+
+  @override
+  final String libIdentifier;
+
+  @override
+  final String name;
+
+  const WrapperSettings(
+      {required this.bimodal,
+      required this.defaultParameterStrategy,
+      required this.knownWrappers,
+      required this.libIdentifier,
+      required this.name});
+}
+
+code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   var builder = code.ClassBuilder();
   builder
-    ..name = className
+    ..name = settings.name
     ..implements.addAll([
       //TODO: bimodal
       code.TypeReference((b) => b
@@ -32,7 +52,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
     ..static = true
     ..modifier = code.FieldModifier.final$
     ..assignment = _BridgeTypeSpec.call([
-      code.literalString(libIdentifier),
+      code.literalString(settings.libIdentifier),
       code.literalString(element.name)
     ]).property('ref').code));
 
@@ -141,7 +161,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
             ..symbol = 'List'
             ..types.add(_$Value.nullable(true)))),
       ])
-      ..body = code.TypeReference((b) => b.symbol = className)
+      ..body = code.TypeReference((b) => b.symbol = settings.name)
           .newInstanceNamed('wrap', [
             code.TypeReference((b) => b..symbol = element.name)
                 .newInstanceMaybeNamed(
@@ -188,7 +208,7 @@ code.Class buildWrapper(ClassElement element, Wrapper annotation) {
             .newInstance([
               (method.isStatic
                       ? element.thisType.refer()
-                      : code.refer(className))
+                      : code.refer(settings.name))
                   .property('_${method.name}')
             ])
             .returned
