@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
@@ -404,6 +405,15 @@ extension DartTypeToCode on DartType {
       ]));
   }
 
+  ElementAnnotation? getWrappedAnnotation() {
+    return element!.metadata
+        .where((a) =>
+            a.element!.enclosingElement!.name == '$Wrapper' &&
+            a.element!.librarySource!.uri.toString() ==
+                'package:eval_builder_annotations/annotations.dart')
+        .firstOrNull;
+  }
+
   code.Expression annotated(KnownWrapperMap knownWrapper) {
     var this$ = this;
     switch (this$) {
@@ -431,12 +441,24 @@ extension DartTypeToCode on DartType {
               .property('ref')
               .property(isNullable ? 'annotate' : 'annotateNullable');
         }
+
+        var nameFromAnnotation = getWrappedAnnotation()
+            ?.computeConstantValue()
+            ?.getField('name')
+            ?.toStringWithDefault('\$${element!.name}');
+        if (nameFromAnnotation != null) {
+          return code
+              .refer(nameFromAnnotation)
+              .property(r'$type')
+              .property(isNullable ? 'annotate' : 'annotateNullable');
+        }
+
         //TODO: Other tyes then core types.
         throw UnimplementedError(
             "Unknown bridgeTypeSpec for ${getDisplayString()}.");
     }
     throw UnimplementedError(
-        "Can not annotate $runtimeType. Only CoreTypes are currently supported.");
+        "Can not annotate ${getDisplayString()}. Only ParameterizedTypes are currently supported.");
   }
 
   bool get isNullable {
@@ -584,6 +606,17 @@ extension on code.Expression {
 
     wrap ??= WellKnownWrapper.get(type)?.wrap;
 
+    if (wrap == null) {
+      var name = type
+          .getWrappedAnnotation()
+          ?.computeConstantValue()
+          ?.getField('name')
+          ?.toStringWithDefault('\$${type.element!.name}');
+      if (name != null) {
+        wrap = (inner) => name.asExpression().property('wrap').call([inner]);
+      }
+    }
+
     if (wrap != null) {
       if (type.isNullable) {
         return code.Method((b) => b.body = code.Block.of([
@@ -617,4 +650,10 @@ extension on code.TypeReference {
       .build();
   code.TypeReference addGeneric(code.TypeReference generic) =>
       (toBuilder()..types.add(generic)).build();
+}
+
+extension on DartObject {
+  String toStringWithDefault(String d) {
+    return toStringValue() ?? d;
+  }
 }
