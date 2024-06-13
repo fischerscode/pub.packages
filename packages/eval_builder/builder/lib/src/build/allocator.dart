@@ -2,7 +2,6 @@ import 'package:analyzer/dart/analysis/utilities.dart';
 import 'package:analyzer/dart/ast/ast.dart' as ast;
 import 'package:code_builder/code_builder.dart';
 import 'package:eval_builder/src/utils/map_string.dart';
-// import 'package:path/path.dart';
 
 class PrefixAllocator implements Allocator {
   final Map<String, String?> _prefixes;
@@ -32,8 +31,6 @@ class PrefixAllocator implements Allocator {
         }
       }
     }
-    print(sourceCode);
-    print(prefixes);
 
     return PrefixAllocator(prefixes);
   }
@@ -45,7 +42,6 @@ class PrefixAllocator implements Allocator {
             (_prefixes[u] ??= null)?.map((p) => '$p.${reference.symbol}')) ??
         reference.symbol ??
         '';
-    // print('allocate($reference) => $result');
     return result;
   }
 
