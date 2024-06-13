@@ -1,7 +1,5 @@
 import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart';
-import 'package:dart_eval/dart_eval_bridge.dart';
-import 'package:dart_eval/dart_eval_extensions.dart';
 import 'package:eval_builder/src/build/known_wrapper.dart';
 import 'package:eval_builder/src/build/well_known_type_references.dart';
 

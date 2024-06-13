@@ -105,7 +105,6 @@ void main() {
     expect(resolver.allocate(IdReference.fromDartType(future)), 'lib3.Future');
 
     expect(resolver.allocate(Reference('Lib1')), 'Lib1');
-    print(lib1.element!.librarySource!.uri);
 
     //TODO: Fix import prefixes for reative imports (Low priorits. Does not apply for users.)
     // expect(

@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'package:path/path.dart' show join, joinAll, split;
+import 'package:path/path.dart' show joinAll, split;
 import 'package:test/test.dart';
 // ignore: depend_on_referenced_packages
 import 'package:matcher/src/expect/async_matcher.dart';

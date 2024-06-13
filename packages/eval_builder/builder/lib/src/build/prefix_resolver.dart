@@ -23,10 +23,6 @@ class PrefixResolver implements Allocator {
           reference.symbol!;
     }
 
-    if (symbol == r'$Value') {
-      print(url);
-    }
-
     for (var prefix in _prefixes) {
       for (var import in prefix.imports) {
         if (import.combinators.every(
