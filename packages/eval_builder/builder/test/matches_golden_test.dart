@@ -29,7 +29,7 @@ void main() {
 
     expect('test content', MatchesGoldenFile(file, true));
 
-    expect(await file.exists(), false, reason: '"$filename" was not created.');
+    expect(await file.exists(), true, reason: '"$filename" was not created.');
   });
   test('matches', () async {
     expect(
