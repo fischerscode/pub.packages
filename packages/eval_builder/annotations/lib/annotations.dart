@@ -18,9 +18,21 @@ class Wrapper {
   /// discovery.
   final Map<Type, Type> knownWrappers;
 
+  /// The strategy for dealing with default parameters.
+  /// Defaults to [DefaultParameterStrategy.copyCode].
+  final DefaultParameterStrategy? defaultParameterStrategy;
+
   const Wrapper(
       {this.name,
       this.bimodal = true,
       this.libIdentifier,
-      this.knownWrappers = const {}});
+      this.knownWrappers = const {},
+      this.defaultParameterStrategy});
+}
+
+/// Different strategies for handling default parameters.
+enum DefaultParameterStrategy {
+  /// Copy the code from the definition.
+  /// This might not work when using
+  copyCode,
 }
