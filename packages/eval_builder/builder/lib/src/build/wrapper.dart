@@ -64,17 +64,6 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   var methods = element.methods.where((e) => !e.isPrivate);
   var accessors = element.accessors.where((e) => !e.isPrivate);
 
-  bool hasOptionalParameterWithDefault = Iterable<ExecutableElement>.empty()
-      .followedBy(constructors)
-      .followedBy(methods)
-      .any(
-        (e) => e.parameters.any((p) => p.hasDefaultValue),
-      );
-  if (hasOptionalParameterWithDefault) {
-    print('Default values are currently not supported. '
-        'They will never be used.');
-  }
-
   builder.fields.add(code.Field((b) => b
     ..name = r'$declaration'
     ..static = true
