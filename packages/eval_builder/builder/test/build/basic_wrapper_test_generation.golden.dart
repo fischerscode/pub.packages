@@ -280,16 +280,18 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $BasicClass.wrap(BasicClass(
-      () {
-        final $ = args[0];
-        final $$ = (args[0] as dynamic);
-        return $$ is! String ? ($?.$reified as String) : $$;
-      }(),
-      finalNullableString: () {
-        final $ = args[1];
-        final $$ = (args[1] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
+      ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is! String ? ($.$reified as String) : $$;
+      }(args[0]!),
+      finalNullableString: ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[1]!),
     ));
   }
 
@@ -360,53 +362,61 @@ class $BasicClass implements $Instance {
   ) {
     switch (identifier) {
       case 'string':
-        $value.string = () {
-          final $ = value;
-          final $$ = (value as dynamic);
+        $value.string = ($Value $) {
+          final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
-        }();
+        }(value);
       case 'staticString':
-        BasicClass.staticString = () {
-          final $ = value;
-          final $$ = (value as dynamic);
+        BasicClass.staticString = ($Value $) {
+          final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
-        }();
+        }(value);
       case 'nullableString':
-        $value.nullableString = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String? ? ($.$reified as String?) : $$;
-        }();
+        $value.nullableString = ($Value $) {
+          final $$ = ($ as dynamic);
+          return $$ is $null
+              ? null
+              : $$ is! String?
+                  ? ($.$reified as String?)
+                  : $$;
+        }(value);
       case 'staticNullableString':
-        BasicClass.staticNullableString = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String? ? ($.$reified as String?) : $$;
-        }();
+        BasicClass.staticNullableString = ($Value $) {
+          final $$ = ($ as dynamic);
+          return $$ is $null
+              ? null
+              : $$ is! String?
+                  ? ($.$reified as String?)
+                  : $$;
+        }(value);
       case 'stringSetter':
-        $value.stringSetter = () {
-          final $ = value;
-          final $$ = (value as dynamic);
+        $value.stringSetter = ($Value $) {
+          final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
-        }();
+        }(value);
       case 'staticStringSetter':
-        BasicClass.staticStringSetter = () {
-          final $ = value;
-          final $$ = (value as dynamic);
+        BasicClass.staticStringSetter = ($Value $) {
+          final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
-        }();
+        }(value);
       case 'nullableStringSetter':
-        $value.nullableStringSetter = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String? ? ($.$reified as String?) : $$;
-        }();
+        $value.nullableStringSetter = ($Value $) {
+          final $$ = ($ as dynamic);
+          return $$ is $null
+              ? null
+              : $$ is! String?
+                  ? ($.$reified as String?)
+                  : $$;
+        }(value);
       case 'staticNullableStringSetter':
-        BasicClass.staticNullableStringSetter = () {
-          final $ = value;
-          final $$ = (value as dynamic);
-          return $$ is! String? ? ($.$reified as String?) : $$;
-        }();
+        BasicClass.staticNullableStringSetter = ($Value $) {
+          final $$ = ($ as dynamic);
+          return $$ is $null
+              ? null
+              : $$ is! String?
+                  ? ($.$reified as String?)
+                  : $$;
+        }(value);
     }
   }
 
@@ -421,21 +431,26 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $String((target!.$value as BasicClass).stringTestMethod(
-      () {
-        final $ = args[0];
-        final $$ = (args[0] as dynamic);
-        return $$ is! String ? ($?.$reified as String) : $$;
-      }(),
-      () {
-        final $ = args[1];
-        final $$ = (args[1] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
-      () {
-        final $ = args[2];
-        final $$ = (args[2] as dynamic);
-        return $$ is! String ? ($?.$reified as String) : $$;
-      }(),
+      ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is! String ? ($.$reified as String) : $$;
+      }(args[0]!),
+      ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[1]!),
+      ($Value? $) {
+        final $$ = ($ as dynamic);
+        return $ == null
+            ? 's3Default'
+            : $$ is! String
+                ? ($.$reified as String)
+                : $$;
+      }(args[2]),
     ));
   }
 
@@ -445,21 +460,32 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $String((target!.$value as BasicClass).nullableStringTestMethod(
-      () {
-        final $ = args[0];
-        final $$ = (args[0] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
-      () {
-        final $ = args[1];
-        final $$ = (args[1] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
-      () {
-        final $ = args[2];
-        final $$ = (args[2] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
+      ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[0]!),
+      ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[1]!),
+      ($Value? $) {
+        final $$ = ($ as dynamic);
+        return $ == null
+            ? 's3Default'
+            : $$ is $null
+                ? null
+                : $$ is! String?
+                    ? ($.$reified as String?)
+                    : $$;
+      }(args[2]),
     ));
   }
 
@@ -469,16 +495,18 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $String((target!.$value as BasicClass).stringTestMethodNamed(
-      s1: () {
-        final $ = args[0];
-        final $$ = (args[0] as dynamic);
-        return $$ is! String ? ($?.$reified as String) : $$;
-      }(),
-      s2: () {
-        final $ = args[1];
-        final $$ = (args[1] as dynamic);
-        return $$ is! String ? ($?.$reified as String) : $$;
-      }(),
+      s1: ($Value? $) {
+        final $$ = ($ as dynamic);
+        return $ == null
+            ? 's1Default'
+            : $$ is! String
+                ? ($.$reified as String)
+                : $$;
+      }(args[0]),
+      s2: ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is! String ? ($.$reified as String) : $$;
+      }(args[1]!),
     ));
   }
 
@@ -488,21 +516,32 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $String((target!.$value as BasicClass).nullableStringTestMethodNamed(
-      s1: () {
-        final $ = args[0];
-        final $$ = (args[0] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
-      s2: () {
-        final $ = args[1];
-        final $$ = (args[1] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
-      s3: () {
-        final $ = args[2];
-        final $$ = (args[2] as dynamic);
-        return $$ is! String? ? ($?.$reified as String?) : $$;
-      }(),
+      s1: ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[0]!),
+      s2: ($Value $) {
+        final $$ = ($ as dynamic);
+        return $$ is $null
+            ? null
+            : $$ is! String?
+                ? ($.$reified as String?)
+                : $$;
+      }(args[1]!),
+      s3: ($Value? $) {
+        final $$ = ($ as dynamic);
+        return $ == null
+            ? 's3Default'
+            : $$ is $null
+                ? null
+                : $$ is! String?
+                    ? ($.$reified as String?)
+                    : $$;
+      }(args[2]),
     ));
   }
 }

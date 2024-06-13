@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/nullability_suffix.dart';
 import 'package:analyzer/dart/element/type.dart';
@@ -171,14 +172,18 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
                   code
                       .refer('args')
                       .index(code.literalNum(index))
-                      .access(parameter.type)
+                      .maybeNullChecked(!parameter.hasDefaultValue)
+                      .access(parameter.type,
+                          parameter.defaultValueCode?.asExpression())
             ], {
               for (var (index, parameter) in constructor.parameters.indexed)
                 if (parameter.isNamed)
                   parameter.name: code
                       .refer('args')
                       .index(code.literalNum(index))
-                      .access(parameter.type)
+                      .maybeNullChecked(!parameter.hasDefaultValue)
+                      .access(parameter.type,
+                          parameter.defaultValueCode?.asExpression())
             }, [
               //TODO: Generics
             ])
@@ -246,8 +251,9 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
         "case '${setter.name.substring(0, setter.name.length - 1)}':".toCode(),
         (setter.isStatic ? element.thisType.refer() : _$value)
             .property(setter.name.substring(0, setter.name.length - 1))
-            .assign(
-                code.refer('value').access(setter.parameters.first.type, false))
+            .assign(code
+                .refer('value') //
+                .access(setter.parameters.first.type))
             .statement,
       ],
       '}'.toCode(),
@@ -297,19 +303,21 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             .call([
               for (var (index, parameter) in method.parameters.indexed)
                 if (parameter.isPositional)
-                  //TODO: Don't add when optional, not nullable and arg is null.
                   code
                       .refer('args')
                       .index(code.literalNum(index))
-                      .access(parameter.type)
+                      .maybeNullChecked(!parameter.hasDefaultValue)
+                      .access(parameter.type,
+                          parameter.defaultValueCode?.asExpression())
             ], {
               for (var (index, parameter) in method.parameters.indexed)
                 if (parameter.isNamed)
-                  //TODO: Don't add when optional, not nullable and arg is null.
                   parameter.name: code
                       .refer('args')
                       .index(code.literalNum(index))
-                      .access(parameter.type)
+                      .maybeNullChecked(!parameter.hasDefaultValue)
+                      .access(parameter.type,
+                          parameter.defaultValueCode?.asExpression())
             })
             .wrapped(method.returnType)
             .returned
@@ -405,6 +413,10 @@ extension on String {
   code.Code toCode() {
     return code.Code(this);
   }
+
+  code.Expression asExpression() {
+    return code.CodeExpression(toCode());
+  }
 }
 
 extension on code.Expression {
@@ -416,25 +428,53 @@ extension on code.Expression {
     return safe ? nullSafeProperty(name) : property(name);
   }
 
+  /// [ifNullThen], but null checks if [other] is null.
+  code.Expression maybeIfNullThen(code.Expression? other) {
+    if (other == null) {
+      return nullChecked;
+    } else {
+      return ifNullThen(other);
+    }
+  }
+
+  code.Expression maybeNullChecked(bool doNullCheck) {
+    if (doNullCheck) {
+      return nullChecked;
+    } else {
+      return this;
+    }
+  }
+
   /// Access this as [type].
   /// Will call $value or $reified when needed.
-  code.Expression access(DartType type, [bool expressionIsNullable = true]) {
-    return code.Method((b) => b
-      ..body = code.Block.of([
-        code.declareFinal(r'$').assign(this).statement,
-        code.declareFinal(r'$$').assign(asA(code.refer('dynamic'))).statement,
-        code
+  code.Expression access(DartType type, [code.Expression? defaultExpression]) {
+    var maybeUnpack = code.refer(r'$$').isNotA(type.refer()).conditional(
+        code.refer(r'$').property(r'$reified').asA(type.refer()),
+        code.refer(r'$$'));
+    var maybeNull = type.isNullable
+        ? code
             .refer(r'$$')
-            .isNotA(type.refer())
-            .conditional(
-                code
-                    .refer(r'$')
-                    .maybeNullSafeProperty(r'$reified', expressionIsNullable)
-                    .asA(type.refer()),
-                code.refer(r'$$'))
-            .returned
+            .isA(_$null)
+            .conditional(code.literalNull, maybeUnpack)
+        : maybeUnpack;
+    var maybeWithDefault = defaultExpression != null
+        ? code
+            .refer(r'$')
+            .equalTo(code.literalNull)
+            .conditional(defaultExpression, maybeNull)
+        : maybeNull;
+
+    return code.Method((b) => b
+      ..requiredParameters.add(code.Parameter((b) => b
+        ..name = r'$'
+        ..type = _$Value.nullable(defaultExpression != null)))
+      ..body = code.Block.of([
+        code
+            .declareFinal(r'$$')
+            .assign(code.refer(r'$').asA(code.refer('dynamic')))
             .statement,
-      ])).closure.call([]);
+        maybeWithDefault.returned.statement,
+      ])).closure.call([this]);
   }
 
   /// Wraps this (has Type [type]) as a [$Value].
