@@ -221,54 +221,56 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       ..name = r'$value'))
     ..constant = true));
 
-  for (var constructor in constructors) {
-    builder.methods.add(code.Method((b) => b
-      ..name = constructor.name.isEmpty ? r'$new' : '\$${constructor.name}'
-      ..returns = WellKnownTypeReferences.$Value.nullable(true)
-      ..static = true
-      ..requiredParameters.addAll([
-        code.Parameter((b) => b
-          ..name = 'runtime'
-          ..type = WellKnownTypeReferences.runtime),
-        code.Parameter((b) => b
-          ..name = 'target'
-          ..type = WellKnownTypeReferences.$Value.nullable(true)),
-        code.Parameter(
-          (b) => b
-            ..name = 'args'
-            ..type = WellKnownTypeReferences.list
-                .withGeneric(WellKnownTypeReferences.$Value.nullable(true)),
-        ),
-      ])
-      ..body = code.TypeReference((b) => b.symbol = settings.name)
-          .newInstanceNamed('wrap', [
-            code.TypeReference((b) => b..symbol = element.name)
-                .newInstanceMaybeNamed(
-                    constructor.name.isEmpty ? null : constructor.name, [
-              for (var (index, parameter) in constructor.parameters.indexed)
-                if (parameter.isPositional)
-                  code
-                      .refer('args')
-                      .index(code.literalNum(index))
-                      .maybeNullChecked(!parameter.hasDefaultValue)
-                      .access(parameter.type,
-                          parameter.defaultValueCode?.asExpression())
-            ], {
-              for (var (index, parameter) in constructor.parameters.indexed)
-                if (parameter.isNamed)
-                  parameter.name: code
-                      .refer('args')
-                      .index(code.literalNum(index))
-                      .maybeNullChecked(!parameter.hasDefaultValue)
-                      .access(parameter.type,
-                          parameter.defaultValueCode?.asExpression())
-            }, [
-              //TODO: Generics
+  if (element.isConstructable) {
+    for (var constructor in constructors) {
+      builder.methods.add(code.Method((b) => b
+        ..name = constructor.name.isEmpty ? r'$new' : '\$${constructor.name}'
+        ..returns = WellKnownTypeReferences.$Value.nullable(true)
+        ..static = true
+        ..requiredParameters.addAll([
+          code.Parameter((b) => b
+            ..name = 'runtime'
+            ..type = WellKnownTypeReferences.runtime),
+          code.Parameter((b) => b
+            ..name = 'target'
+            ..type = WellKnownTypeReferences.$Value.nullable(true)),
+          code.Parameter(
+            (b) => b
+              ..name = 'args'
+              ..type = WellKnownTypeReferences.list
+                  .withGeneric(WellKnownTypeReferences.$Value.nullable(true)),
+          ),
+        ])
+        ..body = code.TypeReference((b) => b.symbol = settings.name)
+            .newInstanceNamed('wrap', [
+              code.TypeReference((b) => b..symbol = element.name)
+                  .newInstanceMaybeNamed(
+                      constructor.name.isEmpty ? null : constructor.name, [
+                for (var (index, parameter) in constructor.parameters.indexed)
+                  if (parameter.isPositional)
+                    code
+                        .refer('args')
+                        .index(code.literalNum(index))
+                        .maybeNullChecked(!parameter.hasDefaultValue)
+                        .access(parameter.type,
+                            parameter.defaultValueCode?.asExpression())
+              ], {
+                for (var (index, parameter) in constructor.parameters.indexed)
+                  if (parameter.isNamed)
+                    parameter.name: code
+                        .refer('args')
+                        .index(code.literalNum(index))
+                        .maybeNullChecked(!parameter.hasDefaultValue)
+                        .access(parameter.type,
+                            parameter.defaultValueCode?.asExpression())
+              }, [
+                //TODO: Generics
+              ])
             ])
-          ])
-          .returned
-          .statement
-      ..lambda = false));
+            .returned
+            .statement
+        ..lambda = false));
+    }
   }
 
   builder.methods.add(code.Method((b) => b
