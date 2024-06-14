@@ -81,7 +81,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   List<MethodElement> lookupMethods(
       Iterable<(InterfaceType, MethodElement)> methods) {
     return methods
-        .fold(element.methods.map((e) => e.name).toList(), (methods, method) {
+        .fold(element.methods.map((e) => e.name).toSet(), (methods, method) {
           if ((method.$2.isPublic && !method.$2.isStatic) ||
               method.$1.element.library.id == element.library.id) {
             methods.add(method.$2.name);
@@ -107,7 +107,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             element.accessors
                 .where((a) => a.isSetter || a.isGetter)
                 .map((e) => (e.isGetter, e.name))
-                .toList(), (accessors, accessor) {
+                .toSet(), (accessors, accessor) {
           if ((accessor.$2.isPublic && !accessor.$2.isStatic) ||
               accessor.$1.element.library.id == element.library.id) {
             if (accessor.$2.isGetter || accessor.$2.isSetter) {
