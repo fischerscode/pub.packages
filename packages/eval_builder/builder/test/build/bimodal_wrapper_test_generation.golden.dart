@@ -1,7 +1,7 @@
 part of 'bimodal_wrapper_test_generation.dart';
 
 class $BimodalClass implements BimodalClass, $Instance {
-  const $BimodalClass.wrap(this.$value);
+  $BimodalClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -516,6 +516,8 @@ class $BimodalClass implements BimodalClass, $Instance {
   @override
   final BimodalClass $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -554,8 +556,6 @@ class $BimodalClass implements BimodalClass, $Instance {
         return $Function($BimodalClass._stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
         return $Function($BimodalClass._nullableStringTestMethodNamed);
-      case 'toString':
-        return $Function($BimodalClass._toString);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -598,11 +598,16 @@ class $BimodalClass implements BimodalClass, $Instance {
           final $ = BimodalClass.staticNullableStringGetter;
           return $ == null ? const $null() : $String($);
         }();
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -664,6 +669,12 @@ class $BimodalClass implements BimodalClass, $Instance {
                   ? ($.$reified as String?)
                   : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

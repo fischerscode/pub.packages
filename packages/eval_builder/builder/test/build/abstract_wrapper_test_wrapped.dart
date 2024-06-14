@@ -13,7 +13,7 @@ class BaseClass {
   String method2FromBase() => 'test';
 }
 
-abstract class TestedClass implements BaseClass {
+abstract class TestedClass extends BaseClass {
   late final String propertyFromClass;
   String methodFromClass() => 'test';
 

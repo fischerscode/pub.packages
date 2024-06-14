@@ -46,9 +46,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = settings.name
     ..implements.addAll([
       if (settings.bimodal) element.thisType.refer(),
-      code.TypeReference((b) => b
-        ..symbol = r'$Instance'
-        ..url = WellKnownTypeReferences.dartEvalBridgePackage)
+      WellKnownTypeReferences.$Instance,
     ].nonNulls);
 
   builder.types.addAll([
@@ -199,6 +197,13 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..modifier = code.FieldModifier.final$
     ..type = element.thisType.refer()));
 
+  builder.fields.add(code.Field((b) => b
+    ..name = r'_$superWrapper'
+    ..modifier = code.FieldModifier.final$
+    ..late = true
+    ..type = WellKnownTypeReferences.$Instance
+    ..assignment = extendedWrapper.$2.wrap(_$value).code));
+
   builder.methods.add(code.Method((b) => b
     ..name = r'$reified'
     ..annotations.add(WellKnownTypeReferences.override)
@@ -210,8 +215,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = 'wrap'
     ..requiredParameters.add(code.Parameter((b) => b
       ..toThis = true
-      ..name = r'$value'))
-    ..constant = true));
+      ..name = r'$value'))));
 
   if (element.isConstructable) {
     for (var constructor in constructors) {
@@ -279,7 +283,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ])
     ..body = code.Block.of([
       'switch(identifier) {'.toCode(),
-      for (var method in methods) ...[
+      for (var method in newMethods) ...[
         "case '${method.name}':".toCode(),
         WellKnownTypeReferences.$Function
             .newInstance([
@@ -291,7 +295,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             .returned
             .statement,
       ],
-      for (var getter in accessors.where((e) => e.isGetter)) ...[
+      for (var getter in newAccessors.where((e) => e.isGetter)) ...[
         "case '${getter.name}':".toCode(),
         (getter.isStatic ? element.thisType.refer() : _$value)
             .property(getter.name)
@@ -299,13 +303,19 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             .returned
             .statement,
       ],
+      'default:'.toCode(),
+      code
+          .refer(r'_$superWrapper')
+          .property(r'$getProperty')
+          .call([code.refer('runtime'), code.refer('identifier')])
+          .returned
+          .statement,
       '}'.toCode(),
     ])));
 
-  builder.methods.add(code.Method((b) => b
+  builder.methods.add(code.Method.returnsVoid((b) => b
     ..name = r'$setProperty'
     ..annotations.add(WellKnownTypeReferences.override)
-    ..returns = WellKnownTypeReferences.$Value.nullable(true)
     ..requiredParameters.addAll([
       code.Parameter((b) => b
         ..name = 'runtime'
@@ -319,7 +329,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ])
     ..body = code.Block.of([
       'switch(identifier) {'.toCode(),
-      for (var setter in accessors.where((e) => e.isSetter)) ...[
+      for (var setter in newAccessors.where((e) => e.isSetter)) ...[
         "case '${setter.name.substring(0, setter.name.length - 1)}':".toCode(),
         (setter.isStatic ? element.thisType.refer() : _$value)
             .property(setter.name.substring(0, setter.name.length - 1))
@@ -328,6 +338,12 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
                 .access(setter.parameters.first.type))
             .statement,
       ],
+      'default:'.toCode(),
+      code.refer(r'_$superWrapper').property(r'$setProperty').call([
+        code.refer('runtime'),
+        code.refer('identifier'),
+        code.refer('value')
+      ]).statement,
       '}'.toCode(),
     ])));
 

@@ -1,7 +1,7 @@
 part of 'discover_wrapper_test_generation.dart';
 
 class WrapWrapped1 implements $Instance {
-  const WrapWrapped1.wrap(this.$value);
+  WrapWrapped1.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -40,6 +40,8 @@ class WrapWrapped1 implements $Instance {
   @override
   final Wrapped1 $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -57,18 +59,28 @@ class WrapWrapped1 implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
-      case 'toString':
-        return $Function(WrapWrapped1._toString);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
   ) {
-    switch (identifier) {}
+    switch (identifier) {
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
+    }
   }
 
   @override
@@ -86,7 +98,7 @@ class WrapWrapped1 implements $Instance {
 }
 
 class $Wrapped2 implements $Instance {
-  const $Wrapped2.wrap(this.$value);
+  $Wrapped2.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -125,6 +137,8 @@ class $Wrapped2 implements $Instance {
   @override
   final Wrapped2 $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -142,18 +156,28 @@ class $Wrapped2 implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
-      case 'toString':
-        return $Function($Wrapped2._toString);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
   ) {
-    switch (identifier) {}
+    switch (identifier) {
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
+    }
   }
 
   @override
@@ -171,7 +195,7 @@ class $Wrapped2 implements $Instance {
 }
 
 class $Parent implements $Instance {
-  const $Parent.wrap(this.$value);
+  $Parent.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -316,6 +340,8 @@ class $Parent implements $Instance {
   @override
   final Parent $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -333,8 +359,6 @@ class $Parent implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
-      case 'toString':
-        return $Function($Parent._toString);
       case 'child1':
         return WrapWrapped1.wrap($value.child1);
       case 'child1Nullable':
@@ -349,11 +373,16 @@ class $Parent implements $Instance {
           final $ = $value.child2Nullable;
           return $ == null ? const $null() : $Wrapped2.wrap($);
         }();
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -387,6 +416,12 @@ class $Parent implements $Instance {
                   ? ($.$reified as Wrapped2?)
                   : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

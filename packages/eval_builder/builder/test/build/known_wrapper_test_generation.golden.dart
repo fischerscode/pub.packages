@@ -1,7 +1,7 @@
 part of 'known_wrapper_test_generation.dart';
 
 class $ToWrap implements $Instance {
-  const $ToWrap.wrap(this.$value);
+  $ToWrap.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -94,6 +94,8 @@ class $ToWrap implements $Instance {
   @override
   final ToWrap $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -111,8 +113,6 @@ class $ToWrap implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
-      case 'toString':
-        return $Function($ToWrap._toString);
       case 'child':
         return CustomStubWrapper.wrap($value.child);
       case 'childNullable':
@@ -120,11 +120,16 @@ class $ToWrap implements $Instance {
           final $ = $value.childNullable;
           return $ == null ? const $null() : CustomStubWrapper.wrap($);
         }();
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -144,6 +149,12 @@ class $ToWrap implements $Instance {
                   ? ($.$reified as CustomWrapped?)
                   : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

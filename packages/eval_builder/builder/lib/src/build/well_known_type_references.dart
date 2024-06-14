@@ -64,6 +64,9 @@ class WellKnownTypeReferences {
   static final $Function = code.TypeReference((b) => b
     ..symbol = r'$Function'
     ..url = dartEvalBridgePackage);
+  static final $Instance = code.TypeReference((b) => b
+    ..symbol = r'$Instance'
+    ..url = dartEvalBridgePackage);
 
   static final $Value = code.TypeReference((b) => b
     ..symbol = r'$Value'

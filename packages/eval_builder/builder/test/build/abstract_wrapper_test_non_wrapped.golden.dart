@@ -1,7 +1,7 @@
 part of 'abstract_wrapper_test_non_wrapped.dart';
 
 class $TestedClass implements TestedClass, $Instance {
-  const $TestedClass.wrap(this.$value);
+  $TestedClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -184,6 +184,8 @@ class $TestedClass implements TestedClass, $Instance {
   @override
   final TestedClass $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -197,8 +199,6 @@ class $TestedClass implements TestedClass, $Instance {
         return $Function($TestedClass._methodFromClass);
       case 'methodFromBase':
         return $Function($TestedClass._methodFromBase);
-      case 'toString':
-        return $Function($TestedClass._toString);
       case 'method2FromBase':
         return $Function($TestedClass._method2FromBase);
       case 'propertyFromClass':
@@ -207,11 +207,16 @@ class $TestedClass implements TestedClass, $Instance {
         return $String($value.propertyFromBase);
       case 'property2FromBase':
         return $String($value.property2FromBase);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -232,6 +237,12 @@ class $TestedClass implements TestedClass, $Instance {
           final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

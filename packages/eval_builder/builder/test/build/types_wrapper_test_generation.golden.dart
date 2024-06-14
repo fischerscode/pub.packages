@@ -1,7 +1,7 @@
 part of 'types_wrapper_test_generation.dart';
 
 class $TypesContainer implements dart_eval_bridge.$Instance {
-  const $TypesContainer.wrap(this.$value);
+  $TypesContainer.wrap(this.$value);
 
   static final $type = dart_eval_bridge.BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -3952,6 +3952,9 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
   @core.override
   final TypesContainer $value;
 
+  late final dart_eval_bridge.$Instance _$superWrapper =
+      stdlib_core.$Object($value);
+
   @core.override
   get $reified => $value;
 
@@ -3969,8 +3972,6 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
     core.String identifier,
   ) {
     switch (identifier) {
-      case 'toString':
-        return dart_eval_bridge.$Function($TypesContainer._toString);
       case 'varCompleter':
         return stdlib_async.$Completer.wrap($value.varCompleter);
       case 'varCompleterNullable':
@@ -4512,11 +4513,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               ? const stdlib_core.$null()
               : stdlib_typed_data.$Uint8List.wrap($);
         }();
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @core.override
-  dart_eval_bridge.$Value? $setProperty(
+  void $setProperty(
     dart_eval_bridge.Runtime runtime,
     core.String identifier,
     dart_eval_bridge.$Value value,
@@ -5434,6 +5440,12 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                   ? ($.$reified as typed_data.Uint8List?)
                   : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

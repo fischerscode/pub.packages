@@ -1,7 +1,7 @@
 part of 'basic_wrapper_test_generation.dart';
 
 class $BasicClass implements $Instance {
-  const $BasicClass.wrap(this.$value);
+  $BasicClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -516,6 +516,8 @@ class $BasicClass implements $Instance {
   @override
   final BasicClass $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -554,8 +556,6 @@ class $BasicClass implements $Instance {
         return $Function($BasicClass._stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
         return $Function($BasicClass._nullableStringTestMethodNamed);
-      case 'toString':
-        return $Function($BasicClass._toString);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -598,11 +598,16 @@ class $BasicClass implements $Instance {
           final $ = BasicClass.staticNullableStringGetter;
           return $ == null ? const $null() : $String($);
         }();
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -664,6 +669,12 @@ class $BasicClass implements $Instance {
                   ? ($.$reified as String?)
                   : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 

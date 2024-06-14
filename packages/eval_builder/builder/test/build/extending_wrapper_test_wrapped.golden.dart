@@ -1,7 +1,7 @@
 part of 'extending_wrapper_test_wrapped.dart';
 
 class $BaseClass implements BaseClass, $Instance {
-  const $BaseClass.wrap(this.$value);
+  $BaseClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -84,6 +84,8 @@ class $BaseClass implements BaseClass, $Instance {
   @override
   final BaseClass $value;
 
+  late final $Instance _$superWrapper = $Object($value);
+
   @override
   get $reified => $value;
 
@@ -103,15 +105,18 @@ class $BaseClass implements BaseClass, $Instance {
     switch (identifier) {
       case 'methodFromBase':
         return $Function($BaseClass._methodFromBase);
-      case 'toString':
-        return $Function($BaseClass._toString);
       case 'propertyFromBase':
         return $String($value.propertyFromBase);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -122,6 +127,12 @@ class $BaseClass implements BaseClass, $Instance {
           final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 
@@ -167,7 +178,7 @@ class $BaseClass implements BaseClass, $Instance {
 }
 
 class $TestedClass implements TestedClass, $Instance {
-  const $TestedClass.wrap(this.$value);
+  $TestedClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
@@ -247,6 +258,8 @@ class $TestedClass implements TestedClass, $Instance {
   @override
   final TestedClass $value;
 
+  late final $Instance _$superWrapper = $BaseClass.wrap($value);
+
   @override
   get $reified => $value;
 
@@ -266,19 +279,18 @@ class $TestedClass implements TestedClass, $Instance {
     switch (identifier) {
       case 'methodFromClass':
         return $Function($TestedClass._methodFromClass);
-      case 'methodFromBase':
-        return $Function($TestedClass._methodFromBase);
-      case 'toString':
-        return $Function($TestedClass._toString);
       case 'propertyFromClass':
         return $String($value.propertyFromClass);
-      case 'propertyFromBase':
-        return $String($value.propertyFromBase);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
     }
   }
 
   @override
-  $Value? $setProperty(
+  void $setProperty(
     Runtime runtime,
     String identifier,
     $Value value,
@@ -289,11 +301,12 @@ class $TestedClass implements TestedClass, $Instance {
           final $$ = ($ as dynamic);
           return $$ is! String ? ($.$reified as String) : $$;
         }(value);
-      case 'propertyFromBase':
-        $value.propertyFromBase = ($Value $) {
-          final $$ = ($ as dynamic);
-          return $$ is! String ? ($.$reified as String) : $$;
-        }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
     }
   }
 
