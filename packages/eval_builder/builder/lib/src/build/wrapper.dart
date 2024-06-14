@@ -135,7 +135,6 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       element.allSupertypes.expand((s) => s.accessors.map((a) => (s, a))));
 
   var methods = methodsWithPrivate.where((e) => !e.isPrivate);
-  var accessors = accessorsWithPrivate.where((e) => !e.isPrivate);
 
   builder.fields.add(code.Field((b) => b
     ..name = r'$declaration'

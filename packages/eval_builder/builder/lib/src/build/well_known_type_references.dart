@@ -1,5 +1,4 @@
 import 'package:code_builder/code_builder.dart' as code;
-import 'package:dart_eval/stdlib/core.dart';
 
 class WellKnownTypeReferences {
   static const dartEvalBridgePackage =

@@ -3,8 +3,6 @@ import 'package:dart_eval/dart_eval_extensions.dart';
 import 'package:dart_eval/stdlib/core.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 
-import 'discover_wrapper_test_generation.dart';
-
 part 'extending_wrapper_test_wrapped.golden.dart';
 
 @Wrapper()
