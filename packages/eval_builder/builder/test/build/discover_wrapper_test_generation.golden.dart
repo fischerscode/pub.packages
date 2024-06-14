@@ -6,14 +6,23 @@ class WrapWrapped1 implements $Instance {
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Wrapped1',
-  ).ref;
+  );
 
   static final $declaration = BridgeClassDef(
-    BridgeClassType($type),
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: $type.ref.annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -47,7 +56,10 @@ class WrapWrapped1 implements $Instance {
     Runtime runtime,
     String identifier,
   ) {
-    switch (identifier) {}
+    switch (identifier) {
+      case 'toString':
+        return $Function(WrapWrapped1._toString);
+    }
   }
 
   @override
@@ -61,7 +73,15 @@ class WrapWrapped1 implements $Instance {
 
   @override
   int $getRuntimeType(Runtime runtime) {
-    return runtime.lookupType($type.spec!);
+    return runtime.lookupType($type);
+  }
+
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as Wrapped1).toString());
   }
 }
 
@@ -71,14 +91,23 @@ class $Wrapped2 implements $Instance {
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Wrapped2',
-  ).ref;
+  );
 
   static final $declaration = BridgeClassDef(
-    BridgeClassType($type),
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: $type.ref.annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -112,7 +141,10 @@ class $Wrapped2 implements $Instance {
     Runtime runtime,
     String identifier,
   ) {
-    switch (identifier) {}
+    switch (identifier) {
+      case 'toString':
+        return $Function($Wrapped2._toString);
+    }
   }
 
   @override
@@ -126,7 +158,15 @@ class $Wrapped2 implements $Instance {
 
   @override
   int $getRuntimeType(Runtime runtime) {
-    return runtime.lookupType($type.spec!);
+    return runtime.lookupType($type);
+  }
+
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as Wrapped2).toString());
   }
 }
 
@@ -136,14 +176,23 @@ class $Parent implements $Instance {
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Parent',
-  ).ref;
+  );
 
   static final $declaration = BridgeClassDef(
-    BridgeClassType($type),
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: $type.ref.annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -155,7 +204,10 @@ class $Parent implements $Instance {
     getters: {
       'child1': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            WrapWrapped1.$type,
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -164,7 +216,10 @@ class $Parent implements $Instance {
       ),
       'child1Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            WrapWrapped1.$type,
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -173,7 +228,10 @@ class $Parent implements $Instance {
       ),
       'child2': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            $Wrapped2.$type,
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -182,7 +240,10 @@ class $Parent implements $Instance {
       ),
       'child2Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            $Wrapped2.$type,
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -193,8 +254,13 @@ class $Parent implements $Instance {
     setters: {
       'child1': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_child1'.param(WrapWrapped1.$type.annotateNullable)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_child1'.param(BridgeTypeRef(
+              WrapWrapped1.$type,
+              [],
+            ).annotateNullable)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -202,8 +268,13 @@ class $Parent implements $Instance {
       ),
       'child1Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_child1Nullable'.param(WrapWrapped1.$type.annotate)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_child1Nullable'.param(BridgeTypeRef(
+              WrapWrapped1.$type,
+              [],
+            ).annotate)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -211,8 +282,13 @@ class $Parent implements $Instance {
       ),
       'child2': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_child2'.param($Wrapped2.$type.annotateNullable)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_child2'.param(BridgeTypeRef(
+              $Wrapped2.$type,
+              [],
+            ).annotateNullable)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -220,8 +296,13 @@ class $Parent implements $Instance {
       ),
       'child2Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_child2Nullable'.param($Wrapped2.$type.annotate)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_child2Nullable'.param(BridgeTypeRef(
+              $Wrapped2.$type,
+              [],
+            ).annotate)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -252,6 +333,8 @@ class $Parent implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
+      case 'toString':
+        return $Function($Parent._toString);
       case 'child1':
         return WrapWrapped1.wrap($value.child1);
       case 'child1Nullable':
@@ -309,6 +392,14 @@ class $Parent implements $Instance {
 
   @override
   int $getRuntimeType(Runtime runtime) {
-    return runtime.lookupType($type.spec!);
+    return runtime.lookupType($type);
+  }
+
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as Parent).toString());
   }
 }

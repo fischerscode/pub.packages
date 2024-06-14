@@ -6,14 +6,23 @@ class $ToWrap implements $Instance {
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'ToWrap',
-  ).ref;
+  );
 
   static final $declaration = BridgeClassDef(
-    BridgeClassType($type),
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: $type.ref.annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -25,7 +34,10 @@ class $ToWrap implements $Instance {
     getters: {
       'child': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            CustomStubWrapper.spec,
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -34,7 +46,10 @@ class $ToWrap implements $Instance {
       ),
       'childNullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            CustomStubWrapper.spec,
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -45,8 +60,13 @@ class $ToWrap implements $Instance {
     setters: {
       'child': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_child'.param(CustomStubWrapper.spec.ref.annotateNullable)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_child'.param(BridgeTypeRef(
+              CustomStubWrapper.spec,
+              [],
+            ).annotateNullable)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -54,8 +74,13 @@ class $ToWrap implements $Instance {
       ),
       'childNullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
-          params: ['_childNullable'.param(CustomStubWrapper.spec.ref.annotate)],
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_childNullable'.param(BridgeTypeRef(
+              CustomStubWrapper.spec,
+              [],
+            ).annotate)
+          ],
           namedParams: [],
           generics: {},
         ),
@@ -86,6 +111,8 @@ class $ToWrap implements $Instance {
     String identifier,
   ) {
     switch (identifier) {
+      case 'toString':
+        return $Function($ToWrap._toString);
       case 'child':
         return CustomStubWrapper.wrap($value.child);
       case 'childNullable':
@@ -122,6 +149,14 @@ class $ToWrap implements $Instance {
 
   @override
   int $getRuntimeType(Runtime runtime) {
-    return runtime.lookupType($type.spec!);
+    return runtime.lookupType($type);
+  }
+
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as ToWrap).toString());
   }
 }

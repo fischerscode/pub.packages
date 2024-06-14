@@ -6,25 +6,40 @@ class $BimodalClass implements BimodalClass, $Instance {
   static final $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'BimodalClass',
-  ).ref;
+  );
 
   static final $declaration = BridgeClassDef(
-    BridgeClassType($type),
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: $type.ref.annotateNullable,
           params: [
-            'finalString'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable)
+            'finalString'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable)
           ],
           namedParams: [
-            'finalNullableString'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate)
+            'finalNullableString'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate)
           ],
           generics: {},
         ),
@@ -34,20 +49,35 @@ class $BimodalClass implements BimodalClass, $Instance {
     methods: {
       'stringTestMethod': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [
-            's1'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable),
-            's2'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
-            's3'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable),
+            's1'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable),
+            's2'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
+            's3'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable),
           ],
           namedParams: [],
           generics: {},
@@ -56,20 +86,35 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableStringTestMethod': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [
-            's1'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
-            's2'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
-            's3'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
+            's1'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
+            's2'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
+            's3'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
           ],
           namedParams: [],
           generics: {},
@@ -78,17 +123,29 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'stringTestMethodNamed': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [
-            's1'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable),
-            's2'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable),
+            's1'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable),
+            's2'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable),
           ],
           generics: {},
         ),
@@ -96,21 +153,36 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableStringTestMethodNamed': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [
-            's1'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
-            's2'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
-            's3'.paramOptional(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate),
+            's1'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
+            's2'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
+            's3'.paramOptional(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate),
           ],
           generics: {},
         ),
@@ -120,7 +192,13 @@ class $BimodalClass implements BimodalClass, $Instance {
     getters: {
       'finalString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -129,7 +207,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'string': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -138,7 +222,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticFinalString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -147,7 +237,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -156,7 +252,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'finalNullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -165,7 +267,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -174,7 +282,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticFinalNullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -183,7 +297,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticNullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -192,7 +312,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'stringGetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -201,7 +327,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticStringGetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -210,7 +342,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableStringGetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -219,7 +357,13 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticNullableStringGetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'String',
+            ),
+            [],
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -230,12 +374,15 @@ class $BimodalClass implements BimodalClass, $Instance {
     setters: {
       'string': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_string'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable)
+            '_string'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -244,12 +391,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_staticString'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable)
+            '_staticString'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -258,12 +408,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_nullableString'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate)
+            '_nullableString'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -272,12 +425,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticNullableString': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_staticNullableString'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate)
+            '_staticNullableString'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -286,12 +442,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'stringSetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'value'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable)
+            'value'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -300,12 +459,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticStringSetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'value'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotateNullable)
+            'value'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -314,12 +476,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'nullableStringSetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'value'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate)
+            'value'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -328,12 +493,15 @@ class $BimodalClass implements BimodalClass, $Instance {
       ),
       'staticNullableStringSetter': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: $type.annotate,
+          returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'value'.param(BridgeTypeSpec(
-              'dart:core',
-              'String',
-            ).ref.annotate)
+            'value'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -386,6 +554,8 @@ class $BimodalClass implements BimodalClass, $Instance {
         return $Function($BimodalClass._stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
         return $Function($BimodalClass._nullableStringTestMethodNamed);
+      case 'toString':
+        return $Function($BimodalClass._toString);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -499,7 +669,7 @@ class $BimodalClass implements BimodalClass, $Instance {
 
   @override
   int $getRuntimeType(Runtime runtime) {
-    return runtime.lookupType($type.spec!);
+    return runtime.lookupType($type);
   }
 
   static $Value? _stringTestMethod(
@@ -623,6 +793,14 @@ class $BimodalClass implements BimodalClass, $Instance {
     ));
   }
 
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as BimodalClass).toString());
+  }
+
   @override
   String stringTestMethod(
     String s1, [
@@ -671,6 +849,11 @@ class $BimodalClass implements BimodalClass, $Instance {
       s2: s2,
       s3: s3,
     );
+  }
+
+  @override
+  String toString() {
+    return $value.toString();
   }
 
   @override
