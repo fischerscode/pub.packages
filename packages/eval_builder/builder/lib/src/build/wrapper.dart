@@ -77,22 +77,20 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
   List<MethodElement> lookupMethods(
       Iterable<(InterfaceType, MethodElement)> methods) {
     return methods
-        .fold(element.methods.map((e) => e.name).toSet(), (methods, method) {
+        .fold(
+            Map.fromIterables(element.methods.map((e) => e.name),
+                element.methods.map((e) => e)), (methods, method) {
           if ((method.$2.isPublic && !method.$2.isStatic) ||
               method.$1.element.library.id == element.library.id) {
-            methods.add(method.$2.name);
+            methods[method.$2.name] ??= method.$2;
           }
           return methods;
         })
+        .values
         .where((m) => ![
               // Methods that should be deferred to $Object
               '==', 'noSuchMethod'
-            ].contains(m))
-        .map((m) =>
-            //
-            element.getMethod(m) ??
-            element.lookUpInheritedConcreteMethod(m, element.library))
-        .nonNulls
+            ].contains(m.name))
         .toList();
   }
 
@@ -100,28 +98,26 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       Iterable<(InterfaceType, PropertyAccessorElement)> accessors) {
     return accessors
         .fold(
-            element.accessors
-                .where((a) => a.isSetter || a.isGetter)
-                .map((e) => (e.isGetter, e.name))
-                .toSet(), (accessors, accessor) {
+            Map.fromIterables(
+                element.accessors
+                    .where((a) => a.isSetter || a.isGetter)
+                    .map((e) => (e.isGetter, e.name)),
+                element.accessors.where((a) => a.isSetter || a.isGetter)),
+            (accessors, accessor) {
           if ((accessor.$2.isPublic && !accessor.$2.isStatic) ||
               accessor.$1.element.library.id == element.library.id) {
             if (accessor.$2.isGetter || accessor.$2.isSetter) {
-              accessors.add((accessor.$2.isGetter, accessor.$2.name));
+              accessors[(accessor.$2.isGetter, accessor.$2.name)] ??=
+                  accessor.$2;
             }
           }
           return accessors;
         })
+        .values
         .where((a) => ![
               // Accessors that should be deferred to $Object
               'hashCode', 'runtimeType'
-            ].contains(a.$2))
-        .map((a) => a.$1
-            ? element.getGetter(a.$2) ??
-                element.lookUpInheritedConcreteGetter(a.$2, element.library)
-            : element.getSetter(a.$2) ??
-                element.lookUpInheritedConcreteSetter(a.$2, element.library))
-        .nonNulls
+            ].contains(a.name))
         .toList();
   }
 
