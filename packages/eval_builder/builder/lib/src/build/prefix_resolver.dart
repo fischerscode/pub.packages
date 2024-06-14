@@ -4,7 +4,7 @@ import 'package:eval_builder/src/utils/map_string.dart';
 
 class PrefixResolver implements Allocator {
   final List<PrefixElement> _prefixes;
-  final Map<String, String?> _cache = {};
+  final Map<({String url, String symbol}), String?> _cache = {};
 
   PrefixResolver(this._prefixes);
 
@@ -17,8 +17,9 @@ class PrefixResolver implements Allocator {
 
     var symbol = reference.symbol!;
 
-    if (_cache.containsKey(url)) {
-      return _cache[url]?.map((s) => '$s.${reference.symbol}') ??
+    if (_cache.containsKey((url: url, symbol: symbol))) {
+      return _cache[(url: url, symbol: symbol)]
+              ?.map((s) => '$s.${reference.symbol}') ??
           reference.symbol!;
     }
 
@@ -50,7 +51,7 @@ class PrefixResolver implements Allocator {
       }
     }
 
-    _cache[url] = null;
+    _cache[(url: url, symbol: symbol)] = null;
     return symbol;
   }
 
