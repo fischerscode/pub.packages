@@ -1,4 +1,5 @@
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:dart_eval/stdlib/core.dart';
 
 class WellKnownTypeReferences {
   static const dartEvalBridgePackage =
@@ -32,8 +33,14 @@ class WellKnownTypeReferences {
     ..symbol = r'dynamic'
     ..url = 'dart:core');
 
+  static final coreTypes = code.TypeReference((b) => b
+    ..symbol = 'CoreTypes'
+    ..url = dartEvalBridgePackage);
   static final bridgeTypeSpec = code.TypeReference((b) => b
     ..symbol = 'BridgeTypeSpec'
+    ..url = dartEvalBridgePackage);
+  static final bridgeTypeRef = code.TypeReference((b) => b
+    ..symbol = 'BridgeTypeRef'
     ..url = dartEvalBridgePackage);
   static final bridgeClassDef = code.TypeReference((b) => b
     ..symbol = 'BridgeClassDef'
@@ -46,6 +53,9 @@ class WellKnownTypeReferences {
     ..url = dartEvalBridgePackage);
   static final bridgeFieldDef = code.TypeReference((b) => b
     ..symbol = 'BridgeFieldDef'
+    ..url = dartEvalBridgePackage);
+  static final bridgeFunctionDef = code.TypeReference((b) => b
+    ..symbol = 'BridgeFunctionDef'
     ..url = dartEvalBridgePackage);
 
   static final runtime = code.TypeReference((b) => b

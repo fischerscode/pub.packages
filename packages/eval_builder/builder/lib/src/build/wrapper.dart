@@ -32,15 +32,28 @@ class WrapperSettings {
 }
 
 code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
+  final extendedWrapper = element
+      .discoverSupWrappers(
+          (e) => [e.supertype].nonNulls, settings.knownWrappers)
+      .single; // It's safe to use last, since everything extends Object
+  final interfaceWrappers =
+      element.discoverSupWrappers((e) => e.interfaces, settings.knownWrappers);
+  final mixinWrappers =
+      element.discoverSupWrappers((e) => e.mixins, settings.knownWrappers);
+
   var builder = code.ClassBuilder();
   builder
     ..name = settings.name
     ..implements.addAll([
       if (settings.bimodal) element.thisType.refer(),
+      if (settings.bimodal) element.supertype?.nullIfObject?.refer(),
+      if (settings.bimodal)
+        ...element.interfaces.map((i) => i.nullIfObject?.refer()),
+      if (settings.bimodal) ...element.mixins.map((m) => m.refer()),
       code.TypeReference((b) => b
         ..symbol = r'$Instance'
         ..url = WellKnownTypeReferences.dartEvalBridgePackage)
-    ]);
+    ].nonNulls);
 
   builder.types.addAll([
     //TODO: Generics
@@ -50,19 +63,86 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = r'$type'
     ..static = true
     ..modifier = code.FieldModifier.final$
-    ..assignment = WellKnownTypeReferences.bridgeTypeSpec
-        .call([
-          code.literalString(settings.libIdentifier),
-          code.literalString(element.name)
-        ])
-        .property('ref')
-        .code));
+    ..assignment = WellKnownTypeReferences.bridgeTypeSpec.call([
+      code.literalString(settings.libIdentifier),
+      code.literalString(element.name)
+    ]).code));
+
+  final supTypesTillWrappers = element.discoverSupTillWrapper(
+      (e) => [
+            e.supertype,
+            ...e.interfaces,
+            ...e.mixins,
+          ].nonNulls,
+      settings.knownWrappers);
 
   var constructors = element.constructors.where((e) => !e.isPrivate);
 
-  //TODO: Polymorphism
-  var methodsWithPrivate = element.methods;
-  var accessorsWithPrivate = element.accessors;
+  List<MethodElement> lookupMethods(
+      Iterable<(InterfaceType, MethodElement)> methods) {
+    return methods
+        .fold(element.methods.map((e) => e.name).toList(), (methods, method) {
+          if ((method.$2.isPublic && !method.$2.isStatic) ||
+              method.$1.element.library.id == element.library.id) {
+            methods.add(method.$2.name);
+          }
+          return methods;
+        })
+        .where((m) => ![
+              // Methods that should be deferred to $Object
+              '==', 'noSuchMethod'
+            ].contains(m))
+        .map((m) =>
+            //
+            element.getMethod(m) ??
+            element.lookUpInheritedConcreteMethod(m, element.library))
+        .nonNulls
+        .toList();
+  }
+
+  List<PropertyAccessorElement> lookupAccessors(
+      Iterable<(InterfaceType, PropertyAccessorElement)> accessors) {
+    return accessors
+        .fold(
+            element.accessors
+                .where((a) => a.isSetter || a.isGetter)
+                .map((e) => (e.isGetter, e.name))
+                .toList(), (accessors, accessor) {
+          if ((accessor.$2.isPublic && !accessor.$2.isStatic) ||
+              accessor.$1.element.library.id == element.library.id) {
+            if (accessor.$2.isGetter || accessor.$2.isSetter) {
+              accessors.add((accessor.$2.isGetter, accessor.$2.name));
+            }
+          }
+          return accessors;
+        })
+        .where((a) => ![
+              // Accessors that should be deferred to $Object
+              'hashCode', 'runtimeType'
+            ].contains(a.$2))
+        .map((a) => a.$1
+            ? element.getGetter(a.$2) ??
+                element.lookUpInheritedConcreteGetter(a.$2, element.library)
+            : element.getSetter(a.$2) ??
+                element.lookUpInheritedConcreteSetter(a.$2, element.library))
+        .nonNulls
+        .toList();
+  }
+
+  // Methods that are not inherited from Wrappers
+  var newMethodsWithPrivate = lookupMethods(
+      supTypesTillWrappers.expand((s) => s.methods.map((m) => (s, m))));
+
+  var newAccessorsWithPrivate = lookupAccessors(
+      supTypesTillWrappers.expand((s) => s.accessors.map((m) => (s, m))));
+
+  var newMethods = newMethodsWithPrivate.where((e) => !e.isPrivate);
+  var newAccessors = newAccessorsWithPrivate.where((e) => !e.isPrivate);
+
+  var methodsWithPrivate = lookupMethods(
+      element.allSupertypes.expand((s) => s.methods.map((m) => (s, m))));
+  var accessorsWithPrivate = lookupAccessors(
+      element.allSupertypes.expand((s) => s.accessors.map((a) => (s, a))));
 
   var methods = methodsWithPrivate.where((e) => !e.isPrivate);
   var accessors = accessorsWithPrivate.where((e) => !e.isPrivate);
@@ -74,12 +154,13 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..assignment = WellKnownTypeReferences.bridgeClassDef.newInstance(
       [
         WellKnownTypeReferences.bridgeClassType.newInstance([
-          code.refer(r'$type')
+          code.refer(r'$type').property('ref')
         ], {
-          // r'$extends': //TODO: Polymorphism
-          // r'$implements': //TODO: Polymorphism
-          // r'$with': //TODO: Mixins
-          // r'isAbstract': //TODO: Abstract base
+          r'$extends': extendedWrapper.ref,
+          r'$implements':
+              code.literalList(interfaceWrappers.map((e) => e.ref).toList()),
+          r'$with': code.literalList(mixinWrappers.map((e) => e.ref).toList()),
+          r'isAbstract': code.literalBool(element.isAbstract),
           // r'generics': //TODO: Generics
         })
       ],
@@ -88,24 +169,26 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
           for (var constructor in constructors)
             code.literalString(constructor.name):
                 WellKnownTypeReferences.bridgeConstructorDef.call(
-                    [constructor.functionDef(settings)],
+                    [constructor.functionDef(element, settings)],
                     {'isFactory': code.literalBool(constructor.isFactory)}),
         }),
         'methods': code.literalMap({
-          for (var method in methods)
-            code.literalString(method.name): method.methodDef(settings),
+          for (var method in newMethods)
+            code.literalString(method.name):
+                method.methodDef(element, settings),
         }),
         'getters': code.literalMap({
-          for (var accessor in accessors)
+          for (var accessor in newAccessors)
             if (accessor.isGetter)
-              code.literalString(accessor.name): accessor.methodDef(settings),
+              code.literalString(accessor.name):
+                  accessor.methodDef(element, settings),
         }),
         'setters': code.literalMap({
-          for (var accessor in accessors)
+          for (var accessor in newAccessors)
             if (accessor.isSetter)
               code.literalString(
                       accessor.name.substring(0, accessor.name.length - 1)):
-                  accessor.methodDef(settings),
+                  accessor.methodDef(element, settings),
         }),
         // 'fields': code.literalMap({
         //   for (var field in element.fields)
@@ -266,7 +349,7 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..body = code
         .refer('runtime')
         .property('lookupType')
-        .call([code.refer(r'$type').property('spec').nullChecked])
+        .call([code.refer(r'$type')])
         .returned
         .statement));
 
@@ -395,7 +478,16 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
 
 @visibleForTesting
 extension DartTypeToCode on DartType {
+  DartType? get nullIfObject {
+    return isDartCoreObject ? null : this;
+  }
+
   code.TypeReference refer() {
+    if (this is VoidType) {
+      return code.TypeReference((b) => b
+        ..symbol = 'void'
+        ..url = 'dart:core');
+    }
     return code.TypeReference((b) => b
       ..symbol = element!.name
       ..isNullable = isNullable
@@ -405,6 +497,7 @@ extension DartTypeToCode on DartType {
       ]));
   }
 
+  @Deprecated('Use WrapperDiscovery')
   ElementAnnotation? getWrappedAnnotation() {
     return element!.metadata
         .where((a) =>
@@ -414,48 +507,38 @@ extension DartTypeToCode on DartType {
         .firstOrNull;
   }
 
-  code.Expression annotated(KnownWrapperMap knownWrapper) {
+  code.Expression annotated(ClassElement self, KnownWrapperMap knownWrappers) {
+    if (this is VoidType) {
+      return WellKnownTypeReferences.coreTypes
+          .property('voidType')
+          .property('ref')
+          .property('annotate');
+    }
+
+    if (self.id == element!.id) {
+      return code
+          .refer(r'$type')
+          .property('ref')
+          .property(isNullable ? 'annotate' : 'annotateNullable');
+    }
+
     var this$ = this;
     switch (this$) {
       case ParameterizedType():
-        var known = knownWrapper.entries
-            .where((e) => e.key.element!.id == element!.id)
-            .firstOrNull
-            ?.value
-            .spec;
-        if (known != null) {
-          return known
-              .asExpression()
-              .property('ref')
-              .property(isNullable ? 'annotate' : 'annotateNullable');
+        var discovery = WrapperDiscovery.discover(
+            this$.element as TypeParameterizedElement, knownWrappers);
+
+        if (discovery != null) {
+          return WellKnownTypeReferences.bridgeTypeRef.newInstance([
+            discovery.spec,
+            code.literalList([
+              //TODO: Generics
+            ])
+          ]).property(isNullable ? 'annotate' : 'annotateNullable');
         }
 
-        var wellKnown = WellKnownWrapper.get(this);
-
-        if (wellKnown != null) {
-          return WellKnownTypeReferences.bridgeTypeSpec
-              .newInstance([
-                code.literalString(wellKnown.wrappedTypeOwner),
-                code.literalString(wellKnown.wrappedTypeSymbol)
-              ])
-              .property('ref')
-              .property(isNullable ? 'annotate' : 'annotateNullable');
-        }
-
-        var nameFromAnnotation = getWrappedAnnotation()
-            ?.computeConstantValue()
-            ?.getField('name')
-            ?.toStringWithDefault('\$${element!.name}');
-        if (nameFromAnnotation != null) {
-          return code
-              .refer(nameFromAnnotation)
-              .property(r'$type')
-              .property(isNullable ? 'annotate' : 'annotateNullable');
-        }
-
-        //TODO: Other tyes then core types.
         throw UnimplementedError(
-            "Unknown bridgeTypeSpec for ${getDisplayString()}.");
+            "Unknown BridgeTypeSpec for wrapper of ${getDisplayString()}.");
     }
     throw UnimplementedError(
         "Can not annotate ${getDisplayString()}. Only ParameterizedTypes are currently supported.");
@@ -467,28 +550,26 @@ extension DartTypeToCode on DartType {
 }
 
 extension on ExecutableElement {
-  code.Expression methodDef(WrapperSettings settings) {
+  code.Expression methodDef(ClassElement self, WrapperSettings settings) {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeMethodDef'
       ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([
-      functionDef(settings)
+      functionDef(self, settings)
     ], {
       'isStatic': code.literalBool(isStatic) //TODO: Static methods
     });
   }
 
-  code.Expression functionDef(WrapperSettings settings) {
-    return code.TypeReference((b) => b
-      ..symbol = 'BridgeFunctionDef'
-      ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([], {
-      'returns': code.refer(r'$type').property('annotate'),
+  code.Expression functionDef(ClassElement self, WrapperSettings settings) {
+    return WellKnownTypeReferences.bridgeFunctionDef.newInstance([], {
+      'returns': returnType.annotated(self, settings.knownWrappers),
       'params': code.literalList([
         for (var param in parameters)
           if (param.isPositional)
             code
                 .literalString(param.name)
                 .property(param.isRequired ? 'param' : 'paramOptional')
-                .call({param.type.annotated(settings.knownWrappers)})
+                .call({param.type.annotated(self, settings.knownWrappers)})
       ]),
       'namedParams': code.literalList([
         for (var param in parameters)
@@ -496,7 +577,7 @@ extension on ExecutableElement {
             code
                 .literalString(param.name)
                 .property(param.isRequired ? 'param' : 'paramOptional')
-                .call({param.type.annotated(settings.knownWrappers)})
+                .call({param.type.annotated(self, settings.knownWrappers)})
       ]),
       'generics': code.literalMap({
         //TODO: Generics
@@ -592,50 +673,41 @@ extension on code.Expression {
 
   /// Wraps this (has Type [type]) as a [$Value].
   code.Expression wrapped(DartType type, KnownWrapperMap knownWrappers) {
-    code.Expression Function(code.Expression)? wrap;
-
-    var known = knownWrappers.entries
-        .where((k) => k.key.element!.id == type.element!.id)
-        .firstOrNull
-        ?.value
-        .wrap;
-
-    if (known != null) {
-      wrap = (e) => known.asExpression().call([e]);
+    if (type is VoidType) {
+      return code.Method((b) => b.body = code.Block.of([
+            statement,
+            code.literalNull.returned.statement,
+          ])).closure.call([]);
     }
 
-    wrap ??= WellKnownWrapper.get(type)?.wrap;
+    switch (type) {
+      case ParameterizedType():
+        var discovery = WrapperDiscovery.discover(
+            type.element as TypeParameterizedElement, knownWrappers);
 
-    if (wrap == null) {
-      var name = type
-          .getWrappedAnnotation()
-          ?.computeConstantValue()
-          ?.getField('name')
-          ?.toStringWithDefault('\$${type.element!.name}');
-      if (name != null) {
-        wrap = (inner) => name.asExpression().property('wrap').call([inner]);
-      }
-    }
+        if (discovery != null) {
+          if (type.isNullable) {
+            return code.Method((b) => b.body = code.Block.of([
+                  code.declareFinal(r'$').assign(this).statement,
+                  code
+                      .refer(r'$')
+                      .equalTo(code.literalNull)
+                      .conditional(
+                          WellKnownTypeReferences.$null.constInstance([]),
+                          discovery.wrap(code.refer(r'$')))
+                      .returned
+                      .statement,
+                ])).closure.call([]);
+          } else {
+            return discovery.wrap(this);
+          }
+        }
 
-    if (wrap != null) {
-      if (type.isNullable) {
-        return code.Method((b) => b.body = code.Block.of([
-              code.declareFinal(r'$').assign(this).statement,
-              code
-                  .refer(r'$')
-                  .equalTo(code.literalNull)
-                  .conditional(WellKnownTypeReferences.$null.constInstance([]),
-                      wrap!(code.refer(r'$')))
-                  .returned
-                  .statement,
-            ])).closure.call([]);
-      } else {
-        return wrap(this);
-      }
-    } else {
-      //TODO: Detect annotated classes and use known wrappers
-      throw UnsupportedError('No wrapper known for ${type.getDisplayString()}');
+        throw UnimplementedError(
+            "Unknown Wrapper for ${type.getDisplayString()}.");
     }
+    throw UnimplementedError(
+        "Can not wrap ${type.getDisplayString()}. Only ParameterizedTypes are currently supported.");
   }
 }
 
@@ -655,5 +727,167 @@ extension on code.TypeReference {
 extension on DartObject {
   String toStringWithDefault(String d) {
     return toStringValue() ?? d;
+  }
+}
+
+extension on (InterfaceType, WrapperDiscovery) {
+  /// Create a [WellKnownTypeReferences.bridgeTypeRef]
+  code.Expression get ref {
+    return WellKnownTypeReferences.bridgeTypeRef.call([
+      $2.spec,
+      //TODO: Generics
+    ]);
+  }
+}
+
+extension on InterfaceElement {
+  List<(InterfaceType, WrapperDiscovery)> discoverSupWrappers(
+      Iterable<InterfaceType> Function(InterfaceElement) sup,
+      KnownWrapperMap knownWrappers) {
+    var results = <(InterfaceType, WrapperDiscovery)>[];
+    var currentLayer = sup(this);
+
+    while (currentLayer.isNotEmpty) {
+      var nextLayer = <InterfaceType>[];
+      for (var current in currentLayer) {
+        var discovery =
+            WrapperDiscovery.discover(current.element, knownWrappers);
+        if (discovery != null) {
+          results.add((current, discovery));
+        } else {
+          nextLayer.addAll(sup(current.element));
+        }
+      }
+      currentLayer = nextLayer;
+    }
+
+    return results;
+  }
+
+  List<InterfaceType> discoverSupTillWrapper(
+      Iterable<InterfaceType> Function(InterfaceElement) sup,
+      KnownWrapperMap knownWrappers) {
+    var results = <InterfaceType>[];
+    var currentLayer = sup(this);
+
+    while (currentLayer.isNotEmpty) {
+      var nextLayer = <InterfaceType>[];
+      for (var current in currentLayer) {
+        if (WrapperDiscovery.discover(current.element, knownWrappers) == null) {
+          results.add(current);
+          nextLayer.addAll(sup(current.element));
+        }
+      }
+      currentLayer = nextLayer;
+    }
+
+    return results;
+  }
+}
+
+sealed class WrapperDiscovery {
+  const WrapperDiscovery._();
+
+  static WrapperDiscovery? discover(
+      TypeParameterizedElement element, KnownWrapperMap knownWrappers) {
+    var known = knownWrappers.entries
+        .where((k) => k.key.element!.id == element.id)
+        .firstOrNull
+        ?.value;
+
+    if (known != null) {
+      return KnownWrapperDiscovery(spec: known.spec, wrap: known.wrap);
+    }
+
+    var wellKnown = WellKnownWrapper.get(element);
+
+    if (wellKnown != null) {
+      return WellKnownWrapperDiscovery(wellKnown);
+    }
+
+    var annotation = element.metadata
+        .where((a) =>
+            a.element!.enclosingElement!.name == '$Wrapper' &&
+            a.element!.librarySource!.uri.toString() ==
+                'package:eval_builder_annotations/annotations.dart')
+        .firstOrNull;
+    if (annotation != null) {
+      return AnnotatedWrapperDiscovery(annotation, element);
+    }
+
+    return null;
+  }
+
+  code.Expression get spec;
+
+  code.Expression wrap(code.Expression inner);
+}
+
+class WellKnownWrapperDiscovery extends WrapperDiscovery {
+  final WellKnownWrapper wrapper;
+  WellKnownWrapperDiscovery(this.wrapper) : super._();
+
+  @override
+  code.Expression get spec =>
+      WellKnownTypeReferences.bridgeTypeSpec.newInstance([
+        code.literalString(wrapper.wrappedTypeOwner),
+        code.literalString(wrapper.wrappedTypeSymbol)
+      ]);
+
+  @override
+  code.Expression wrap(code.Expression inner) {
+    return wrapper.wrap(inner);
+  }
+}
+
+class KnownWrapperDiscovery extends WrapperDiscovery {
+  final String _spec;
+  final String _wrap;
+
+  KnownWrapperDiscovery({required String spec, required String wrap})
+      : _spec = spec,
+        _wrap = wrap,
+        super._();
+
+  @override
+  code.Expression get spec => _spec.asExpression();
+
+  @override
+  code.Expression wrap(code.Expression inner) {
+    return _wrap.asExpression().call([inner]);
+  }
+}
+
+class AnnotatedWrapperDiscovery extends WrapperDiscovery {
+  final ElementAnnotation annotation;
+  final TypeParameterizedElement annotated;
+
+  AnnotatedWrapperDiscovery(this.annotation, this.annotated) : super._();
+
+  @deprecated
+  String get name => _name;
+
+  String get _name => annotation
+      .computeConstantValue()!
+      .getField('name')!
+      .toStringWithDefault('\$${annotated.name}');
+
+  @override
+  code.Expression get spec {
+    final annotated = this.annotated;
+    switch (annotated) {
+      case InterfaceElement():
+        return (annotated.thisType.refer().toBuilder()..symbol = _name)
+            .build()
+            .property(r'$type');
+      default:
+        throw UnimplementedError(
+            "Can not get spec for ${annotated.getDisplayString()}. InterfaceElement can currently be annotated.");
+    }
+  }
+
+  @override
+  code.Expression wrap(code.Expression inner) {
+    return _name.asExpression().property('wrap').call([inner]);
   }
 }

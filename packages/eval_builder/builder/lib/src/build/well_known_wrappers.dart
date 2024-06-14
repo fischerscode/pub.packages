@@ -1,3 +1,4 @@
+import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:eval_builder/src/build/known_wrapper.dart';
@@ -384,9 +385,9 @@ class WellKnownWrapper extends KnownWrapper {
   final String wrappedTypeOwner;
   final String? wrappedTypeActualDartOwner;
 
-  static WellKnownWrapper? get(DartType type) {
-    final symbol = type.element!.name;
-    final owner = type.element!.librarySource?.uri.toString();
+  static WellKnownWrapper? get(TypeParameterizedElement element) {
+    final symbol = element.name;
+    final owner = element.librarySource.uri.toString();
 
     var wrapper = [
       $Completer,
