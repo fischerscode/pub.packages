@@ -362,9 +362,8 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             ..type = WellKnownTypeReferences.$Value.nullable(true)),
           code.Parameter((b) => b
             ..name = 'args'
-            ..type = code.TypeReference((b) => b
-              ..symbol = r'List'
-              ..types.add(WellKnownTypeReferences.$Value.nullable(true)))),
+            ..type = WellKnownTypeReferences.list
+                .withGeneric(WellKnownTypeReferences.$Value.nullable(true))),
         ])
         ..body = code
             .refer('target')
