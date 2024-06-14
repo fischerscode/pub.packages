@@ -490,19 +490,49 @@ extension DartTypeToCode on DartType {
     return isDartCoreObject ? null : this;
   }
 
-  code.TypeReference refer() {
+  code.Reference refer() {
     if (this is VoidType) {
       return code.TypeReference((b) => b
         ..symbol = 'void'
         ..url = 'dart:core');
     }
-    return code.TypeReference((b) => b
-      ..symbol = element!.name
-      ..isNullable = isNullable
-      ..url = '_library_with_element:${element!.id}'
-      ..types.addAll([
-        //TODO: Generics
-      ]));
+    final this$ = this;
+    switch (this$) {
+      case ParameterizedType():
+        return code.TypeReference((b) => b
+          ..symbol = element!.name
+          ..isNullable = isNullable
+          ..url = '_library_with_element:${element!.id}'
+          ..types.addAll([
+            //TODO: Generics
+          ]));
+      case FunctionType():
+        return code.FunctionType((b) => b
+              ..isNullable = isNullable
+              ..returnType = this$.returnType.refer()
+              ..requiredParameters.addAll({
+                for (var parameter in this$.parameters)
+                  if (parameter.isRequiredPositional) parameter.type.refer()
+              })
+              ..optionalParameters.addAll({
+                for (var parameter in this$.parameters)
+                  if (parameter.isOptionalPositional) parameter.type.refer()
+              })
+              ..namedParameters.addAll({
+                for (var parameter in this$.parameters)
+                  if (parameter.isOptionalNamed)
+                    parameter.name: parameter.type.refer()
+              })
+              ..namedRequiredParameters.addAll({
+                for (var parameter in this$.parameters)
+                  if (parameter.isRequiredNamed)
+                    parameter.name: parameter.type.refer()
+              })
+            // ..types //TODO: Generics
+            );
+    }
+    throw UnimplementedError(
+        "Can not refer to ${getDisplayString()}. Only ParameterizedTypes are currently supported.");
   }
 
   @Deprecated('Use WrapperDiscovery')
@@ -523,7 +553,7 @@ extension DartTypeToCode on DartType {
           .property('annotate');
     }
 
-    if (self.id == element!.id) {
+    if (self.id == element?.id) {
       return code
           .refer(r'$type')
           .property('ref')
@@ -547,6 +577,38 @@ extension DartTypeToCode on DartType {
 
         throw UnimplementedError(
             "Unknown BridgeTypeSpec for wrapper of ${getDisplayString()}.");
+      case FunctionType():
+        return WellKnownTypeReferences.bridgeTypeAnnotation.newInstance([
+          WellKnownTypeReferences.bridgeTypeRef
+              .newInstanceNamed('genericFunction', [
+            WellKnownTypeReferences.bridgeFunctionDef.newInstance([], {
+              'returns': this$.returnType.annotated(self, knownWrappers),
+              'params': code.literalList([
+                for (var parameter in this$.parameters)
+                  if (parameter.isPositional)
+                    WellKnownTypeReferences.bridgeParameter.newInstance([
+                      code.literalString(parameter.name),
+                      parameter.type.annotated(self, knownWrappers),
+                      code.literalBool(parameter.isOptional)
+                    ]),
+              ]),
+              'namedParams': code.literalList([
+                for (var parameter in this$.parameters)
+                  if (parameter.isNamed)
+                    WellKnownTypeReferences.bridgeParameter.newInstance([
+                      code.literalString(parameter.name),
+                      parameter.type.annotated(self, knownWrappers),
+                      code.literalBool(parameter.isOptional)
+                    ]),
+              ]),
+              // 'generics': code.literalConstMap() //TODO: Generics
+            }),
+          ]),
+        ], {
+          'nullable': code.literalBool(this$.isNullable)
+        }
+            //TODO: Generics
+            );
     }
     throw UnimplementedError(
         "Can not annotate ${getDisplayString()}. Only ParameterizedTypes are currently supported.");
@@ -713,6 +775,67 @@ extension on code.Expression {
 
         throw UnimplementedError(
             "Unknown Wrapper for ${type.getDisplayString()}.");
+      case FunctionType():
+        closureBuilder(code.Expression e) =>
+            WellKnownTypeReferences.$Function.newInstance([
+              code.Method(
+                (b) => b
+                  ..returns = type.refer()
+                  ..requiredParameters.addAll([
+                    code.Parameter((b) => b
+                      ..name = 'runtime'
+                      ..type = WellKnownTypeReferences.runtime),
+                    code.Parameter((b) => b
+                      ..name = 'target'
+                      ..type = WellKnownTypeReferences.$Value.nullable(true)),
+                    code.Parameter(
+                      (b) => b
+                        ..name = 'args'
+                        ..type = WellKnownTypeReferences.list.withGeneric(
+                            WellKnownTypeReferences.$Value.nullable(true)),
+                    ),
+                  ])
+                  ..body = e
+                      .call([
+                        for (var (index, parameter) in type.parameters.indexed)
+                          if (parameter.isPositional)
+                            code
+                                .refer('args')
+                                .index(code.literalNum(index))
+                                .maybeNullChecked(!parameter.hasDefaultValue)
+                                .access(parameter.type,
+                                    parameter.defaultValueCode?.asExpression())
+                      ], {
+                        for (var (index, parameter) in type.parameters.indexed)
+                          if (parameter.isNamed)
+                            parameter.name: code
+                                .refer('args')
+                                .index(code.literalNum(index))
+                                .maybeNullChecked(!parameter.hasDefaultValue)
+                                .access(parameter.type,
+                                    parameter.defaultValueCode?.asExpression())
+                      })
+                      .wrapped(type.returnType, knownWrappers)
+                      .returned
+                      .statement,
+              ).closure,
+            ]);
+
+        if (type.isNullable) {
+          return code.Method((b) => b.body = code.Block.of([
+                code.declareFinal(r'$').assign(this).statement,
+                code
+                    .refer(r'$')
+                    .equalTo(code.literalNull)
+                    .conditional(
+                        WellKnownTypeReferences.$null.constInstance([]),
+                        closureBuilder(code.refer(r'$')))
+                    .returned
+                    .statement,
+              ])).closure.call([]);
+        } else {
+          return closureBuilder(this);
+        }
     }
     throw UnimplementedError(
         "Can not wrap ${type.getDisplayString()}. Only ParameterizedTypes are currently supported.");
@@ -885,7 +1008,8 @@ class AnnotatedWrapperDiscovery extends WrapperDiscovery {
     final annotated = this.annotated;
     switch (annotated) {
       case InterfaceElement():
-        return (annotated.thisType.refer().toBuilder()..symbol = _name)
+        return ((annotated.thisType.refer() as code.TypeReference).toBuilder()
+              ..symbol = _name)
             .build()
             .property(r'$type');
       default:

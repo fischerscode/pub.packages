@@ -20,6 +20,7 @@ import 'package:dart_eval/stdlib/typed_data.dart' as stdlib_typed_data;
 part 'types_wrapper_test_generation.golden.dart';
 
 class TypesContainer {
+  void voidMethod() {}
   late async.Completer varCompleter;
   async.Completer? varCompleterNullable;
   late core.Stream varStream;
@@ -142,4 +143,8 @@ class TypesContainer {
   typed_data.TypedData? varTypedDataNullable;
   late typed_data.Uint8List varUint8List;
   typed_data.Uint8List? varUint8ListNullable;
+  late core.String Function(core.String a,
+      {required core.String b, core.String? c}) varFunction;
+  void Function(core.String a, [core.String b, core.String? c])?
+      varFunctionNullable;
 }
