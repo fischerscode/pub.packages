@@ -1,5 +1,7 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
+import 'package:meta/meta_meta.dart';
 
+@Target({TargetKind.classType})
 class Wrapper {
   /// The name of the generated class.
   final String? name;
