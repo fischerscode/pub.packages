@@ -46,10 +46,6 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
     ..name = settings.name
     ..implements.addAll([
       if (settings.bimodal) element.thisType.refer(),
-      if (settings.bimodal) element.supertype?.nullIfObject?.refer(),
-      if (settings.bimodal)
-        ...element.interfaces.map((i) => i.nullIfObject?.refer()),
-      if (settings.bimodal) ...element.mixins.map((m) => m.refer()),
       code.TypeReference((b) => b
         ..symbol = r'$Instance'
         ..url = WellKnownTypeReferences.dartEvalBridgePackage)

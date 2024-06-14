@@ -1,6 +1,6 @@
 part of 'extending_wrapper_test_non_wrapped.dart';
 
-class $TestedClass implements TestedClass, BaseClass, $Instance {
+class $TestedClass implements TestedClass, $Instance {
   const $TestedClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(

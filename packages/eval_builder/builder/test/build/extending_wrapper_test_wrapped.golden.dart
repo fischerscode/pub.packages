@@ -166,7 +166,7 @@ class $BaseClass implements BaseClass, $Instance {
   set propertyFromBase(String value) => $value.propertyFromBase = value;
 }
 
-class $TestedClass implements TestedClass, BaseClass, $Instance {
+class $TestedClass implements TestedClass, $Instance {
   const $TestedClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
