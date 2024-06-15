@@ -17,7 +17,9 @@ void main() {
     expect(resolved, isNotNull);
 
     var element = resolved!.element.getClass('ToWrap');
+    var stubWrapper = resolved.element.getClass('CustomStubWrapper');
     expect(element, isNotNull);
+    expect(stubWrapper, isNotNull);
     expect(
         createPartFile('known_wrapper_test_generation.dart', [
           ClassWrapperBuilder(
@@ -29,8 +31,8 @@ void main() {
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
                   knownWrappers: {
                     resolved.element.getClass('CustomWrapped')!.thisType: (
-                      spec: 'CustomStubWrapper.spec',
-                      wrap: 'CustomStubWrapper.wrap'
+                      spec: (library: 'library', name: 'name'),
+                      wrap: stubWrapper!.constructors.first,
                     )
                   })).build()
         ]),

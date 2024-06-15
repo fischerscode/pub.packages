@@ -1,0 +1,8 @@
+builders:
+  eval_builder:
+    import: "package:eval_builder/eval_builder.dart"
+    builder_factories: ["createBuilder"]
+    build_extensions: { ".dart": [".eval_builder.g.part"] }
+    auto_apply: dependents
+    build_to: cache
+    applies_builders: ["source_gen:combining_builder"]

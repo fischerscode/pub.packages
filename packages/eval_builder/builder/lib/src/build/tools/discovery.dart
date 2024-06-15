@@ -65,20 +65,49 @@ class WellKnownWrapperDiscovery extends WrapperDiscovery {
 }
 
 class KnownWrapperDiscovery extends WrapperDiscovery {
-  final String _spec;
-  final String _wrap;
+  final ({String library, String name}) _spec;
+  final ExecutableElement _wrap;
 
-  KnownWrapperDiscovery({required String spec, required String wrap})
+  KnownWrapperDiscovery(
+      {required ({String library, String name}) spec,
+      required ExecutableElement wrap})
       : _spec = spec,
         _wrap = wrap,
         super._();
 
   @override
-  code.Expression get spec => _spec.asExpression();
+  code.Expression get spec => WellKnownTypeReferences.bridgeTypeSpec.call(
+      [code.literalString(_spec.library), code.literalString(_spec.name)]);
 
   @override
   code.Expression wrap(code.Expression inner) {
-    return _wrap.asExpression().call([inner]);
+    var path = <Element>[_wrap];
+    Element? parent = _wrap.enclosingElement;
+    while (parent != null && parent is! LibraryElement) {
+      path.insert(0, parent);
+      parent = parent.enclosingElement;
+    }
+
+    return path.fold(''.asExpression(), (p, c) {
+      switch (c) {
+        case ClassMemberElement(name: var name):
+          if (name != null) {
+            return p.property(name);
+          } else {
+            return p;
+          }
+        case TypeDefiningElement():
+          return code.TypeReference((b) => b
+            ..symbol = c.name
+            ..url = '_library_with_element:${c.id}'
+            ..types.addAll([
+              //TODO: Generics
+            ]));
+        default:
+          throw UnsupportedError(
+              'Unexpected ${c.runtimeType} in call path of $_wrap');
+      }
+    }).call([inner]);
   }
 }
 
