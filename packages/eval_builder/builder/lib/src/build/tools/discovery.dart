@@ -83,10 +83,13 @@ class KnownWrapperDiscovery extends WrapperDiscovery {
   code.Expression wrap(code.Expression inner) {
     var path = <Element>[_wrap];
     Element? parent = _wrap.enclosingElement;
-    while (parent != null && parent is! LibraryElement) {
+    while (parent != null &&
+        parent is! LibraryElement &&
+        parent is! CompilationUnitElement) {
       path.insert(0, parent);
       parent = parent.enclosingElement;
     }
+    print(path.map((e) => e.name).toString());
 
     return path.fold(''.asExpression(), (p, c) {
       switch (c) {

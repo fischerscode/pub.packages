@@ -35,7 +35,10 @@ class $ToWrap implements $Instance {
       'child': BridgeMethodDef(
         BridgeFunctionDef(
           returns: BridgeTypeRef(
-            CustomStubWrapper.spec,
+            BridgeTypeSpec(
+              'library',
+              'name',
+            ),
             [],
           ).annotateNullable,
           params: [],
@@ -47,7 +50,10 @@ class $ToWrap implements $Instance {
       'childNullable': BridgeMethodDef(
         BridgeFunctionDef(
           returns: BridgeTypeRef(
-            CustomStubWrapper.spec,
+            BridgeTypeSpec(
+              'library',
+              'name',
+            ),
             [],
           ).annotate,
           params: [],
@@ -63,7 +69,10 @@ class $ToWrap implements $Instance {
           returns: CoreTypes.voidType.ref.annotate,
           params: [
             '_child'.param(BridgeTypeRef(
-              CustomStubWrapper.spec,
+              BridgeTypeSpec(
+                'library',
+                'name',
+              ),
               [],
             ).annotateNullable)
           ],
@@ -77,7 +86,10 @@ class $ToWrap implements $Instance {
           returns: CoreTypes.voidType.ref.annotate,
           params: [
             '_childNullable'.param(BridgeTypeRef(
-              CustomStubWrapper.spec,
+              BridgeTypeSpec(
+                'library',
+                'name',
+              ),
               [],
             ).annotate)
           ],
