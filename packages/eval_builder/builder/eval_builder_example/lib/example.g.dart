@@ -250,3 +250,141 @@ class $ExampleEnum implements $Instance {
     return $String((target!.$value as ExampleEnum).toString());
   }
 }
+
+class $_WrapThis implements $Instance {
+  $_WrapThis.wrap(this.$value);
+
+  static final $type = BridgeTypeSpec(
+    'package:myPackage/file.dart',
+    'ExternalClass',
+  );
+
+  static final $declaration = BridgeClassDef(
+    BridgeClassType(
+      $type.ref,
+      $extends: BridgeTypeRef(BridgeTypeSpec(
+        'dart:core',
+        'Object',
+      )),
+      $implements: [],
+      $with: [],
+      isAbstract: false,
+    ),
+    constructors: {
+      '': BridgeConstructorDef(
+        BridgeFunctionDef(
+          returns: $type.ref.annotateNullable,
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isFactory: false,
+      )
+    },
+    methods: {},
+    getters: {
+      'foo': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: BridgeTypeRef(
+            BridgeTypeSpec(
+              'dart:core',
+              'int',
+            ),
+            [],
+          ).annotateNullable,
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      )
+    },
+    setters: {
+      'foo': BridgeMethodDef(
+        BridgeFunctionDef(
+          returns: CoreTypes.voidType.ref.annotate,
+          params: [
+            '_foo'.param(BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
+            ).annotateNullable)
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      )
+    },
+    bridge: false,
+    wrap: true,
+  );
+
+  @override
+  final e.ExternalClass $value;
+
+  late final $Instance _$superWrapper = $Object($value);
+
+  @override
+  get $reified => $value;
+
+  static $Value? $new(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $_WrapThis.wrap(e.ExternalClass());
+  }
+
+  @override
+  $Value? $getProperty(
+    Runtime runtime,
+    String identifier,
+  ) {
+    switch (identifier) {
+      case 'foo':
+        return $int($value.foo);
+      default:
+        return _$superWrapper.$getProperty(
+          runtime,
+          identifier,
+        );
+    }
+  }
+
+  @override
+  void $setProperty(
+    Runtime runtime,
+    String identifier,
+    $Value value,
+  ) {
+    switch (identifier) {
+      case 'foo':
+        $value.foo = ($Value $) {
+          final $$ = ($ as dynamic);
+          return $$ is! int ? ($.$reified as int) : $$;
+        }(value);
+      default:
+        _$superWrapper.$setProperty(
+          runtime,
+          identifier,
+          value,
+        );
+    }
+  }
+
+  @override
+  int $getRuntimeType(Runtime runtime) {
+    return runtime.lookupType($type);
+  }
+
+  static $Value? _toString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String((target!.$value as e.ExternalClass).toString());
+  }
+}

@@ -72,6 +72,9 @@ class WrapperGenerator extends GeneratorForAnnotation<Wrapper> {
                 useNullSafetySyntax: true))
             .toString();
 
+      case TypeAliasElement():
+        return generateForAnnotatedElement(
+            element.aliasedType.element!, annotation, buildStep, element);
       default:
         throw UnsupportedError(
             "Annotating $element with @$Wrapper is not supported.");

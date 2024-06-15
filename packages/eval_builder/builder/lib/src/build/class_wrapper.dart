@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:eval_builder/src/build/tools/dart_type_to_code.dart';
 import 'package:eval_builder/src/build/wrapper.dart';
 
 import 'tools/code_builder_utils.dart';
@@ -98,9 +99,8 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
           ])
           ..body = code.TypeReference((b) => b.symbol = settings.name)
               .newInstanceNamed('wrap', [
-                code.TypeReference((b) => b..symbol = wrapped.name)
-                    .newInstanceMaybeNamed(
-                        constructor.name.isEmpty ? null : constructor.name, [
+                wrapped.thisType.refer().newInstanceMaybeNamed(
+                    constructor.name.isEmpty ? null : constructor.name, [
                   for (var (index, parameter) in constructor.parameters.indexed)
                     if (parameter.isPositional)
                       code
