@@ -1,4 +1,5 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
+import 'package:eval_builder/src/build/settings.dart';
 import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';

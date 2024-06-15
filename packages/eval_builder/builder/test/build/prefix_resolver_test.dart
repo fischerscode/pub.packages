@@ -1,7 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:code_builder/code_builder.dart';
 import 'package:eval_builder/src/build/prefix_resolver.dart';
-import 'package:eval_builder/src/build/wrapper.dart';
+import 'package:eval_builder/src/build/tools/dart_type_to_code.dart';
 import 'package:test/test.dart';
 
 import '../analyzer.dart';
