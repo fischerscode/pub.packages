@@ -42,7 +42,7 @@ class PrefixResolver implements Allocator {
               if ((element.id == id) ||
                   importElement.source.uri.toString() == url ||
                   importElement.exports(url)) {
-                _cache[url] == prefix.name;
+                _cache[(url: url, symbol: symbol)] == prefix.name;
                 return '${prefix.name}.$symbol';
               }
             }
