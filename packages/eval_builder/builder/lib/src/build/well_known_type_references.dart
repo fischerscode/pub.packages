@@ -44,6 +44,9 @@ class WellKnownTypeReferences {
   static final bridgeClassDef = code.TypeReference((b) => b
     ..symbol = 'BridgeClassDef'
     ..url = dartEvalBridgePackage);
+  static final bridgeEnumDef = code.TypeReference((b) => b
+    ..symbol = 'BridgeEnumDef'
+    ..url = dartEvalBridgePackage);
   static final bridgeClassType = code.TypeReference((b) => b
     ..symbol = 'BridgeClassType'
     ..url = dartEvalBridgePackage);

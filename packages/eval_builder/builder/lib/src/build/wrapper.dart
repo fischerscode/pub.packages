@@ -36,8 +36,10 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
         Iterable<(InterfaceType, MethodElement)> methods) {
       return methods
           .fold(
-              Map.fromIterables(wrapped.methods.map((e) => e.name),
-                  wrapped.methods.map((e) => e)), (methods, method) {
+              Map.fromIterables(
+                  filterMethods(wrapped.methods).map((e) => e.name),
+                  filterMethods(wrapped.methods).map((e) => e)),
+              (methods, method) {
             if ((method.$2.isPublic && !method.$2.isStatic) ||
                 method.$1.element.library.id == wrapped.library.id) {
               methods[method.$2.name] ??= method.$2;
@@ -57,10 +59,11 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
       return accessors
           .fold(
               Map.fromIterables(
-                  wrapped.accessors
+                  filterAccessors(wrapped.accessors)
                       .where((a) => a.isSetter || a.isGetter)
                       .map((e) => (e.isGetter, e.name)),
-                  wrapped.accessors.where((a) => a.isSetter || a.isGetter)),
+                  filterAccessors(wrapped.accessors)
+                      .where((a) => a.isSetter || a.isGetter)),
               (accessors, accessor) {
             if ((accessor.$2.isPublic && !accessor.$2.isStatic) ||
                 accessor.$1.element.library.id == wrapped.library.id) {
@@ -80,11 +83,11 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
     }
 
     // Methods that are not inherited from Wrappers
-    newMethodsWithPrivate = lookupMethods(
-        supTypesTillWrappers.expand((s) => s.methods.map((m) => (s, m))));
+    newMethodsWithPrivate = lookupMethods(supTypesTillWrappers
+        .expand((s) => filterMethods(s.methods).map((m) => (s, m))));
 
-    newAccessorsWithPrivate = lookupAccessors(
-        supTypesTillWrappers.expand((s) => s.accessors.map((m) => (s, m))));
+    newAccessorsWithPrivate = lookupAccessors(supTypesTillWrappers
+        .expand((s) => filterAccessors(s.accessors).map((m) => (s, m))));
 
     newMethods = newMethodsWithPrivate.where((e) => !e.isPrivate);
     newAccessors = newAccessorsWithPrivate.where((e) => !e.isPrivate);
@@ -108,6 +111,17 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
   late final List<MethodElement> methodsWithPrivate;
   late final List<PropertyAccessorElement> accessorsWithPrivate;
   late final Iterable<MethodElement> methods;
+
+  code.Reference get selfReference => code.refer(settings.name);
+
+  Iterable<MethodElement> filterMethods(Iterable<MethodElement> unfiltered) {
+    return unfiltered;
+  }
+
+  Iterable<PropertyAccessorElement> filterAccessors(
+      Iterable<PropertyAccessorElement> unfiltered) {
+    return unfiltered;
+  }
 
   code.Class build() {
     var builder = code.ClassBuilder();
@@ -213,8 +227,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
         for (var method in newMethods) ...[
           "case '${method.name}':".toCode(),
           WellKnownTypeReferences.$Function
-              .newInstance(
-                  [code.refer(settings.name).property('_${method.name}')])
+              .newInstance([selfReference.property('_${method.name}')])
               .returned
               .statement,
         ],

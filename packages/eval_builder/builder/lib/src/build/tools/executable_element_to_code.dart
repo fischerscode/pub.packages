@@ -6,7 +6,7 @@ import '../settings.dart';
 import '../well_known_type_references.dart';
 
 extension ExecutableElementToCode on ExecutableElement {
-  code.Expression methodDef(ClassElement self, WrapperSettings settings) {
+  code.Expression methodDef(InterfaceElement self, WrapperSettings settings) {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeMethodDef'
       ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([
@@ -16,7 +16,7 @@ extension ExecutableElementToCode on ExecutableElement {
     });
   }
 
-  code.Expression functionDef(ClassElement self, WrapperSettings settings) {
+  code.Expression functionDef(InterfaceElement self, WrapperSettings settings) {
     return WellKnownTypeReferences.bridgeFunctionDef.newInstance([], {
       'returns': returnType.annotated(self, settings.knownWrappers),
       'params': code.literalList([

@@ -68,7 +68,8 @@ extension DartTypeToCode on DartType {
         .firstOrNull;
   }
 
-  code.Expression annotated(ClassElement self, KnownWrapperMap knownWrappers) {
+  code.Expression annotated(
+      InterfaceElement self, KnownWrapperMap knownWrappers) {
     if (this is VoidType) {
       return WellKnownTypeReferences.coreTypes
           .property('voidType')
