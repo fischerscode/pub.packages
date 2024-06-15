@@ -1,7 +1,7 @@
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:meta/meta_meta.dart';
 
-@Target({TargetKind.classType})
+@Target({TargetKind.classType, TargetKind.enumType})
 class Wrapper {
   /// The name of the generated class.
   final String? name;
@@ -11,7 +11,7 @@ class Wrapper {
 
   /// The identifier of the library the virtual class should be a part of.
   ///
-  /// (e.g. 'package:myPackage/file.dart')
+  /// Defaults to 'package:myPackage/file.dart'.
   final String? libIdentifier;
 
   /// Maps a [Type] to a known wrapper for that type.
@@ -32,7 +32,7 @@ class Wrapper {
 
   const Wrapper(
       {this.name,
-      this.bimodal = true,
+      this.bimodal = false,
       this.libIdentifier,
       this.knownWrappers = const {},
       this.defaultParameterStrategy});
