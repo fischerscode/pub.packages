@@ -89,7 +89,6 @@ class KnownWrapperDiscovery extends WrapperDiscovery {
       path.insert(0, parent);
       parent = parent.enclosingElement;
     }
-    print(path.map((e) => e.name).toString());
 
     return path.fold(''.asExpression(), (p, c) {
       switch (c) {
