@@ -1,11 +1,11 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
 
 import 'code_builder_utils.dart';
 import 'dart_type_to_code.dart';
 import '../well_known_wrappers.dart';
-import '../wrapper.dart';
 import '../settings.dart';
 import '../well_known_type_references.dart';
 

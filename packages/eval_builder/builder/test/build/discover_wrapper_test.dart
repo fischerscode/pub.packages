@@ -1,6 +1,6 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
-import 'package:eval_builder/src/build/wrapper.dart';
+import 'package:eval_builder/src/build/class_wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';
 
@@ -23,30 +23,30 @@ void main() {
     expect(wrapped2, isNotNull);
     expect(
         createPartFile('discover_wrapper_test_generation.dart', [
-          buildWrapper(
+          ClassWrapperBuilder(
               wrapped1!,
               WrapperSettings(
                   bimodal: false,
                   name: r'WrapWrapped1',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})),
-          buildWrapper(
+                  knownWrappers: {})).build(),
+          ClassWrapperBuilder(
               wrapped2!,
               WrapperSettings(
                   bimodal: false,
                   name: r'$Wrapped2',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})),
-          buildWrapper(
+                  knownWrappers: {})).build(),
+          ClassWrapperBuilder(
               parent!,
               WrapperSettings(
                   bimodal: false,
                   name: r'$Parent',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})),
+                  knownWrappers: {})).build(),
         ]),
         specMatches(
             matchesGolden(

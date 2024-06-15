@@ -1,6 +1,6 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
-import 'package:eval_builder/src/build/wrapper.dart';
+import 'package:eval_builder/src/build/class_wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';
 
@@ -20,14 +20,16 @@ void main() {
     expect(element, isNotNull);
     expect(
         createPartFile('types_wrapper_test_generation.dart', [
-          buildWrapper(
-              element!,
-              WrapperSettings(
-                  bimodal: false,
-                  defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {},
-                  libIdentifier: 'package:my_eval/types.dart',
-                  name: r'$TypesContainer'))
+          ClassWrapperBuilder(
+                  element!,
+                  WrapperSettings(
+                      bimodal: false,
+                      defaultParameterStrategy:
+                          DefaultParameterStrategy.copyCode,
+                      knownWrappers: {},
+                      libIdentifier: 'package:my_eval/types.dart',
+                      name: r'$TypesContainer'))
+              .build()
         ]),
         specMatches(
             matchesGolden(

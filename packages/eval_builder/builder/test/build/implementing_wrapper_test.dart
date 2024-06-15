@@ -1,6 +1,6 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
-import 'package:eval_builder/src/build/wrapper.dart';
+import 'package:eval_builder/src/build/class_wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';
 
@@ -20,14 +20,14 @@ void main() {
     expect(element, isNotNull);
     expect(
         createPartFile('implementing_wrapper_test_non_wrapped.dart', [
-          buildWrapper(
+          ClassWrapperBuilder(
               element!,
               WrapperSettings(
                   bimodal: true,
                   name: r'$TestedClass',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {}))
+                  knownWrappers: {})).build()
         ]),
         specMatches(
             matchesGolden(
@@ -46,22 +46,22 @@ void main() {
     expect(element, isNotNull);
     expect(
         createPartFile('implementing_wrapper_test_wrapped.dart', [
-          buildWrapper(
+          ClassWrapperBuilder(
               base!,
               WrapperSettings(
                   bimodal: true,
                   name: r'$BaseClass',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})),
-          buildWrapper(
+                  knownWrappers: {})).build(),
+          ClassWrapperBuilder(
               element!,
               WrapperSettings(
                   bimodal: true,
                   name: r'$TestedClass',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})),
+                  knownWrappers: {})).build(),
         ]),
         specMatches(
             matchesGolden(
