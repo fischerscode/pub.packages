@@ -285,12 +285,8 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
       for (var method in newMethods) ...[
         "case '${method.name}':".toCode(),
         WellKnownTypeReferences.$Function
-            .newInstance([
-              (method.isStatic
-                      ? element.thisType.refer()
-                      : code.refer(settings.name))
-                  .property('_${method.name}')
-            ])
+            .newInstance(
+                [code.refer(settings.name).property('_${method.name}')])
             .returned
             .statement,
       ],
@@ -380,11 +376,13 @@ code.Class buildWrapper(ClassElement element, WrapperSettings settings) {
             ..type = WellKnownTypeReferences.list
                 .withGeneric(WellKnownTypeReferences.$Value.nullable(true))),
         ])
-        ..body = code
-            .refer('target')
-            .nullChecked
-            .property(r'$value')
-            .asA(element.thisType.refer())
+        ..body = (method.isStatic
+                ? element.thisType.refer()
+                : code
+                    .refer('target')
+                    .nullChecked
+                    .property(r'$value')
+                    .asA(element.thisType.refer()))
             .property(method.name)
             .call([
               for (var (index, parameter) in method.parameters.indexed)
