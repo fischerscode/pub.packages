@@ -307,7 +307,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
               .property(setter.name.substring(0, setter.name.length - 1))
               .assign(code
                   .refer('value') //
-                  .access(setter.parameters.first.type))
+                  .access(setter.parameters.first.type, true))
               .statement,
         ],
         'default:'.toCode(),
@@ -371,8 +371,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                     code
                         .refer('args')
                         .index(code.literalNum(index))
-                        .maybeNullChecked(!parameter.hasDefaultValue)
-                        .access(parameter.type,
+                        .maybeNullChecked(parameter.isRequired)
+                        .access(parameter.type, parameter.isRequired,
                             parameter.defaultValueCode?.asExpression())
               ], {
                 for (var (index, parameter) in method.parameters.indexed)
@@ -380,8 +380,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                     parameter.name: code
                         .refer('args')
                         .index(code.literalNum(index))
-                        .maybeNullChecked(!parameter.hasDefaultValue)
-                        .access(parameter.type,
+                        .maybeNullChecked(parameter.isRequired)
+                        .access(parameter.type, parameter.isRequired,
                             parameter.defaultValueCode?.asExpression())
               })
               .wrapped(method.returnType, settings.knownWrappers)

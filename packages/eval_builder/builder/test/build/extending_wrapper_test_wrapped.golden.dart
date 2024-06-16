@@ -22,7 +22,7 @@ class $BaseClass implements BaseClass, $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -50,7 +50,7 @@ class $BaseClass implements BaseClass, $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -69,7 +69,7 @@ class $BaseClass implements BaseClass, $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -200,7 +200,7 @@ class $TestedClass implements TestedClass, $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -228,7 +228,7 @@ class $TestedClass implements TestedClass, $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -247,7 +247,7 @@ class $TestedClass implements TestedClass, $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},

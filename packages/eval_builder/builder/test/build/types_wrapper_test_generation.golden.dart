@@ -22,7 +22,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
     constructors: {
       '': dart_eval_bridge.BridgeConstructorDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -50,7 +50,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Completer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -65,7 +65,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Completer',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -80,7 +80,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Stream',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -95,7 +95,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Stream',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -110,7 +110,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamController',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -125,7 +125,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamController',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -140,7 +140,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamSink',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -155,7 +155,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamSink',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -170,7 +170,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamSubscription',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -185,7 +185,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamSubscription',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -200,7 +200,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamTransformer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -215,7 +215,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamTransformer',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -230,7 +230,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamView',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -245,7 +245,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StreamView',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -260,7 +260,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'LinkedHashMap',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -275,7 +275,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'LinkedHashMap',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -290,7 +290,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Codec',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -305,7 +305,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Codec',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -320,7 +320,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Converter',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -335,7 +335,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Converter',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -350,7 +350,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Encoding',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -365,7 +365,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Encoding',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -380,7 +380,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonCodec',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -395,7 +395,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonCodec',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -410,7 +410,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonDecoder',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -425,7 +425,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonDecoder',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -440,7 +440,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonEncoder',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -455,7 +455,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'JsonEncoder',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -470,7 +470,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Utf8Codec',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -485,7 +485,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Utf8Codec',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -500,7 +500,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Utf8Decoder',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -515,7 +515,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Utf8Decoder',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -530,7 +530,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ArgumentError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -545,7 +545,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ArgumentError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -560,7 +560,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'AssertionError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -575,7 +575,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'AssertionError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -590,7 +590,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'bool',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -605,7 +605,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'bool',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -620,7 +620,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Comparable',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -635,7 +635,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Comparable',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -650,7 +650,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'DateTime',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -665,7 +665,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'DateTime',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -680,7 +680,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'double',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -695,7 +695,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'double',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -710,7 +710,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Duration',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -725,7 +725,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Duration',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -740,7 +740,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Error',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -755,7 +755,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Error',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -770,7 +770,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Exception',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -785,7 +785,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Exception',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -800,7 +800,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'FormatException',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -815,7 +815,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'FormatException',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -830,7 +830,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Future',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -845,7 +845,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Future',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -860,7 +860,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'int',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -875,7 +875,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'int',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -890,7 +890,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Iterable',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -905,7 +905,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Iterable',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -920,7 +920,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'List',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -935,7 +935,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'List',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -950,7 +950,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Map',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -965,7 +965,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Map',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -980,7 +980,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'MapEntry',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -995,7 +995,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'MapEntry',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1010,7 +1010,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Match',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1025,7 +1025,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Match',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1040,7 +1040,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'num',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1055,7 +1055,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'num',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1070,7 +1070,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Object',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1085,7 +1085,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Object',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1100,7 +1100,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Pattern',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1115,7 +1115,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Pattern',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1130,7 +1130,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RangeError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1145,7 +1145,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RangeError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1160,7 +1160,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RegExp',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1175,7 +1175,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RegExp',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1190,7 +1190,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RegExpMatch',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1205,7 +1205,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'RegExpMatch',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1220,7 +1220,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StackTrace',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1235,7 +1235,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StackTrace',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1250,7 +1250,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StateError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1265,7 +1265,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StateError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1280,7 +1280,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1295,7 +1295,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1310,7 +1310,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StringBuffer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1325,7 +1325,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StringBuffer',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1340,7 +1340,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'UnimplementedError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1355,7 +1355,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'UnimplementedError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1370,7 +1370,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'UnsupportedError',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1385,7 +1385,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'UnsupportedError',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1400,7 +1400,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Uri',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1415,7 +1415,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Uri',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1430,7 +1430,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Directory',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1445,7 +1445,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Directory',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1460,7 +1460,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'File',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1475,7 +1475,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'File',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1490,7 +1490,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'FileSystemEntity',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1505,7 +1505,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'FileSystemEntity',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1520,7 +1520,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClient',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1535,7 +1535,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClient',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1550,7 +1550,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClientRequest',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1565,7 +1565,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClientRequest',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1580,7 +1580,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClientResponse',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1595,7 +1595,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'HttpClientResponse',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1610,7 +1610,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'InternetAddress',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1625,7 +1625,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'InternetAddress',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1640,7 +1640,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'InternetAddressType',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1655,7 +1655,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'InternetAddressType',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1670,7 +1670,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'IOSink',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1685,7 +1685,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'IOSink',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1700,7 +1700,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StringSink',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1715,7 +1715,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'StringSink',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1730,7 +1730,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Point',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1745,7 +1745,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Point',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1760,7 +1760,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1775,7 +1775,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1790,7 +1790,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ByteData',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1805,7 +1805,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'ByteData',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1820,7 +1820,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'TypedData',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1835,7 +1835,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'TypedData',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1850,7 +1850,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Uint8List',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -1865,7 +1865,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               'Uint8List',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -1883,7 +1883,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                   'String',
                 ),
                 [],
-              ).annotateNullable,
+              ).annotate,
               params: [
                 dart_eval_bridge.BridgeParameter(
                   'a',
@@ -1893,7 +1893,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotateNullable,
+                  ).annotate,
                   false,
                 )
               ],
@@ -1906,7 +1906,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotateNullable,
+                  ).annotate,
                   false,
                 ),
                 dart_eval_bridge.BridgeParameter(
@@ -1917,7 +1917,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotate,
+                  ).annotateNullable,
                   true,
                 ),
               ],
@@ -1945,7 +1945,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotateNullable,
+                  ).annotate,
                   false,
                 ),
                 dart_eval_bridge.BridgeParameter(
@@ -1956,7 +1956,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotateNullable,
+                  ).annotate,
                   true,
                 ),
                 dart_eval_bridge.BridgeParameter(
@@ -1967,7 +1967,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotate,
+                  ).annotateNullable,
                   true,
                 ),
               ],
@@ -1993,7 +1993,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Completer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2010,7 +2010,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Completer',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2027,7 +2027,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Stream',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2044,7 +2044,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Stream',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2061,7 +2061,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamController',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2078,7 +2078,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamController',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2095,7 +2095,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamSink',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2112,7 +2112,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamSink',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2129,7 +2129,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamSubscription',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2147,7 +2147,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamSubscription',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2164,7 +2164,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamTransformer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2182,7 +2182,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamTransformer',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2199,7 +2199,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamView',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2216,7 +2216,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StreamView',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2233,7 +2233,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'LinkedHashMap',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2250,7 +2250,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'LinkedHashMap',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2267,7 +2267,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Codec',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2284,7 +2284,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Codec',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2301,7 +2301,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Converter',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2318,7 +2318,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Converter',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2335,7 +2335,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Encoding',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2352,7 +2352,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Encoding',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2369,7 +2369,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonCodec',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2386,7 +2386,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonCodec',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2403,7 +2403,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonDecoder',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2420,7 +2420,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonDecoder',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2437,7 +2437,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonEncoder',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2454,7 +2454,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'JsonEncoder',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2471,7 +2471,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Utf8Codec',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2488,7 +2488,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Utf8Codec',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2505,7 +2505,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Utf8Decoder',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2522,7 +2522,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Utf8Decoder',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2539,7 +2539,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ArgumentError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2556,7 +2556,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ArgumentError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2573,7 +2573,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'AssertionError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2590,7 +2590,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'AssertionError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2607,7 +2607,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'bool',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2624,7 +2624,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'bool',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2641,7 +2641,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Comparable',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2658,7 +2658,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Comparable',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2675,7 +2675,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'DateTime',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2692,7 +2692,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'DateTime',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2709,7 +2709,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'double',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2726,7 +2726,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'double',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2743,7 +2743,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Duration',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2760,7 +2760,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Duration',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2777,7 +2777,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Error',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2794,7 +2794,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Error',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2811,7 +2811,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Exception',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2828,7 +2828,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Exception',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2845,7 +2845,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'FormatException',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2862,7 +2862,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'FormatException',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2879,7 +2879,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Future',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2896,7 +2896,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Future',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2913,7 +2913,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2930,7 +2930,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'int',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2947,7 +2947,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Iterable',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2964,7 +2964,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Iterable',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -2981,7 +2981,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'List',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -2998,7 +2998,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'List',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3015,7 +3015,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Map',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3032,7 +3032,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Map',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3049,7 +3049,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'MapEntry',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3066,7 +3066,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'MapEntry',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3083,7 +3083,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Match',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3100,7 +3100,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Match',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3117,7 +3117,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'num',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3134,7 +3134,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'num',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3151,7 +3151,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Object',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3168,7 +3168,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Object',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3185,7 +3185,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Pattern',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3202,7 +3202,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Pattern',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3219,7 +3219,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RangeError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3236,7 +3236,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RangeError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3253,7 +3253,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RegExp',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3270,7 +3270,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RegExp',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3287,7 +3287,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RegExpMatch',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3304,7 +3304,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'RegExpMatch',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3321,7 +3321,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StackTrace',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3338,7 +3338,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StackTrace',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3355,7 +3355,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StateError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3372,7 +3372,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StateError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3389,7 +3389,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3406,7 +3406,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3423,7 +3423,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StringBuffer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3440,7 +3440,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StringBuffer',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3457,7 +3457,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'UnimplementedError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3475,7 +3475,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'UnimplementedError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3492,7 +3492,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'UnsupportedError',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3509,7 +3509,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'UnsupportedError',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3526,7 +3526,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Uri',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3543,7 +3543,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Uri',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3560,7 +3560,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Directory',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3577,7 +3577,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Directory',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3594,7 +3594,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'File',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3611,7 +3611,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'File',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3628,7 +3628,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'FileSystemEntity',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3645,7 +3645,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'FileSystemEntity',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3662,7 +3662,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClient',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3679,7 +3679,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClient',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3696,7 +3696,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClientRequest',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3714,7 +3714,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClientRequest',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3731,7 +3731,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClientResponse',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3749,7 +3749,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'HttpClientResponse',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3766,7 +3766,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'InternetAddress',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3783,7 +3783,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'InternetAddress',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3800,7 +3800,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'InternetAddressType',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3818,7 +3818,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'InternetAddressType',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3835,7 +3835,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'IOSink',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3852,7 +3852,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'IOSink',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3869,7 +3869,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StringSink',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3886,7 +3886,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'StringSink',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3903,7 +3903,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Point',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3920,7 +3920,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Point',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3937,7 +3937,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3954,7 +3954,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -3971,7 +3971,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ByteData',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -3988,7 +3988,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'ByteData',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -4005,7 +4005,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'TypedData',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -4022,7 +4022,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'TypedData',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -4039,7 +4039,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Uint8List',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -4056,7 +4056,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 'Uint8List',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -4076,7 +4076,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                     'String',
                   ),
                   [],
-                ).annotateNullable,
+                ).annotate,
                 params: [
                   dart_eval_bridge.BridgeParameter(
                     'a',
@@ -4086,7 +4086,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotateNullable,
+                    ).annotate,
                     false,
                   )
                 ],
@@ -4099,7 +4099,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotateNullable,
+                    ).annotate,
                     false,
                   ),
                   dart_eval_bridge.BridgeParameter(
@@ -4110,7 +4110,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotate,
+                    ).annotateNullable,
                     true,
                   ),
                 ],
@@ -4140,7 +4140,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotateNullable,
+                    ).annotate,
                     false,
                   ),
                   dart_eval_bridge.BridgeParameter(
@@ -4151,7 +4151,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotateNullable,
+                    ).annotate,
                     true,
                   ),
                   dart_eval_bridge.BridgeParameter(
@@ -4162,7 +4162,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotate,
+                    ).annotateNullable,
                     true,
                   ),
                 ],
@@ -4775,14 +4775,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               final $$ = ($ as core.dynamic);
               return $$ is! core.String ? ($.$reified as core.String) : $$;
             }(args[1]!),
-            c: (dart_eval_bridge.$Value $) {
+            c: (dart_eval_bridge.$Value? $) {
               final $$ = ($ as core.dynamic);
-              return $$ is stdlib_core.$null
+              return $ == null
                   ? null
-                  : $$ is! core.String?
-                      ? ($.$reified as core.String?)
-                      : $$;
-            }(args[2]!),
+                  : $$ is stdlib_core.$null
+                      ? null
+                      : $$ is! core.String?
+                          ? ($.$reified as core.String?)
+                          : $$;
+            }(args[2]),
           ));
         });
       case 'varFunctionNullable':
@@ -4803,20 +4805,24 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                             ? ($.$reified as core.String)
                             : $$;
                       }(args[0]!),
-                      (dart_eval_bridge.$Value $) {
+                      (dart_eval_bridge.$Value? $) {
                         final $$ = ($ as core.dynamic);
-                        return $$ is! core.String
-                            ? ($.$reified as core.String)
-                            : $$;
-                      }(args[1]!),
-                      (dart_eval_bridge.$Value $) {
-                        final $$ = ($ as core.dynamic);
-                        return $$ is stdlib_core.$null
+                        return $ == null
                             ? null
-                            : $$ is! core.String?
-                                ? ($.$reified as core.String?)
+                            : $$ is! core.String
+                                ? ($.$reified as core.String)
                                 : $$;
-                      }(args[2]!),
+                      }(args[1]),
+                      (dart_eval_bridge.$Value? $) {
+                        final $$ = ($ as core.dynamic);
+                        return $ == null
+                            ? null
+                            : $$ is stdlib_core.$null
+                                ? null
+                                : $$ is! core.String?
+                                    ? ($.$reified as core.String?)
+                                    : $$;
+                      }(args[2]),
                     );
                     return null;
                   }();

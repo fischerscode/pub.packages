@@ -36,28 +36,30 @@ extension ExpressionChaining on code.Expression {
 
   /// Access this as [type].
   /// Will call $value or $reified when needed.
-  code.Expression access(DartType type, [code.Expression? defaultExpression]) {
+  code.Expression access(DartType type, bool required,
+      [code.Expression? defaultExpression]) {
     var maybeUnpack = code.refer(r'$$').isNotA(type.refer()).conditional(
         code.refer(r'$').property(r'$reified').asA(type.refer()),
         code.refer(r'$$'));
+
     var maybeNull = type.isNullable
         ? code
             .refer(r'$$')
             .isA(WellKnownTypeReferences.$null)
             .conditional(code.literalNull, maybeUnpack)
         : maybeUnpack;
-    var maybeWithDefault = defaultExpression != null
+
+    var maybeWithDefault = !required
         ? code
             .refer(r'$')
             .equalTo(code.literalNull)
-            .conditional(defaultExpression, maybeNull)
+            .conditional(defaultExpression ?? code.literalNull, maybeNull)
         : maybeNull;
 
     return code.Method((b) => b
       ..requiredParameters.add(code.Parameter((b) => b
         ..name = r'$'
-        ..type =
-            WellKnownTypeReferences.$Value.nullable(defaultExpression != null)))
+        ..type = WellKnownTypeReferences.$Value.nullable(!required)))
       ..body = code.Block.of([
         code
             .declareFinal(r'$$')
@@ -128,8 +130,8 @@ extension ExpressionChaining on code.Expression {
                             code
                                 .refer('args')
                                 .index(code.literalNum(index))
-                                .maybeNullChecked(!parameter.hasDefaultValue)
-                                .access(parameter.type,
+                                .maybeNullChecked(parameter.isRequired)
+                                .access(parameter.type, parameter.isRequired,
                                     parameter.defaultValueCode?.asExpression())
                       ], {
                         for (var (index, parameter) in type.parameters.indexed)
@@ -137,8 +139,8 @@ extension ExpressionChaining on code.Expression {
                             parameter.name: code
                                 .refer('args')
                                 .index(code.literalNum(index))
-                                .maybeNullChecked(!parameter.hasDefaultValue)
-                                .access(parameter.type,
+                                .maybeNullChecked(parameter.isRequired)
+                                .access(parameter.type, parameter.isRequired,
                                     parameter.defaultValueCode?.asExpression())
                       })
                       .wrapped(type.returnType, knownWrappers)

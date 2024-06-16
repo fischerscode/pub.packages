@@ -28,7 +28,7 @@ class $TestClass implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [
             'value'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -36,7 +36,7 @@ class $TestClass implements $Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -55,7 +55,7 @@ class $TestClass implements $Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -72,7 +72,7 @@ class $TestClass implements $Instance {
               'int',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -87,7 +87,7 @@ class $TestClass implements $Instance {
               'int',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -106,7 +106,7 @@ class $TestClass implements $Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -123,7 +123,7 @@ class $TestClass implements $Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},

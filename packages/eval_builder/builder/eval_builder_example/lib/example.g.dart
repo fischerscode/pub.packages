@@ -28,7 +28,7 @@ class $ExampleClass implements ExampleClass, $Instance {
     constructors: {
       'create': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [
             'test'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -36,7 +36,7 @@ class $ExampleClass implements ExampleClass, $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -54,7 +54,7 @@ class $ExampleClass implements ExampleClass, $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -168,7 +168,7 @@ class $ExampleEnum implements $Instance {
               'List',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -183,7 +183,7 @@ class $ExampleEnum implements $Instance {
               'int',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -281,7 +281,7 @@ class $_WrapThis implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -299,7 +299,7 @@ class $_WrapThis implements $Instance {
               'int',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -318,7 +318,7 @@ class $_WrapThis implements $Instance {
                 'int',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},

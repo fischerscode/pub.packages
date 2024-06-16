@@ -22,7 +22,7 @@ class WrapWrapped1 implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -123,7 +123,7 @@ class $Wrapped2 implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -224,7 +224,7 @@ class $Parent implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -239,7 +239,7 @@ class $Parent implements $Instance {
           returns: BridgeTypeRef(
             WrapWrapped1.$type,
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -251,7 +251,7 @@ class $Parent implements $Instance {
           returns: BridgeTypeRef(
             WrapWrapped1.$type,
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -263,7 +263,7 @@ class $Parent implements $Instance {
           returns: BridgeTypeRef(
             $Wrapped2.$type,
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -275,7 +275,7 @@ class $Parent implements $Instance {
           returns: BridgeTypeRef(
             $Wrapped2.$type,
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -291,7 +291,7 @@ class $Parent implements $Instance {
             '_child1'.param(BridgeTypeRef(
               WrapWrapped1.$type,
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -305,7 +305,7 @@ class $Parent implements $Instance {
             '_child1Nullable'.param(BridgeTypeRef(
               WrapWrapped1.$type,
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -319,7 +319,7 @@ class $Parent implements $Instance {
             '_child2'.param(BridgeTypeRef(
               $Wrapped2.$type,
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -333,7 +333,7 @@ class $Parent implements $Instance {
             '_child2Nullable'.param(BridgeTypeRef(
               $Wrapped2.$type,
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},

@@ -22,7 +22,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [
             'field'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -30,7 +30,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [
             'fieldNullable'.param(BridgeTypeRef(
@@ -39,7 +39,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           generics: {},
         ),
@@ -55,7 +55,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [
             't'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -63,7 +63,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -78,7 +78,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [
             't'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -86,7 +86,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
                 'ByteBuffer',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -103,7 +103,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -118,7 +118,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
               'ByteBuffer',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},

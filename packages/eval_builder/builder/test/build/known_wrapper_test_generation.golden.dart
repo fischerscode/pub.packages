@@ -22,7 +22,7 @@ class $ToWrap implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -40,7 +40,7 @@ class $ToWrap implements $Instance {
               'name',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -55,7 +55,7 @@ class $ToWrap implements $Instance {
               'name',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -74,7 +74,7 @@ class $ToWrap implements $Instance {
                 'name',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -91,7 +91,7 @@ class $ToWrap implements $Instance {
                 'name',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},

@@ -22,7 +22,7 @@ class $BasicClass implements $Instance {
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
+          returns: $type.ref.annotate,
           params: [
             'finalString'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -30,7 +30,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [
             'finalNullableString'.param(BridgeTypeRef(
@@ -39,7 +39,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           generics: {},
         ),
@@ -55,7 +55,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [
             's1'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -63,21 +63,21 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable),
+            ).annotate),
             's2'.paramOptional(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
             's3'.paramOptional(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotateNullable),
+            ).annotate),
           ],
           namedParams: [],
           generics: {},
@@ -92,7 +92,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [
             's1'.param(BridgeTypeRef(
               BridgeTypeSpec(
@@ -100,21 +100,21 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
             's2'.paramOptional(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
             's3'.paramOptional(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
           ],
           namedParams: [],
           generics: {},
@@ -129,7 +129,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [
             's1'.paramOptional(BridgeTypeRef(
@@ -138,14 +138,14 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable),
+            ).annotate),
             's2'.param(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotateNullable),
+            ).annotate),
           ],
           generics: {},
         ),
@@ -159,7 +159,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [
             's1'.paramOptional(BridgeTypeRef(
@@ -168,21 +168,21 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
             's2'.param(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
             's3'.paramOptional(BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:core',
                 'String',
               ),
               [],
-            ).annotate),
+            ).annotateNullable),
           ],
           generics: {},
         ),
@@ -198,7 +198,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -213,7 +213,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -228,7 +228,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -243,7 +243,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -258,7 +258,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -273,7 +273,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -288,7 +288,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -303,7 +303,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -318,7 +318,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -333,7 +333,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotateNullable,
+          ).annotate,
           params: [],
           namedParams: [],
           generics: {},
@@ -348,7 +348,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -363,7 +363,7 @@ class $BasicClass implements $Instance {
               'String',
             ),
             [],
-          ).annotate,
+          ).annotateNullable,
           params: [],
           namedParams: [],
           generics: {},
@@ -382,7 +382,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -399,7 +399,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -416,7 +416,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -433,7 +433,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -450,7 +450,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -467,7 +467,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotateNullable)
+            ).annotate)
           ],
           namedParams: [],
           generics: {},
@@ -484,7 +484,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -501,7 +501,7 @@ class $BasicClass implements $Instance {
                 'String',
               ),
               [],
-            ).annotate)
+            ).annotateNullable)
           ],
           namedParams: [],
           generics: {},
@@ -705,14 +705,16 @@ class $BasicClass implements $Instance {
         final $$ = ($ as dynamic);
         return $$ is! String ? ($.$reified as String) : $$;
       }(args[0]!),
-      ($Value $) {
+      ($Value? $) {
         final $$ = ($ as dynamic);
-        return $$ is $null
+        return $ == null
             ? null
-            : $$ is! String?
-                ? ($.$reified as String?)
-                : $$;
-      }(args[1]!),
+            : $$ is $null
+                ? null
+                : $$ is! String?
+                    ? ($.$reified as String?)
+                    : $$;
+      }(args[1]),
       ($Value? $) {
         final $$ = ($ as dynamic);
         return $ == null
@@ -738,14 +740,16 @@ class $BasicClass implements $Instance {
                 ? ($.$reified as String?)
                 : $$;
       }(args[0]!),
-      ($Value $) {
+      ($Value? $) {
         final $$ = ($ as dynamic);
-        return $$ is $null
+        return $ == null
             ? null
-            : $$ is! String?
-                ? ($.$reified as String?)
-                : $$;
-      }(args[1]!),
+            : $$ is $null
+                ? null
+                : $$ is! String?
+                    ? ($.$reified as String?)
+                    : $$;
+      }(args[1]),
       ($Value? $) {
         final $$ = ($ as dynamic);
         return $ == null
@@ -786,14 +790,16 @@ class $BasicClass implements $Instance {
     List<$Value?> args,
   ) {
     return $String((target!.$value as BasicClass).nullableStringTestMethodNamed(
-      s1: ($Value $) {
+      s1: ($Value? $) {
         final $$ = ($ as dynamic);
-        return $$ is $null
+        return $ == null
             ? null
-            : $$ is! String?
-                ? ($.$reified as String?)
-                : $$;
-      }(args[0]!),
+            : $$ is $null
+                ? null
+                : $$ is! String?
+                    ? ($.$reified as String?)
+                    : $$;
+      }(args[0]),
       s2: ($Value $) {
         final $$ = ($ as dynamic);
         return $$ is $null

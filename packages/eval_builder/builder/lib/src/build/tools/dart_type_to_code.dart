@@ -81,7 +81,7 @@ extension DartTypeToCode on DartType {
       return code
           .refer(r'$type')
           .property('ref')
-          .property(isNullable ? 'annotate' : 'annotateNullable');
+          .property(isNullable ? 'annotateNullable' : 'annotate');
     }
 
     var this$ = this;
@@ -96,7 +96,7 @@ extension DartTypeToCode on DartType {
             code.literalList([
               //TODO: Generics
             ])
-          ]).property(isNullable ? 'annotate' : 'annotateNullable');
+          ]).property(isNullable ? 'annotateNullable' : 'annotate');
         }
 
         throw UnimplementedError(
