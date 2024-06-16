@@ -5780,9 +5780,11 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               : $$ is! void Function(
                   core.String, [
                   core.String?,
+                  core.String?,
                 ])?
                   ? ($.$reified as void Function(
                       core.String, [
+                      core.String?,
                       core.String?,
                     ])?)
                   : $$;

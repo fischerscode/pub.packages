@@ -33,14 +33,14 @@ extension DartTypeToCode on DartType {
         return code.FunctionType((b) => b
               ..isNullable = isNullable
               ..returnType = this$.returnType.refer()
-              ..requiredParameters.addAll({
+              ..requiredParameters.addAll([
                 for (var parameter in this$.parameters)
                   if (parameter.isRequiredPositional) parameter.type.refer()
-              })
-              ..optionalParameters.addAll({
+              ])
+              ..optionalParameters.addAll([
                 for (var parameter in this$.parameters)
                   if (parameter.isOptionalPositional) parameter.type.refer()
-              })
+              ])
               ..namedParameters.addAll({
                 for (var parameter in this$.parameters)
                   if (parameter.isOptionalNamed)
