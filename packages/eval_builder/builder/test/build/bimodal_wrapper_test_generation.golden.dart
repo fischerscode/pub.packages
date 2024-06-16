@@ -525,6 +525,76 @@ class $BimodalClass implements BimodalClass, $Instance {
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:my_eval/types.dart',
+      'BimodalClass.staticFinalString*g',
+      $BimodalClass.$g$staticFinalString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticString*g',
+      $BimodalClass.$g$staticString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticString*s',
+      $BimodalClass.$s$staticString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass._staticAccessedString*g',
+      $BimodalClass.$g$_staticAccessedString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass._staticAccessedString*s',
+      $BimodalClass.$s$_staticAccessedString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticFinalNullableString*g',
+      $BimodalClass.$g$staticFinalNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticNullableString*g',
+      $BimodalClass.$g$staticNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticNullableString*s',
+      $BimodalClass.$s$staticNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass._staticAccessedNullableString*g',
+      $BimodalClass.$g$_staticAccessedNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass._staticAccessedNullableString*s',
+      $BimodalClass.$s$_staticAccessedNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticStringGetter*g',
+      $BimodalClass.$g$staticStringGetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticStringSetter*s',
+      $BimodalClass.$s$staticStringSetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticNullableStringGetter*g',
+      $BimodalClass.$g$staticNullableStringGetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BimodalClass.staticNullableStringSetter*s',
+      $BimodalClass.$s$staticNullableStringSetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
       'BimodalClass.',
       $BimodalClass.$new,
     );
@@ -561,13 +631,13 @@ class $BimodalClass implements BimodalClass, $Instance {
   ) {
     switch (identifier) {
       case 'stringTestMethod':
-        return $Function($BimodalClass._stringTestMethod);
+        return $Function($BimodalClass.$m$stringTestMethod);
       case 'nullableStringTestMethod':
-        return $Function($BimodalClass._nullableStringTestMethod);
+        return $Function($BimodalClass.$m$nullableStringTestMethod);
       case 'stringTestMethodNamed':
-        return $Function($BimodalClass._stringTestMethodNamed);
+        return $Function($BimodalClass.$m$stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
-        return $Function($BimodalClass._nullableStringTestMethodNamed);
+        return $Function($BimodalClass.$m$nullableStringTestMethodNamed);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -695,7 +765,7 @@ class $BimodalClass implements BimodalClass, $Instance {
     return runtime.lookupType($type);
   }
 
-  static $Value? _stringTestMethod(
+  static $Value? $m$stringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -726,7 +796,7 @@ class $BimodalClass implements BimodalClass, $Instance {
     ));
   }
 
-  static $Value? _nullableStringTestMethod(
+  static $Value? $m$nullableStringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -763,7 +833,7 @@ class $BimodalClass implements BimodalClass, $Instance {
     ));
   }
 
-  static $Value? _stringTestMethodNamed(
+  static $Value? $m$stringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -784,7 +854,7 @@ class $BimodalClass implements BimodalClass, $Instance {
     ));
   }
 
-  static $Value? _nullableStringTestMethodNamed(
+  static $Value? $m$nullableStringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -820,6 +890,166 @@ class $BimodalClass implements BimodalClass, $Instance {
                     : $$;
       }(args[2]),
     ));
+  }
+
+  static $Value? $g$staticFinalString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BimodalClass.staticFinalString);
+  }
+
+  static $Value? $g$staticString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BimodalClass.staticString);
+  }
+
+  static $Value? $s$staticString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass.staticString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$_staticAccessedString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BimodalClass._staticAccessedString);
+  }
+
+  static $Value? $s$_staticAccessedString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass._staticAccessedString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticFinalNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BimodalClass.staticFinalNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $g$staticNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BimodalClass.staticNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$staticNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass.staticNullableString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$_staticAccessedNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BimodalClass._staticAccessedNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$_staticAccessedNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass._staticAccessedNullableString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticStringGetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BimodalClass.staticStringGetter);
+  }
+
+  static $Value? $s$staticStringSetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass.staticStringSetter = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticNullableStringGetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BimodalClass.staticNullableStringGetter;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$staticNullableStringSetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BimodalClass.staticNullableStringSetter = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
   }
 
   @override

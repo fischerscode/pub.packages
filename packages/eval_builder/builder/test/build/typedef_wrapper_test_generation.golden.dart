@@ -143,6 +143,11 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:my_eval/types.dart',
+      'TypeDefTestClass.staticTest',
+      $TypeDefTestClass.$m$staticTest,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
       'TypeDefTestClass.',
       $TypeDefTestClass.$new,
     );
@@ -179,9 +184,9 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
   ) {
     switch (identifier) {
       case 'test':
-        return $Function($TypeDefTestClass._test);
+        return $Function($TypeDefTestClass.$m$test);
       case 'staticTest':
-        return $Function($TypeDefTestClass._staticTest);
+        return $Function($TypeDefTestClass.$m$staticTest);
       case 'field':
         return $ByteBuffer.wrap($value.field);
       case 'fieldNullable':
@@ -218,7 +223,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     return runtime.lookupType($type);
   }
 
-  static $Value? _test(
+  static $Value? $m$test(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -230,7 +235,7 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     }(args[0]!)));
   }
 
-  static $Value? _staticTest(
+  static $Value? $m$staticTest(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,

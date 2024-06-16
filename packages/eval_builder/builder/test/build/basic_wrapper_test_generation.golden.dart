@@ -525,6 +525,76 @@ class $BasicClass implements $Instance {
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:my_eval/types.dart',
+      'BasicClass.staticFinalString*g',
+      $BasicClass.$g$staticFinalString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticString*g',
+      $BasicClass.$g$staticString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticString*s',
+      $BasicClass.$s$staticString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass._staticAccessedString*g',
+      $BasicClass.$g$_staticAccessedString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass._staticAccessedString*s',
+      $BasicClass.$s$_staticAccessedString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticFinalNullableString*g',
+      $BasicClass.$g$staticFinalNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticNullableString*g',
+      $BasicClass.$g$staticNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticNullableString*s',
+      $BasicClass.$s$staticNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass._staticAccessedNullableString*g',
+      $BasicClass.$g$_staticAccessedNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass._staticAccessedNullableString*s',
+      $BasicClass.$s$_staticAccessedNullableString,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticStringGetter*g',
+      $BasicClass.$g$staticStringGetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticStringSetter*s',
+      $BasicClass.$s$staticStringSetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticNullableStringGetter*g',
+      $BasicClass.$g$staticNullableStringGetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'BasicClass.staticNullableStringSetter*s',
+      $BasicClass.$s$staticNullableStringSetter,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
       'BasicClass.',
       $BasicClass.$new,
     );
@@ -561,13 +631,13 @@ class $BasicClass implements $Instance {
   ) {
     switch (identifier) {
       case 'stringTestMethod':
-        return $Function($BasicClass._stringTestMethod);
+        return $Function($BasicClass.$m$stringTestMethod);
       case 'nullableStringTestMethod':
-        return $Function($BasicClass._nullableStringTestMethod);
+        return $Function($BasicClass.$m$nullableStringTestMethod);
       case 'stringTestMethodNamed':
-        return $Function($BasicClass._stringTestMethodNamed);
+        return $Function($BasicClass.$m$stringTestMethodNamed);
       case 'nullableStringTestMethodNamed':
-        return $Function($BasicClass._nullableStringTestMethodNamed);
+        return $Function($BasicClass.$m$nullableStringTestMethodNamed);
       case 'finalString':
         return $String($value.finalString);
       case 'string':
@@ -695,7 +765,7 @@ class $BasicClass implements $Instance {
     return runtime.lookupType($type);
   }
 
-  static $Value? _stringTestMethod(
+  static $Value? $m$stringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -726,7 +796,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _nullableStringTestMethod(
+  static $Value? $m$nullableStringTestMethod(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -763,7 +833,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _stringTestMethodNamed(
+  static $Value? $m$stringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -784,7 +854,7 @@ class $BasicClass implements $Instance {
     ));
   }
 
-  static $Value? _nullableStringTestMethodNamed(
+  static $Value? $m$nullableStringTestMethodNamed(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -819,5 +889,165 @@ class $BasicClass implements $Instance {
                     : $$;
       }(args[2]),
     ));
+  }
+
+  static $Value? $g$staticFinalString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BasicClass.staticFinalString);
+  }
+
+  static $Value? $g$staticString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BasicClass.staticString);
+  }
+
+  static $Value? $s$staticString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass.staticString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$_staticAccessedString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BasicClass._staticAccessedString);
+  }
+
+  static $Value? $s$_staticAccessedString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass._staticAccessedString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticFinalNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BasicClass.staticFinalNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $g$staticNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BasicClass.staticNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$staticNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass.staticNullableString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$_staticAccessedNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BasicClass._staticAccessedNullableString;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$_staticAccessedNullableString(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass._staticAccessedNullableString = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticStringGetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $String(BasicClass.staticStringGetter);
+  }
+
+  static $Value? $s$staticStringSetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass.staticStringSetter = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! String ? ($.$reified as String) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$staticNullableStringGetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return () {
+      final $ = BasicClass.staticNullableStringGetter;
+      return $ == null ? const $null() : $String($);
+    }();
+  }
+
+  static $Value? $s$staticNullableStringSetter(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    BasicClass.staticNullableStringSetter = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is $null
+          ? null
+          : $$ is! String?
+              ? ($.$reified as String?)
+              : $$;
+    }(args[0]!);
+    return null;
   }
 }

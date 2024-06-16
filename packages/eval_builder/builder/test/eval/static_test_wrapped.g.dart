@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'basic_test_wrapped.dart';
+part of 'static_test_wrapped.dart';
 
 // **************************************************************************
 // WrapperGenerator
@@ -10,7 +10,7 @@ class $TestClass implements $Instance {
   $TestClass.wrap(this.$value);
 
   static final $type = BridgeTypeSpec(
-    'package:myPackage/file.dart',
+    'package:my_package/file.dart',
     'TestClass',
   );
 
@@ -29,15 +29,7 @@ class $TestClass implements $Instance {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
           returns: $type.ref.annotate,
-          params: [
-            'value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
-              ),
-              [],
-            ).annotate)
-          ],
+          params: [],
           namedParams: [],
           generics: {},
         ),
@@ -60,7 +52,7 @@ class $TestClass implements $Instance {
           namedParams: [],
           generics: {},
         ),
-        isStatic: false,
+        isStatic: true,
       )
     },
     getters: {
@@ -77,7 +69,7 @@ class $TestClass implements $Instance {
           namedParams: [],
           generics: {},
         ),
-        isStatic: false,
+        isStatic: true,
       ),
       'value2': BridgeMethodDef(
         BridgeFunctionDef(
@@ -92,7 +84,7 @@ class $TestClass implements $Instance {
           namedParams: [],
           generics: {},
         ),
-        isStatic: false,
+        isStatic: true,
       ),
     },
     setters: {
@@ -111,7 +103,7 @@ class $TestClass implements $Instance {
           namedParams: [],
           generics: {},
         ),
-        isStatic: false,
+        isStatic: true,
       ),
       'value2': BridgeMethodDef(
         BridgeFunctionDef(
@@ -128,7 +120,7 @@ class $TestClass implements $Instance {
           namedParams: [],
           generics: {},
         ),
-        isStatic: false,
+        isStatic: true,
       ),
     },
     bridge: false,
@@ -146,7 +138,32 @@ class $TestClass implements $Instance {
 
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
-      'package:myPackage/file.dart',
+      'package:my_package/file.dart',
+      'TestClass.add',
+      $TestClass.$m$add,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_package/file.dart',
+      'TestClass.value*g',
+      $TestClass.$g$value,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_package/file.dart',
+      'TestClass.value*s',
+      $TestClass.$s$value,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_package/file.dart',
+      'TestClass.value2*g',
+      $TestClass.$g$value2,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_package/file.dart',
+      'TestClass.value2*s',
+      $TestClass.$s$value2,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_package/file.dart',
       'TestClass.',
       $TestClass.$new,
     );
@@ -160,10 +177,7 @@ class $TestClass implements $Instance {
     $Value? target,
     List<$Value?> args,
   ) {
-    return $TestClass.wrap(TestClass(($Value $) {
-      final $$ = ($ as dynamic);
-      return $$ is! int ? ($.$reified as int) : $$;
-    }(args[0]!)));
+    return $TestClass.wrap(TestClass());
   }
 
   @override
@@ -175,9 +189,9 @@ class $TestClass implements $Instance {
       case 'add':
         return $Function($TestClass.$m$add);
       case 'value':
-        return $int($value.value);
+        return $int(TestClass.value);
       case 'value2':
-        return $int($value.value2);
+        return $int(TestClass.value2);
       default:
         return _$superWrapper.$getProperty(
           runtime,
@@ -194,12 +208,12 @@ class $TestClass implements $Instance {
   ) {
     switch (identifier) {
       case 'value':
-        $value.value = ($Value $) {
+        TestClass.value = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is! int ? ($.$reified as int) : $$;
         }(value);
       case 'value2':
-        $value.value2 = ($Value $) {
+        TestClass.value2 = ($Value $) {
           final $$ = ($ as dynamic);
           return $$ is! int ? ($.$reified as int) : $$;
         }(value);
@@ -223,11 +237,51 @@ class $TestClass implements $Instance {
     List<$Value?> args,
   ) {
     return () {
-      (target!.$value as TestClass).add(($Value $) {
+      TestClass.add(($Value $) {
         final $$ = ($ as dynamic);
         return $$ is! int ? ($.$reified as int) : $$;
       }(args[0]!));
       return null;
     }();
+  }
+
+  static $Value? $g$value(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $int(TestClass.value);
+  }
+
+  static $Value? $s$value(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    TestClass.value = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! int ? ($.$reified as int) : $$;
+    }(args[0]!);
+    return null;
+  }
+
+  static $Value? $g$value2(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $int(TestClass.value2);
+  }
+
+  static $Value? $s$value2(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    TestClass.value2 = ($Value $) {
+      final $$ = ($ as dynamic);
+      return $$ is! int ? ($.$reified as int) : $$;
+    }(args[0]!);
+    return null;
   }
 }

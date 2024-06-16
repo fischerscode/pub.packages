@@ -2,6 +2,7 @@ import 'package:analyzer/dart/constant/value.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:eval_builder/src/build/tools/element_utils.dart';
 
 import 'settings.dart';
 import 'tools/code_builder_utils.dart';
@@ -156,7 +157,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
 
     addGetRuntimeTypeMethod(builder);
 
-    addStaticMethodWrappers(builder);
+    addStaticPropertyWrappers(builder);
 
     if (settings.bimodal) {
       addBimodalMethodOverrides(builder);
@@ -192,7 +193,22 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
   }
 
   List<code.Code> buildConfigureForRuntimeStatements(code.Reference runtime) {
-    return [];
+    return [
+      for (var method in wrapped.methods)
+        if (method.isStatic)
+          runtime.property('registerBridgeFunc').call([
+            code.literalString(settings.libIdentifier),
+            code.literalString('${wrapped.name}.${method.name}'),
+            selfReference.property(method.wrapperMethodName)
+          ]).statement,
+      for (var accessor in wrapped.accessors)
+        if (accessor.isStatic && (accessor.isGetter || accessor.isSetter))
+          runtime.property('registerBridgeFunc').call([
+            code.literalString(settings.libIdentifier),
+            code.literalString('${wrapped.name}.${accessor.dartEvalName}'),
+            selfReference.property(accessor.wrapperMethodName)
+          ]).statement,
+    ];
   }
 
   void addTypeField(code.ClassBuilder builder) {
@@ -260,14 +276,14 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
         for (var method in newMethods) ...[
           "case '${method.name}':".toCode(),
           WellKnownTypeReferences.$Function
-              .newInstance([selfReference.property('_${method.name}')])
+              .newInstance([selfReference.property(method.wrapperMethodName)])
               .returned
               .statement,
         ],
         for (var getter in newAccessors.where((e) => e.isGetter)) ...[
           "case '${getter.name}':".toCode(),
           (getter.isStatic ? wrapped.thisType.refer() : _$value)
-              .property(getter.name)
+              .property(getter.actualName)
               .wrapped(getter.returnType, settings.knownWrappers)
               .returned
               .statement,
@@ -301,10 +317,9 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
       ..body = code.Block.of([
         'switch(identifier) {'.toCode(),
         for (var setter in newAccessors.where((e) => e.isSetter)) ...[
-          "case '${setter.name.substring(0, setter.name.length - 1)}':"
-              .toCode(),
+          "case '${setter.actualName}':".toCode(),
           (setter.isStatic ? wrapped.thisType.refer() : _$value)
-              .property(setter.name.substring(0, setter.name.length - 1))
+              .property(setter.actualName)
               .assign(code
                   .refer('value') //
                   .access(setter.parameters.first.type, true))
@@ -338,11 +353,11 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
           .statement));
   }
 
-  void addStaticMethodWrappers(code.ClassBuilder builder) {
+  void addStaticPropertyWrappers(code.ClassBuilder builder) {
     for (var method in newMethods) {
       builder.methods.add(code.Method(
         (b) => b
-          ..name = '_${method.name}'
+          ..name = method.wrapperMethodName
           ..static = true
           ..returns = WellKnownTypeReferences.$Value.nullable(true)
           ..requiredParameters.addAll([
@@ -388,6 +403,45 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
               .returned
               .statement,
       ));
+    }
+    for (var accessor
+        in wrapped.accessors.where((element) => element.isStatic)) {
+      assert(accessor.isGetter || accessor.isSetter);
+      builder.methods.add(code.Method((b) => b
+        ..name = accessor.wrapperMethodName
+        ..static = true
+        ..returns = WellKnownTypeReferences.$Value.nullable(true)
+        ..requiredParameters.addAll([
+          code.Parameter((b) => b
+            ..name = 'runtime'
+            ..type = WellKnownTypeReferences.runtime),
+          code.Parameter((b) => b
+            ..name = 'target'
+            ..type = WellKnownTypeReferences.$Value.nullable(true)),
+          code.Parameter((b) => b
+            ..name = 'args'
+            ..type = WellKnownTypeReferences.list
+                .withGeneric(WellKnownTypeReferences.$Value.nullable(true))),
+        ])
+        ..body = accessor.isGetter
+            ? wrapped.thisType
+                .refer()
+                .property(accessor.actualName)
+                .wrapped(accessor.returnType, settings.knownWrappers)
+                .returned
+                .statement
+            : code.Block.of([
+                wrapped.thisType
+                    .refer()
+                    .property(accessor.actualName)
+                    .assign(code
+                        .refer('args')
+                        .index(code.literalNum(0))
+                        .nullChecked
+                        .access(accessor.parameters.first.type, true))
+                    .statement,
+                code.literalNull.returned.statement,
+              ])));
     }
   }
 

@@ -4218,7 +4218,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
   ) {
     switch (identifier) {
       case 'voidMethod':
-        return dart_eval_bridge.$Function($TypesContainer._voidMethod);
+        return dart_eval_bridge.$Function($TypesContainer.$m$voidMethod);
       case 'varCompleter':
         return stdlib_async.$Completer.wrap($value.varCompleter);
       case 'varCompleterNullable':
@@ -5803,7 +5803,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
     return runtime.lookupType($type);
   }
 
-  static dart_eval_bridge.$Value? _voidMethod(
+  static dart_eval_bridge.$Value? $m$voidMethod(
     dart_eval_bridge.Runtime runtime,
     dart_eval_bridge.$Value? target,
     core.List<dart_eval_bridge.$Value?> args,

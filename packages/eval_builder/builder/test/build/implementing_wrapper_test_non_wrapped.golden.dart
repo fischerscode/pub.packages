@@ -169,9 +169,9 @@ class $TestedClass implements TestedClass, $Instance {
   ) {
     switch (identifier) {
       case 'methodFromClass':
-        return $Function($TestedClass._methodFromClass);
+        return $Function($TestedClass.$m$methodFromClass);
       case 'methodFromBase':
-        return $Function($TestedClass._methodFromBase);
+        return $Function($TestedClass.$m$methodFromBase);
       case 'propertyFromClass':
         return $String($value.propertyFromClass);
       case 'propertyFromBase':
@@ -215,7 +215,7 @@ class $TestedClass implements TestedClass, $Instance {
     return runtime.lookupType($type);
   }
 
-  static $Value? _methodFromClass(
+  static $Value? $m$methodFromClass(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,
@@ -223,7 +223,7 @@ class $TestedClass implements TestedClass, $Instance {
     return $String((target!.$value as TestedClass).methodFromClass());
   }
 
-  static $Value? _methodFromBase(
+  static $Value? $m$methodFromBase(
     Runtime runtime,
     $Value? target,
     List<$Value?> args,

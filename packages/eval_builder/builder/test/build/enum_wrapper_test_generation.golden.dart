@@ -65,6 +65,21 @@ class $TestEnum implements $Instance {
   }
 
   static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TestEnum.value1*g',
+      $TestEnum.$g$value1,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TestEnum.value2*g',
+      $TestEnum.$g$value2,
+    );
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TestEnum.values*g',
+      $TestEnum.$g$values,
+    );
     runtime.registerBridgeEnumValues(
       'package:my_eval/types.dart',
       'TestEnum',
@@ -112,5 +127,29 @@ class $TestEnum implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
+  }
+
+  static $Value? $g$value1(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $TestEnum.wrap(TestEnum.value1);
+  }
+
+  static $Value? $g$value2(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $TestEnum.wrap(TestEnum.value2);
+  }
+
+  static $Value? $g$values(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $List.wrap(TestEnum.values);
   }
 }

@@ -209,6 +209,21 @@ class $ExampleEnum implements $Instance {
   }
 
   static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:myPackage/file.dart',
+      'ExampleEnum.foo*g',
+      $ExampleEnum.$g$foo,
+    );
+    runtime.registerBridgeFunc(
+      'package:myPackage/file.dart',
+      'ExampleEnum.bar*g',
+      $ExampleEnum.$g$bar,
+    );
+    runtime.registerBridgeFunc(
+      'package:myPackage/file.dart',
+      'ExampleEnum.values*g',
+      $ExampleEnum.$g$values,
+    );
     runtime.registerBridgeEnumValues(
       'package:myPackage/file.dart',
       'ExampleEnum',
@@ -256,6 +271,30 @@ class $ExampleEnum implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
+  }
+
+  static $Value? $g$foo(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $ExampleEnum.wrap(ExampleEnum.foo);
+  }
+
+  static $Value? $g$bar(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $ExampleEnum.wrap(ExampleEnum.bar);
+  }
+
+  static $Value? $g$values(
+    Runtime runtime,
+    $Value? target,
+    List<$Value?> args,
+  ) {
+    return $List.wrap(ExampleEnum.values);
   }
 }
 
