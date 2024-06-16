@@ -38,6 +38,15 @@ extension ExpressionChaining on code.Expression {
   /// Will call $value or $reified when needed.
   code.Expression access(DartType type, bool required,
       [code.Expression? defaultExpression]) {
+    if (!required && !type.isNullable && defaultExpression == null) {
+      throw UnsupportedError(
+          'Required non null parameters without a resolvable default '
+          'are currently not supported.');
+    }
+
+    assert(!(required && defaultExpression != null),
+        'Unexpected default for required parameter.');
+
     var maybeUnpack = code.refer(r'$$').isNotA(type.refer()).conditional(
         code.refer(r'$').property(r'$reified').asA(type.refer()),
         code.refer(r'$$'));

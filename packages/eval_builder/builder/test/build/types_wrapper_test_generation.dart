@@ -145,6 +145,6 @@ class TypesContainer {
   typed_data.Uint8List? varUint8ListNullable;
   late core.String Function(core.String a,
       {required core.String b, core.String? c}) varFunction;
-  void Function(core.String a, [core.String b, core.String? c])?
+  void Function(core.String a, [core.String? b, core.String? c])?
       varFunctionNullable;
 }

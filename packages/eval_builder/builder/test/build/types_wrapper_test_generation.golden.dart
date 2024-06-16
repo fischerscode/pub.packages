@@ -1956,7 +1956,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                       'String',
                     ),
                     [],
-                  ).annotate,
+                  ).annotateNullable,
                   true,
                 ),
                 dart_eval_bridge.BridgeParameter(
@@ -4151,7 +4151,7 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         'String',
                       ),
                       [],
-                    ).annotate,
+                    ).annotateNullable,
                     true,
                   ),
                   dart_eval_bridge.BridgeParameter(
@@ -4809,9 +4809,11 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                         final $$ = ($ as core.dynamic);
                         return $ == null
                             ? null
-                            : $$ is! core.String
-                                ? ($.$reified as core.String)
-                                : $$;
+                            : $$ is stdlib_core.$null
+                                ? null
+                                : $$ is! core.String?
+                                    ? ($.$reified as core.String?)
+                                    : $$;
                       }(args[1]),
                       (dart_eval_bridge.$Value? $) {
                         final $$ = ($ as core.dynamic);
@@ -5777,12 +5779,10 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               ? null
               : $$ is! void Function(
                   core.String, [
-                  core.String,
                   core.String?,
                 ])?
                   ? ($.$reified as void Function(
                       core.String, [
-                      core.String,
                       core.String?,
                     ])?)
                   : $$;
