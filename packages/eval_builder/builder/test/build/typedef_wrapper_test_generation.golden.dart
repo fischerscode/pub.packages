@@ -137,6 +137,20 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
   late final $Instance _$superWrapper = $Object($value);
 
   @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TypeDefTestClass.',
+      $TypeDefTestClass.$new,
+    );
+  }
+
+  @override
   get $reified => $value;
 
   static $Value? $new(

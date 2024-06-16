@@ -73,6 +73,20 @@ class $ExampleClass implements ExampleClass, $Instance {
   late final $Instance _$superWrapper = $Object($value);
 
   @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:myPackage/file.dart',
+      'ExampleClass.create',
+      $ExampleClass.$create,
+    );
+  }
+
+  @override
   get $reified => $value;
 
   static $Value? $create(
@@ -193,6 +207,20 @@ class $ExampleEnum implements $Instance {
   late final $Instance _$superWrapper = $Object($value);
 
   @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeEnum($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeEnumValues(
+      'package:myPackage/file.dart',
+      'ExampleEnum',
+      $ExampleEnum.$values,
+    );
+  }
+
+  @override
   get $reified => $value;
 
   @override
@@ -310,6 +338,20 @@ class $_WrapThis implements $Instance {
   final e.ExternalClass $value;
 
   late final $Instance _$superWrapper = $Object($value);
+
+  @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:myPackage/file.dart',
+      'ExternalClass.',
+      $_WrapThis.$new,
+    );
+  }
 
   @override
   get $reified => $value;

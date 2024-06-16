@@ -43,6 +43,20 @@ class WrapWrapped1 implements $Instance {
   late final $Instance _$superWrapper = $Object($value);
 
   @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'Wrapped1.',
+      WrapWrapped1.$new,
+    );
+  }
+
+  @override
   get $reified => $value;
 
   static $Value? $new(
@@ -130,6 +144,20 @@ class $Wrapped2 implements $Instance {
   final Wrapped2 $value;
 
   late final $Instance _$superWrapper = $Object($value);
+
+  @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'Wrapped2.',
+      $Wrapped2.$new,
+    );
+  }
 
   @override
   get $reified => $value;
@@ -325,6 +353,20 @@ class $Parent implements $Instance {
   final Parent $value;
 
   late final $Instance _$superWrapper = $Object($value);
+
+  @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'Parent.',
+      $Parent.$new,
+    );
+  }
 
   @override
   get $reified => $value;

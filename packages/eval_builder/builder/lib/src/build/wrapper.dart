@@ -136,6 +136,9 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
       //TODO: Generics
     ]);
 
+    addConfigureForCompile(builder);
+    addConfigureForRuntime(builder);
+
     addTypeField(builder);
 
     addDeclarationField(builder);
@@ -160,6 +163,38 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
     }
 
     return builder.build();
+  }
+
+  void addConfigureForCompile(code.ClassBuilder builder) {
+    builder.methods.add(code.Method.returnsVoid((b) => b
+      ..name = 'configureForCompile'
+      ..annotations.add(WellKnownTypeReferences.override)
+      ..static = true
+      ..requiredParameters.add(code.Parameter((b) => b
+        ..name = 'registry'
+        ..type = WellKnownTypeReferences.bridgeDeclarationRegistry))
+      ..body = code.Block.of(
+          buildConfigureForCompileStatements(code.refer('registry')))));
+  }
+
+  List<code.Code> buildConfigureForCompileStatements(code.Reference registry) {
+    return [];
+  }
+
+  void addConfigureForRuntime(code.ClassBuilder builder) {
+    builder.methods.add(code.Method.returnsVoid((b) => b
+      ..name = 'configureForRuntime'
+      ..annotations.add(WellKnownTypeReferences.override)
+      ..static = true
+      ..requiredParameters.add(code.Parameter((b) => b
+        ..name = 'runtime'
+        ..type = WellKnownTypeReferences.runtime))
+      ..body = code.Block.of(
+          buildConfigureForRuntimeStatements(code.refer('runtime')))));
+  }
+
+  List<code.Code> buildConfigureForRuntimeStatements(code.Reference runtime) {
+    return [];
   }
 
   void addTypeField(code.ClassBuilder builder) {

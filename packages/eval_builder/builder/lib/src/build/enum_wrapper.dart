@@ -21,6 +21,28 @@ class EnumWrapperBuilder extends WrapperBuilder<EnumElement> {
   late final List<String> values;
 
   @override
+  List<code.Code> buildConfigureForCompileStatements(code.Reference registry) {
+    return [
+      ...super.buildConfigureForCompileStatements(registry),
+      registry
+          .property('defineBridgeEnum')
+          .call([code.refer(r'$declaration')]).statement,
+    ];
+  }
+
+  @override
+  List<code.Code> buildConfigureForRuntimeStatements(code.Reference runtime) {
+    return [
+      ...super.buildConfigureForRuntimeStatements(runtime),
+      runtime.property('registerBridgeEnumValues').call([
+        code.literalString(settings.libIdentifier),
+        code.literalString(wrapped.name),
+        selfReference.property(r'$values')
+      ]).statement,
+    ];
+  }
+
+  @override
   Iterable<PropertyAccessorElement> filterAccessors(
       Iterable<PropertyAccessorElement> unfiltered) {
     return unfiltered.where((element) {

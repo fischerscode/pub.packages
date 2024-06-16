@@ -16,6 +16,30 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
   late final Iterable<ConstructorElement> constructors;
 
   @override
+  List<code.Code> buildConfigureForCompileStatements(code.Reference registry) {
+    return [
+      ...super.buildConfigureForCompileStatements(registry),
+      registry
+          .property('defineBridgeClass')
+          .call([code.refer(r'$declaration')]).statement,
+    ];
+  }
+
+  @override
+  List<code.Code> buildConfigureForRuntimeStatements(code.Reference runtime) {
+    return [
+      ...super.buildConfigureForRuntimeStatements(runtime),
+      for (var constructor in constructors)
+        runtime.property('registerBridgeFunc').call([
+          code.literalString(settings.libIdentifier),
+          code.literalString('${wrapped.name}.${constructor.name}'),
+          selfReference.property(
+              constructor.name.isEmpty ? r'$new' : '\$${constructor.name}')
+        ]).statement,
+    ];
+  }
+
+  @override
   void addDeclarationField(code.ClassBuilder builder) {
     builder.fields.add(code.Field((b) => b
       ..name = r'$declaration'

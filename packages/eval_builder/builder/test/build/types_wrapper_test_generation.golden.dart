@@ -4188,6 +4188,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       stdlib_core.$Object($value);
 
   @core.override
+  static void configureForCompile(
+      dart_eval_bridge.BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @core.override
+  static void configureForRuntime(dart_eval_bridge.Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TypesContainer.',
+      $TypesContainer.$new,
+    );
+  }
+
+  @core.override
   get $reified => $value;
 
   static dart_eval_bridge.$Value? $new(

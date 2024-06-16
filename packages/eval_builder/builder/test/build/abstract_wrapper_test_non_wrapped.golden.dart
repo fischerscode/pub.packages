@@ -187,6 +187,20 @@ class $TestedClass implements TestedClass, $Instance {
   late final $Instance _$superWrapper = $Object($value);
 
   @override
+  static void configureForCompile(BridgeDeclarationRegistry registry) {
+    registry.defineBridgeClass($declaration);
+  }
+
+  @override
+  static void configureForRuntime(Runtime runtime) {
+    runtime.registerBridgeFunc(
+      'package:my_eval/types.dart',
+      'TestedClass.',
+      $TestedClass.$new,
+    );
+  }
+
+  @override
   get $reified => $value;
 
   @override

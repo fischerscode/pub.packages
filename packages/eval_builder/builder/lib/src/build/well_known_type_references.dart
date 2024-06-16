@@ -68,6 +68,9 @@ class WellKnownTypeReferences {
   static final bridgeTypeAnnotation = code.TypeReference((b) => b
     ..symbol = 'BridgeTypeAnnotation'
     ..url = dartEvalBridgePackage);
+  static final bridgeDeclarationRegistry = code.TypeReference((b) => b
+    ..symbol = 'BridgeDeclarationRegistry'
+    ..url = dartEvalBridgePackage);
 
   static final runtime = code.TypeReference((b) => b
     ..symbol = r'Runtime'
