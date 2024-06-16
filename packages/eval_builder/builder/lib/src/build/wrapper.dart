@@ -20,8 +20,10 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
         .discoverSupWrappers(
             (e) => [e.supertype].nonNulls, settings.knownWrappers)
         .single; // It's safe to use last, since everything extends Object
+    // Discover both interfaces an mixins, since dart_eval doesn't support
+    // mixins. https://github.com/ethanblake4/dart_eval/issues/7
     interfaceWrappers = wrapped.discoverSupWrappers(
-        (e) => e.interfaces, settings.knownWrappers);
+        (e) => e.interfaces.followedBy(e.mixins), settings.knownWrappers);
     mixinWrappers =
         wrapped.discoverSupWrappers((e) => e.mixins, settings.knownWrappers);
 
@@ -84,11 +86,13 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
     }
 
     // Methods that are not inherited from Wrappers
-    newMethodsWithPrivate = lookupMethods(supTypesTillWrappers
-        .expand((s) => filterMethods(s.methods).map((m) => (s, m))));
+    newMethodsWithPrivate = lookupMethods(supTypesTillWrappers.expand((s) =>
+        filterMethods(s.methods).where((m) => !m.isStatic).map((m) => (s, m))));
 
-    newAccessorsWithPrivate = lookupAccessors(supTypesTillWrappers
-        .expand((s) => filterAccessors(s.accessors).map((m) => (s, m))));
+    newAccessorsWithPrivate = lookupAccessors(supTypesTillWrappers.expand((s) =>
+        filterAccessors(s.accessors)
+            .where((a) => !a.isStatic)
+            .map((m) => (s, m))));
 
     newMethods = newMethodsWithPrivate.where((e) => !e.isPrivate);
     newAccessors = newAccessorsWithPrivate.where((e) => !e.isPrivate);
