@@ -13,7 +13,7 @@ Builder createBuilder(BuilderOptions options) {
   return SharedPartBuilder([WrapperGenerator()], 'eval_builder');
 }
 
-class WrapperGenerator extends GeneratorForAnnotation<Wrapper> {
+class WrapperGenerator extends GeneratorForAnnotation<Wrapped> {
   @override
   String generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep,
@@ -77,7 +77,7 @@ class WrapperGenerator extends GeneratorForAnnotation<Wrapper> {
             element.aliasedType.element!, annotation, buildStep, element);
       default:
         throw UnsupportedError(
-            "Annotating $element with @$Wrapper is not supported.");
+            "Annotating $element with @$Wrapped is not supported.");
     }
   }
 }

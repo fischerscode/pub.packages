@@ -6,13 +6,13 @@ import 'package:eval_builder_example/src/external.dart' as e;
 
 part 'example.g.dart';
 
-@Wrapper(bimodal: true)
+@Wrapped(bimodal: true)
 class ExampleClass {
   ExampleClass.create(this.test);
   final String test;
 }
 
-@Wrapper(
+@Wrapped(
   bimodal: false,
 )
 enum ExampleEnum {
@@ -20,6 +20,6 @@ enum ExampleEnum {
   bar,
 }
 
-@Wrapper()
+@Wrapped()
 // ignore: unused_element
 typedef _WrapThis = e.ExternalClass;

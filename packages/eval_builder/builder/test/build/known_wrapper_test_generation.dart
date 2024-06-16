@@ -14,7 +14,7 @@ abstract class CustomStubWrapper implements $Instance {
 
 class CustomWrapped {}
 
-@Wrapper(knownWrappers: {
+@Wrapped(knownWrappers: {
   CustomWrapped: (ref: CustomStubWrapper.spec, wrap: CustomStubWrapper.wrap)
 })
 class ToWrap {

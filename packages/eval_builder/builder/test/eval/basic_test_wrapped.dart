@@ -5,7 +5,7 @@ import 'package:eval_builder_annotations/annotations.dart';
 
 part 'basic_test_wrapped.g.dart';
 
-@Wrapper()
+@Wrapped()
 class TestClass {
   TestClass(this.value);
 

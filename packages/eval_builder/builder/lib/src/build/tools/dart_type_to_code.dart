@@ -62,7 +62,7 @@ extension DartTypeToCode on DartType {
   ElementAnnotation? getWrappedAnnotation() {
     return element!.metadata
         .where((a) =>
-            a.element!.enclosingElement!.name == '$Wrapper' &&
+            a.element!.enclosingElement!.name == '$Wrapped' &&
             a.element!.librarySource!.uri.toString() ==
                 'package:eval_builder_annotations/annotations.dart')
         .firstOrNull;

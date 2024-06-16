@@ -5,13 +5,13 @@ import 'package:eval_builder_annotations/annotations.dart';
 
 part 'discover_wrapper_test_generation.golden.dart';
 
-@Wrapper(name: 'WrapWrapped1')
+@Wrapped(name: 'WrapWrapped1')
 class Wrapped1 {}
 
-@Wrapper()
+@Wrapped()
 class Wrapped2 {}
 
-@Wrapper()
+@Wrapped()
 class Parent {
   late Wrapped1 child1;
   late Wrapped1? child1Nullable;

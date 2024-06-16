@@ -5,7 +5,7 @@ import 'package:eval_builder_annotations/annotations.dart';
 
 part 'abstract_wrapper_test_wrapped.golden.dart';
 
-@Wrapper()
+@Wrapped()
 class BaseClass {
   late final String propertyFromBase;
   String methodFromBase() => 'test';

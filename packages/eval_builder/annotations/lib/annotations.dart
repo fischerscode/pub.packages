@@ -2,7 +2,7 @@ import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:meta/meta_meta.dart';
 
 @Target({TargetKind.classType, TargetKind.enumType, TargetKind.typedefType})
-class Wrapper {
+class Wrapped {
   /// The name of the generated class.
   final String? name;
 
@@ -16,7 +16,7 @@ class Wrapper {
 
   /// Maps a [Type] to a known wrapper for that type.
   ///
-  /// @[Wrapper] annotated [Type]s don't have to be added to this, since they
+  /// @[Wrapped] annotated [Type]s don't have to be added to this, since they
   /// are discoverd automatically. [knownWrappers] takes priority over auto
   /// discovery.
   final Map<
@@ -30,7 +30,7 @@ class Wrapper {
   /// Defaults to [DefaultParameterStrategy.copyCode].
   final DefaultParameterStrategy? defaultParameterStrategy;
 
-  const Wrapper(
+  const Wrapped(
       {this.name,
       this.bimodal = false,
       this.libIdentifier,
