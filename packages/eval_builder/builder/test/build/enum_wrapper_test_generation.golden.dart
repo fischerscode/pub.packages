@@ -60,12 +60,10 @@ class $TestEnum implements $Instance {
 
   late final $Instance _$superWrapper = $Object($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeEnum($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeEnumValues(
       'package:my_eval/types.dart',

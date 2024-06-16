@@ -168,7 +168,6 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
   void addConfigureForCompile(code.ClassBuilder builder) {
     builder.methods.add(code.Method.returnsVoid((b) => b
       ..name = 'configureForCompile'
-      ..annotations.add(WellKnownTypeReferences.override)
       ..static = true
       ..requiredParameters.add(code.Parameter((b) => b
         ..name = 'registry'
@@ -184,7 +183,6 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
   void addConfigureForRuntime(code.ClassBuilder builder) {
     builder.methods.add(code.Method.returnsVoid((b) => b
       ..name = 'configureForRuntime'
-      ..annotations.add(WellKnownTypeReferences.override)
       ..static = true
       ..requiredParameters.add(code.Parameter((b) => b
         ..name = 'runtime'

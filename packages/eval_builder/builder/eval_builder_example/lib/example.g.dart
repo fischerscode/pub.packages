@@ -72,12 +72,10 @@ class $ExampleClass implements ExampleClass, $Instance {
 
   late final $Instance _$superWrapper = $Object($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeClass($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:myPackage/file.dart',
@@ -206,12 +204,10 @@ class $ExampleEnum implements $Instance {
 
   late final $Instance _$superWrapper = $Object($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeEnum($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeEnumValues(
       'package:myPackage/file.dart',
@@ -339,12 +335,10 @@ class $_WrapThis implements $Instance {
 
   late final $Instance _$superWrapper = $Object($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeClass($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:myPackage/file.dart',

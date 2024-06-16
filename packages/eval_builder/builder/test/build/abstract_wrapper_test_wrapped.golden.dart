@@ -139,12 +139,10 @@ class $BaseClass implements BaseClass, $Instance {
 
   late final $Instance _$superWrapper = $Object($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeClass($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:my_eval/types.dart',
@@ -397,12 +395,10 @@ class $TestedClass implements TestedClass, $Instance {
 
   late final $Instance _$superWrapper = $BaseClass.wrap($value);
 
-  @override
   static void configureForCompile(BridgeDeclarationRegistry registry) {
     registry.defineBridgeClass($declaration);
   }
 
-  @override
   static void configureForRuntime(Runtime runtime) {
     runtime.registerBridgeFunc(
       'package:my_eval/types.dart',
