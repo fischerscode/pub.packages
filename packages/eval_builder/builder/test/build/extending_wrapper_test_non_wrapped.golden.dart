@@ -213,14 +213,6 @@ class $TestedClass implements TestedClass, $Instance {
     }();
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as TestedClass).toString());
-  }
-
   @override
   void methodFromClass() {
     return $value.methodFromClass();

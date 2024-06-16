@@ -152,14 +152,6 @@ class $BaseClass implements BaseClass, $Instance {
     }();
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as BaseClass).toString());
-  }
-
   @override
   void methodFromBase() {
     return $value.methodFromBase();
@@ -324,25 +316,6 @@ class $TestedClass implements TestedClass, $Instance {
       (target!.$value as TestedClass).methodFromClass();
       return null;
     }();
-  }
-
-  static $Value? _methodFromBase(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return () {
-      (target!.$value as TestedClass).methodFromBase();
-      return null;
-    }();
-  }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as TestedClass).toString());
   }
 
   @override

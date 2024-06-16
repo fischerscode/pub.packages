@@ -802,12 +802,4 @@ class $BasicClass implements $Instance {
       }(args[2]),
     ));
   }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as BasicClass).toString());
-  }
 }

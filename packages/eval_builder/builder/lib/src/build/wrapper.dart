@@ -306,7 +306,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
   }
 
   void addStaticMethodWrappers(code.ClassBuilder builder) {
-    for (var method in methods) {
+    for (var method in newMethods) {
       builder.methods.add(code.Method(
         (b) => b
           ..name = '_${method.name}'

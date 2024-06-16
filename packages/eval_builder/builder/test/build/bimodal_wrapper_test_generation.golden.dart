@@ -804,14 +804,6 @@ class $BimodalClass implements BimodalClass, $Instance {
     ));
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as BimodalClass).toString());
-  }
-
   @override
   String stringTestMethod(
     String s1, [

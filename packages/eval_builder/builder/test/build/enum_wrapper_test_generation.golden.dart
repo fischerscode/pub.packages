@@ -101,12 +101,4 @@ class $TestEnum implements $Instance {
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
   }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as TestEnum).toString());
-  }
 }

@@ -5792,12 +5792,4 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       return null;
     }();
   }
-
-  static dart_eval_bridge.$Value? _toString(
-    dart_eval_bridge.Runtime runtime,
-    dart_eval_bridge.$Value? target,
-    core.List<dart_eval_bridge.$Value?> args,
-  ) {
-    return stdlib_core.$String((target!.$value as TypesContainer).toString());
-  }
 }

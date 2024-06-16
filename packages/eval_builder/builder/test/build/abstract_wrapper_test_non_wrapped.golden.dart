@@ -267,14 +267,6 @@ class $TestedClass implements TestedClass, $Instance {
     return $String((target!.$value as TestedClass).methodFromBase());
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as TestedClass).toString());
-  }
-
   static $Value? _method2FromBase(
     Runtime runtime,
     $Value? target,

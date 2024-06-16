@@ -229,14 +229,6 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     }(args[0]!)));
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as TypeDefTestClass).toString());
-  }
-
   @override
   typed.ByteBuffer test(typed.ByteBuffer t) {
     return $value.test(t);

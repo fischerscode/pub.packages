@@ -87,14 +87,6 @@ class WrapWrapped1 implements $Instance {
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
   }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as Wrapped1).toString());
-  }
 }
 
 class $Wrapped2 implements $Instance {
@@ -183,14 +175,6 @@ class $Wrapped2 implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
-  }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as Wrapped2).toString());
   }
 }
 
@@ -428,13 +412,5 @@ class $Parent implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
-  }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as Parent).toString());
   }
 }

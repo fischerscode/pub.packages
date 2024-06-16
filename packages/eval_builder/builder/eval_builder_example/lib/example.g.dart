@@ -123,14 +123,6 @@ class $ExampleClass implements ExampleClass, $Instance {
     return runtime.lookupType($type);
   }
 
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as ExampleClass).toString());
-  }
-
   @override
   String toString() {
     return $value.toString();
@@ -240,14 +232,6 @@ class $ExampleEnum implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
-  }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as ExampleEnum).toString());
   }
 }
 
@@ -378,13 +362,5 @@ class $_WrapThis implements $Instance {
   @override
   int $getRuntimeType(Runtime runtime) {
     return runtime.lookupType($type);
-  }
-
-  static $Value? _toString(
-    Runtime runtime,
-    $Value? target,
-    List<$Value?> args,
-  ) {
-    return $String((target!.$value as e.ExternalClass).toString());
   }
 }
