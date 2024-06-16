@@ -30,12 +30,13 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
     return [
       ...super.buildConfigureForRuntimeStatements(runtime),
       for (var constructor in constructors)
-        runtime.property('registerBridgeFunc').call([
-          code.literalString(settings.libIdentifier),
-          code.literalString('${wrapped.name}.${constructor.name}'),
-          selfReference.property(
-              constructor.name.isEmpty ? r'$new' : '\$${constructor.name}')
-        ]).statement,
+        if (wrapped.isConstructable || constructor.isFactory)
+          runtime.property('registerBridgeFunc').call([
+            code.literalString(settings.libIdentifier),
+            code.literalString('${wrapped.name}.${constructor.name}'),
+            selfReference.property(
+                constructor.name.isEmpty ? r'$new' : '\$${constructor.name}')
+          ]).statement,
     ];
   }
 
@@ -62,10 +63,11 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
         {
           'constructors': code.literalMap({
             for (var constructor in constructors)
-              code.literalString(constructor.name):
-                  WellKnownTypeReferences.bridgeConstructorDef.call(
-                      [constructor.functionDef(wrapped, settings)],
-                      {'isFactory': code.literalBool(constructor.isFactory)}),
+              if (wrapped.isConstructable || constructor.isFactory)
+                code.literalString(constructor.name):
+                    WellKnownTypeReferences.bridgeConstructorDef.call(
+                        [constructor.functionDef(wrapped, settings)],
+                        {'isFactory': code.literalBool(constructor.isFactory)}),
           }),
           'methods': code.literalMap({
             for (var method in newMethods)
@@ -101,8 +103,8 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
   void addConstructor(code.ClassBuilder builder) {
     super.addConstructor(builder);
 
-    if (wrapped.isConstructable) {
-      for (var constructor in constructors) {
+    for (var constructor in constructors) {
+      if (wrapped.isConstructable || constructor.isFactory) {
         builder.methods.add(code.Method((b) => b
           ..name = constructor.name.isEmpty ? r'$new' : '\$${constructor.name}'
           ..returns = WellKnownTypeReferences.$Value.nullable(true)

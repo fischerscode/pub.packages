@@ -19,17 +19,7 @@ class $TestedClass implements TestedClass, $Instance {
       $with: [],
       isAbstract: true,
     ),
-    constructors: {
-      '': BridgeConstructorDef(
-        BridgeFunctionDef(
-          returns: $type.ref.annotateNullable,
-          params: [],
-          namedParams: [],
-          generics: {},
-        ),
-        isFactory: false,
-      )
-    },
+    constructors: {},
     methods: {
       'methodFromClass': BridgeMethodDef(
         BridgeFunctionDef(
@@ -190,14 +180,7 @@ class $TestedClass implements TestedClass, $Instance {
     registry.defineBridgeClass($declaration);
   }
 
-  static void configureForRuntime(Runtime runtime) {
-    runtime.registerBridgeFunc(
-      'package:my_eval/types.dart',
-      'TestedClass.',
-      $TestedClass.$new,
-    );
-  }
-
+  static void configureForRuntime(Runtime runtime) {}
   @override
   get $reified => $value;
 
