@@ -3,7 +3,7 @@ part of 'discover_wrapper_test_generation.dart';
 class WrapWrapped1 implements $Instance {
   WrapWrapped1.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Wrapped1',
   );
@@ -108,7 +108,7 @@ class WrapWrapped1 implements $Instance {
 class $Wrapped2 implements $Instance {
   $Wrapped2.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Wrapped2',
   );
@@ -213,7 +213,7 @@ class $Wrapped2 implements $Instance {
 class $Parent implements $Instance {
   $Parent.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'Parent',
   );

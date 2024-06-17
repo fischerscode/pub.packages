@@ -9,7 +9,7 @@ part of 'constructor_test_wrapped.dart';
 class $TestClass implements $Instance {
   $TestClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'TestClass',
   );

@@ -218,7 +218,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
     builder.fields.add(code.Field((b) => b
       ..name = r'$type'
       ..static = true
-      ..modifier = code.FieldModifier.final$
+      ..modifier = code.FieldModifier.constant
       ..assignment = WellKnownTypeReferences.bridgeTypeSpec.call([
         code.literalString(settings.libIdentifier),
         code.literalString(wrapped.name)

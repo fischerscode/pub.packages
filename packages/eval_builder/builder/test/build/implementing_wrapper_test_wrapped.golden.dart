@@ -3,7 +3,7 @@ part of 'implementing_wrapper_test_wrapped.dart';
 class $BaseClass implements BaseClass, $Instance {
   $BaseClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'BaseClass',
   );
@@ -200,7 +200,7 @@ class $BaseClass implements BaseClass, $Instance {
 class $TestedClass implements TestedClass, $Instance {
   $TestedClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'TestedClass',
   );

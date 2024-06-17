@@ -3,7 +3,7 @@ part of 'types_wrapper_test_generation.dart';
 class $TypesContainer implements dart_eval_bridge.$Instance {
   $TypesContainer.wrap(this.$value);
 
-  static final $type = dart_eval_bridge.BridgeTypeSpec(
+  static const $type = dart_eval_bridge.BridgeTypeSpec(
     'package:my_eval/types.dart',
     'TypesContainer',
   );

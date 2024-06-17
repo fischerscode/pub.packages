@@ -3,7 +3,7 @@ part of 'bimodal_wrapper_test_generation.dart';
 class $BimodalClass implements BimodalClass, $Instance {
   $BimodalClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'BimodalClass',
   );

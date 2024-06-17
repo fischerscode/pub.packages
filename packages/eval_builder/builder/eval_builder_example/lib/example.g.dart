@@ -9,7 +9,7 @@ part of 'example.dart';
 class $ExampleClass implements ExampleClass, $Instance {
   $ExampleClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'ExampleClass',
   );
@@ -157,7 +157,7 @@ class $ExampleClass implements ExampleClass, $Instance {
 class $ExampleEnum implements $Instance {
   $ExampleEnum.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'ExampleEnum',
   );
@@ -322,7 +322,7 @@ class $ExampleEnum implements $Instance {
 class $_WrapThis implements $Instance {
   $_WrapThis.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'ExternalClass',
   );

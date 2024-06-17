@@ -3,7 +3,7 @@ part of 'typedef_wrapper_test_generation.dart';
 class $TypeDefTestClass implements TypeDefTestClass, $Instance {
   $TypeDefTestClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:my_eval/types.dart',
     'TypeDefTestClass',
   );

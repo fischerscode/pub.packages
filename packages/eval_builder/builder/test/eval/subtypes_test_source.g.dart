@@ -9,7 +9,7 @@ part of 'subtypes_test_source.dart';
 class $SupClass1 implements $Instance {
   $SupClass1.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'SupClass1',
   );
@@ -326,7 +326,7 @@ class $SupClass1 implements $Instance {
 class $SupClass2 implements $Instance {
   $SupClass2.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'SupClass2',
   );
@@ -660,7 +660,7 @@ class $SupClass2 implements $Instance {
 class $Interface1 implements $Instance {
   $Interface1.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'Interface1',
   );
@@ -769,7 +769,7 @@ class $Interface1 implements $Instance {
 class $Interface3 implements $Instance {
   $Interface3.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'Interface3',
   );
@@ -878,7 +878,7 @@ class $Interface3 implements $Instance {
 class $TestClass implements $Instance {
   $TestClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'TestClass',
   );
@@ -1458,7 +1458,7 @@ class $TestClass implements $Instance {
 class $RandomClass implements $Instance {
   $RandomClass.wrap(this.$value);
 
-  static final $type = BridgeTypeSpec(
+  static const $type = BridgeTypeSpec(
     'package:myPackage/file.dart',
     'RandomClass',
   );
