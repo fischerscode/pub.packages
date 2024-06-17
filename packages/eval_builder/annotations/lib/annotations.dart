@@ -22,7 +22,7 @@ class Wrapped {
   final Map<
       Type,
       ({
-        BridgeTypeSpec ref,
+        BridgeTypeSpec spec,
         $Instance Function(Never) wrap,
       })> knownWrappers;
 
