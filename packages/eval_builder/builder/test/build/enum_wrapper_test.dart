@@ -1,3 +1,5 @@
+@Timeout.factor(2)
+
 import 'package:analyzer/dart/element/element.dart';
 import 'package:eval_builder/src/build/enum_wrapper.dart';
 import 'package:eval_builder/src/build/prefix_resolver.dart';

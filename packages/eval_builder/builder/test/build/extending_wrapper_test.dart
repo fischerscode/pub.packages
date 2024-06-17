@@ -1,3 +1,5 @@
+@Timeout.factor(2)
+
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
 import 'package:eval_builder/src/build/class_wrapper.dart';
