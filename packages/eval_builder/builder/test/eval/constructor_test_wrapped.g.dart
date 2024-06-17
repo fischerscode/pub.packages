@@ -17,26 +17,33 @@ class $TestClass implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'value'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -47,13 +54,16 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'value'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -64,20 +74,26 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'a'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'a'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
-            'b'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: false,
+            )),
+            'b'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
+              nullable: false,
+            )),
           ],
           namedParams: [],
           generics: {},
@@ -88,20 +104,26 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'a'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'a'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
-            'b'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: false,
+            )),
+            'b'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
+              nullable: false,
+            )),
           ],
           namedParams: [],
           generics: {},
@@ -112,27 +134,36 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'base'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'base'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
-            's1'.paramOptional(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: false,
+            )),
+            's1'.paramOptional(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable),
-            's2'.paramOptional(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: true,
+            )),
+            's2'.paramOptional(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
+              nullable: false,
+            )),
           ],
           namedParams: [],
           generics: {},
@@ -143,36 +174,48 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'base'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'base'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [
-            's1'.paramOptional(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            's1'.paramOptional(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable),
-            's2'.paramOptional(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: true,
+            )),
+            's2'.paramOptional(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
-            's3'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+              nullable: false,
+            )),
+            's3'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate),
+              nullable: false,
+            )),
           ],
           generics: {},
         ),
@@ -182,22 +225,28 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'base'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'base'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [
-            's'.paramOptional(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            's'.paramOptional(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           generics: {},
         ),
@@ -208,13 +257,16 @@ class $TestClass implements $Instance {
     getters: {
       'value': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:core',
-              'int',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -227,13 +279,16 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            '_value'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},

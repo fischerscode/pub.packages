@@ -57,7 +57,15 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
             r'$with':
                 code.literalList(mixinWrappers.map((e) => e.ref).toList()),
             r'isAbstract': code.literalBool(wrapped.isAbstract),
-            // r'generics': //TODO: Generics
+            r'generics': code.literalMap({
+              for (var param in wrapped.typeParameters)
+                param.name:
+                    WellKnownTypeReferences.bridgeGenericParam.newInstance([], {
+                  r'$extends':
+                      param.bound?.annotated(wrapped, settings.knownWrappers) ??
+                          code.literalNull,
+                }),
+            })
           })
         ],
         {
@@ -144,9 +152,7 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
                           .maybeNullChecked(parameter.isRequired)
                           .access(parameter.type, parameter.isRequired,
                               parameter.defaultValueCode?.asExpression())
-                }, [
-                  //TODO: Generics
-                ])
+                })
               ])
               .returned
               .statement

@@ -9,11 +9,9 @@ extension ExecutableElementToCode on ExecutableElement {
   code.Expression methodDef(InterfaceElement self, WrapperSettings settings) {
     return code.TypeReference((b) => b
       ..symbol = 'BridgeMethodDef'
-      ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance([
-      functionDef(self, settings)
-    ], {
-      'isStatic': code.literalBool(isStatic) //TODO: Static methods
-    });
+      ..url = WellKnownTypeReferences.dartEvalBridgePackage).newInstance(
+        [functionDef(self, settings)],
+        {'isStatic': code.literalBool(isStatic)});
   }
 
   code.Expression functionDef(InterfaceElement self, WrapperSettings settings) {
@@ -36,7 +34,8 @@ extension ExecutableElementToCode on ExecutableElement {
                 .call({param.type.annotated(self, settings.knownWrappers)})
       ]),
       'generics': code.literalMap({
-        //TODO: Generics
+        for (var generic in typeParameters)
+          generic.name: generic.bound?.refer() ?? code.literalNull,
       })
     });
   }

@@ -17,26 +17,33 @@ class $TestClass implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'value'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -49,13 +56,16 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'other'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'other'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -66,13 +76,16 @@ class $TestClass implements $Instance {
     getters: {
       'value': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:core',
-              'int',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -81,13 +94,16 @@ class $TestClass implements $Instance {
       ),
       'value2': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:core',
-              'int',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -100,13 +116,16 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_value'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            '_value'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -117,13 +136,16 @@ class $TestClass implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            'newValue'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'int',
+            'newValue'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},

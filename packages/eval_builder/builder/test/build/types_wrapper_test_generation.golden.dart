@@ -11,13 +11,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
   static final $declaration = dart_eval_bridge.BridgeClassDef(
     dart_eval_bridge.BridgeClassType(
       $type.ref,
-      $extends: dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: dart_eval_bridge.BridgeTypeRef(
+        dart_eval_bridge.BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': dart_eval_bridge.BridgeConstructorDef(
@@ -44,13 +48,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
     getters: {
       'varCompleter': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'Completer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'Completer',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -59,13 +71,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varCompleterNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'Completer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'Completer',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -74,13 +94,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStream': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'Stream',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'Stream',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -89,13 +117,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'Stream',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'Stream',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -104,13 +140,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamController': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamController',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamController',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -119,13 +163,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamControllerNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamController',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamController',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -134,13 +186,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamSink': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamSink',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -149,13 +209,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamSinkNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamSink',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -164,13 +232,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamSubscription': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamSubscription',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamSubscription',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -179,13 +255,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamSubscriptionNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamSubscription',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamSubscription',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -194,13 +278,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamTransformer': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamTransformer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamTransformer',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -209,13 +305,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamTransformerNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamTransformer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamTransformer',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -224,13 +332,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamView': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamView',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamView',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -239,13 +355,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStreamViewNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:async',
-              'StreamView',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:async',
+                'StreamView',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -254,13 +378,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varLinkedHashMap': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:collection',
-              'LinkedHashMap',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:collection',
+                'LinkedHashMap',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -269,13 +405,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varLinkedHashMapNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:collection',
-              'LinkedHashMap',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:collection',
+                'LinkedHashMap',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -284,13 +432,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varCodec': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Codec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Codec',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -299,13 +459,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varCodecNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Codec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Codec',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -314,13 +486,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varConverter': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Converter',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Converter',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -329,13 +513,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varConverterNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Converter',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Converter',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -344,13 +540,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varEncoding': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Encoding',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Encoding',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -359,13 +558,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varEncodingNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Encoding',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Encoding',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -374,13 +576,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonCodec': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonCodec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonCodec',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -389,13 +594,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonCodecNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonCodec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonCodec',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -404,13 +612,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonDecoder': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonDecoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonDecoder',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -419,13 +630,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonDecoderNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonDecoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonDecoder',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -434,13 +648,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonEncoder': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonEncoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonEncoder',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -449,13 +666,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varJsonEncoderNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'JsonEncoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'JsonEncoder',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -464,13 +684,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUtf8Codec': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Utf8Codec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Utf8Codec',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -479,13 +702,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUtf8CodecNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Utf8Codec',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Utf8Codec',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -494,13 +720,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUtf8Decoder': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Utf8Decoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Utf8Decoder',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -509,13 +738,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUtf8DecoderNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:convert',
-              'Utf8Decoder',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:convert',
+                'Utf8Decoder',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -524,13 +756,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varArgumentError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'ArgumentError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'ArgumentError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -539,13 +774,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varArgumentErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'ArgumentError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'ArgumentError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -554,13 +792,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varAssertionError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'AssertionError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'AssertionError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -569,13 +810,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varAssertionErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'AssertionError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'AssertionError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -584,13 +828,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varbool': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'bool',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'bool',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -599,13 +846,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varboolNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'bool',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'bool',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -614,13 +864,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varComparable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Comparable',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Comparable',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -629,13 +887,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varComparableNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Comparable',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Comparable',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -644,13 +910,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDateTime': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'DateTime',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'DateTime',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -659,13 +928,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDateTimeNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'DateTime',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'DateTime',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -674,13 +946,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'vardouble': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'double',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'double',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -689,13 +964,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'vardoubleNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'double',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'double',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -704,13 +982,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDuration': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Duration',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Duration',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -719,13 +1000,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDurationNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Duration',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Duration',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -734,13 +1018,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Error',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Error',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -749,13 +1036,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Error',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Error',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -764,13 +1054,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varException': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Exception',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Exception',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -779,13 +1072,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varExceptionNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Exception',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Exception',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -794,13 +1090,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFormatException': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'FormatException',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'FormatException',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -809,13 +1108,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFormatExceptionNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'FormatException',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'FormatException',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -824,13 +1126,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFuture': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Future',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Future',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -839,13 +1149,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFutureNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Future',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Future',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -854,13 +1172,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varint': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'int',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -869,13 +1190,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varintNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'int',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'int',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -884,13 +1208,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varIterable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Iterable',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Iterable',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -899,13 +1231,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varIterableNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Iterable',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Iterable',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -914,13 +1254,21 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varList': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'List',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'List',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -929,13 +1277,73 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varListNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'List',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'List',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                ))
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varStringList': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'List',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'String',
+                  ),
+                  [],
+                )
+              ],
+            ),
+            nullable: false,
+          ),
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varStringListNullable': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'List',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'String',
+                  ),
+                  [],
+                )
+              ],
+            ),
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -944,13 +1352,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMap': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Map',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Map',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -959,13 +1379,91 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMapNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Map',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Map',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varTypedMap': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Map',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'int',
+                  ),
+                  [],
+                ),
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'String',
+                  ),
+                  [],
+                ),
+              ],
+            ),
+            nullable: false,
+          ),
+          params: [],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varTypedMapNullable': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Map',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'int',
+                  ),
+                  [],
+                ),
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'String',
+                  ),
+                  [],
+                ),
+              ],
+            ),
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -974,13 +1472,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMapEntry': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'MapEntry',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'MapEntry',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -989,13 +1499,25 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMapEntryNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'MapEntry',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'MapEntry',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+                dart_eval_bridge.BridgeTypeRef(dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'dynamic',
+                )),
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1004,13 +1526,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMatch': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Match',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Match',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1019,13 +1544,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varMatchNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Match',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Match',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1034,13 +1562,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varnum': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'num',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'num',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1049,13 +1580,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varnumNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'num',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'num',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1064,13 +1598,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varObject': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Object',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Object',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1079,13 +1616,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varObjectNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Object',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Object',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1094,13 +1634,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varPattern': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Pattern',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Pattern',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1109,13 +1652,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varPatternNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Pattern',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Pattern',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1124,13 +1670,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRangeError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RangeError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RangeError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1139,13 +1688,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRangeErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RangeError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RangeError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1154,13 +1706,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRegExp': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RegExp',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RegExp',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1169,13 +1724,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRegExpNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RegExp',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RegExp',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1184,13 +1742,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRegExpMatch': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RegExpMatch',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RegExpMatch',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1199,13 +1760,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varRegExpMatchNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'RegExpMatch',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'RegExpMatch',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1214,13 +1778,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStackTrace': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StackTrace',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StackTrace',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1229,13 +1796,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStackTraceNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StackTrace',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StackTrace',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1244,13 +1814,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStateError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StateError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StateError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1259,13 +1832,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStateErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StateError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StateError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1274,13 +1850,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varString': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'String',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1289,13 +1868,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStringNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'String',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1304,13 +1886,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStringBuffer': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StringBuffer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StringBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1319,13 +1904,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStringBufferNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'StringBuffer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'StringBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1334,13 +1922,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUnimplementedError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'UnimplementedError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'UnimplementedError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1349,13 +1940,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUnimplementedErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'UnimplementedError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'UnimplementedError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1364,13 +1958,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUnsupportedError': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'UnsupportedError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'UnsupportedError',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1379,13 +1976,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUnsupportedErrorNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'UnsupportedError',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'UnsupportedError',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1394,13 +1994,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUri': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Uri',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Uri',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1409,13 +2012,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUriNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:core',
-              'Uri',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:core',
+                'Uri',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1424,13 +2030,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDirectory': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'Directory',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'Directory',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1439,13 +2048,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varDirectoryNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'Directory',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'Directory',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1454,13 +2066,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFile': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'File',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'File',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1469,13 +2084,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFileNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'File',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'File',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1484,13 +2102,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFileSystemEntity': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'FileSystemEntity',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'FileSystemEntity',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1499,13 +2120,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varFileSystemEntityNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'FileSystemEntity',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'FileSystemEntity',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1514,13 +2138,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClient': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClient',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClient',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1529,13 +2156,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClientNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClient',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClient',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1544,13 +2174,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClientRequest': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClientRequest',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClientRequest',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1559,13 +2192,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClientRequestNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClientRequest',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClientRequest',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1574,13 +2210,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClientResponse': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClientResponse',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClientResponse',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1589,13 +2228,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varHttpClientResponseNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'HttpClientResponse',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'HttpClientResponse',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1604,13 +2246,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varInternetAddress': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'InternetAddress',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'InternetAddress',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1619,13 +2264,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varInternetAddressNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'InternetAddress',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'InternetAddress',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1634,13 +2282,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varInternetAddressType': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'InternetAddressType',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'InternetAddressType',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1649,13 +2300,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varInternetAddressTypeNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'InternetAddressType',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'InternetAddressType',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1664,13 +2318,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varIOSink': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'IOSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'IOSink',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1679,13 +2336,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varIOSinkNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'IOSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'IOSink',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1694,13 +2354,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStringSink': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'StringSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'StringSink',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1709,13 +2372,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varStringSinkNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:io',
-              'StringSink',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:io',
+                'StringSink',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1724,13 +2390,24 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varPoint': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:math',
-              'Point',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:math',
+                'Point',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'num',
+                  ),
+                  [],
+                )
+              ],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1739,13 +2416,24 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varPointNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:math',
-              'Point',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:math',
+                'Point',
+              ),
+              [
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'num',
+                  ),
+                  [],
+                )
+              ],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1754,13 +2442,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varByteBuffer': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1769,13 +2460,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varByteBufferNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1784,13 +2478,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varByteData': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteData',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteData',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1799,13 +2496,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varByteDataNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteData',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteData',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1814,13 +2514,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varTypedData': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'TypedData',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'TypedData',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1829,13 +2532,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varTypedDataNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'TypedData',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'TypedData',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1844,13 +2550,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUint8List': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'Uint8List',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'Uint8List',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1859,13 +2568,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       ),
       'varUint8ListNullable': dart_eval_bridge.BridgeMethodDef(
         dart_eval_bridge.BridgeFunctionDef(
-          returns: dart_eval_bridge.BridgeTypeRef(
-            dart_eval_bridge.BridgeTypeSpec(
-              'dart:typed_data',
-              'Uint8List',
+          returns: dart_eval_bridge.BridgeTypeAnnotation(
+            dart_eval_bridge.BridgeTypeRef(
+              dart_eval_bridge.BridgeTypeSpec(
+                'dart:typed_data',
+                'Uint8List',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -1877,50 +2589,63 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.BridgeTypeAnnotation(
             dart_eval_bridge.BridgeTypeRef.genericFunction(
                 dart_eval_bridge.BridgeFunctionDef(
-              returns: dart_eval_bridge.BridgeTypeRef(
-                dart_eval_bridge.BridgeTypeSpec(
-                  'dart:core',
-                  'String',
+              returns: dart_eval_bridge.BridgeTypeAnnotation(
+                dart_eval_bridge.BridgeTypeRef(
+                  dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'String',
+                  ),
+                  [],
                 ),
-                [],
-              ).annotate,
+                nullable: false,
+              ),
               params: [
                 dart_eval_bridge.BridgeParameter(
                   'a',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotate,
+                    nullable: false,
+                  ),
                   false,
                 )
               ],
               namedParams: [
                 dart_eval_bridge.BridgeParameter(
                   'b',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotate,
+                    nullable: false,
+                  ),
                   false,
                 ),
                 dart_eval_bridge.BridgeParameter(
                   'c',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotateNullable,
+                    nullable: true,
+                  ),
                   true,
                 ),
               ],
+              generics: const {},
             )),
             nullable: false,
           ),
@@ -1939,39 +2664,49 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               params: [
                 dart_eval_bridge.BridgeParameter(
                   'a',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotate,
+                    nullable: false,
+                  ),
                   false,
                 ),
                 dart_eval_bridge.BridgeParameter(
                   'b',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotateNullable,
+                    nullable: true,
+                  ),
                   true,
                 ),
                 dart_eval_bridge.BridgeParameter(
                   'c',
-                  dart_eval_bridge.BridgeTypeRef(
-                    dart_eval_bridge.BridgeTypeSpec(
-                      'dart:core',
-                      'String',
+                  dart_eval_bridge.BridgeTypeAnnotation(
+                    dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                        'dart:core',
+                        'String',
+                      ),
+                      [],
                     ),
-                    [],
-                  ).annotateNullable,
+                    nullable: true,
+                  ),
                   true,
                 ),
               ],
               namedParams: [],
+              generics: const {},
             )),
             nullable: true,
           ),
@@ -1987,13 +2722,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varCompleter'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'Completer',
+            '_varCompleter'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'Completer',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2004,13 +2748,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varCompleterNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'Completer',
+            '_varCompleterNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'Completer',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2021,13 +2774,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStream'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'Stream',
+            '_varStream'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'Stream',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2038,13 +2800,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'Stream',
+            '_varStreamNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'Stream',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2055,13 +2826,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamController'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamController',
+            '_varStreamController'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamController',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2072,13 +2852,23 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamControllerNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamController',
+            '_varStreamControllerNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamController',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2089,13 +2879,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamSink'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamSink',
+            '_varStreamSink'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamSink',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2106,13 +2905,23 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamSinkNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamSink',
+            '_varStreamSinkNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamSink',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2123,13 +2932,23 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamSubscription'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamSubscription',
+            '_varStreamSubscription'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamSubscription',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2141,13 +2960,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varStreamSubscriptionNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamSubscription',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamSubscription',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2158,13 +2986,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamTransformer'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamTransformer',
+            '_varStreamTransformer'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamTransformer',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2176,13 +3018,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varStreamTransformerNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamTransformer',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamTransformer',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2193,13 +3049,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamView'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamView',
+            '_varStreamView'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamView',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2210,13 +3075,23 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStreamViewNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:async',
-                'StreamView',
+            '_varStreamViewNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:async',
+                  'StreamView',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2227,13 +3102,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varLinkedHashMap'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:collection',
-                'LinkedHashMap',
+            '_varLinkedHashMap'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:collection',
+                  'LinkedHashMap',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2244,13 +3133,28 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varLinkedHashMapNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:collection',
-                'LinkedHashMap',
+            '_varLinkedHashMapNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:collection',
+                  'LinkedHashMap',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2261,13 +3165,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varCodec'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Codec',
+            '_varCodec'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Codec',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2278,13 +3196,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varCodecNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Codec',
+            '_varCodecNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Codec',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2295,13 +3227,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varConverter'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Converter',
+            '_varConverter'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Converter',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2312,13 +3258,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varConverterNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Converter',
+            '_varConverterNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Converter',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2329,13 +3289,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varEncoding'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Encoding',
+            '_varEncoding'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Encoding',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2346,13 +3309,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varEncodingNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Encoding',
+            '_varEncodingNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Encoding',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2363,13 +3329,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonCodec'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonCodec',
+            '_varJsonCodec'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonCodec',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2380,13 +3349,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonCodecNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonCodec',
+            '_varJsonCodecNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonCodec',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2397,13 +3369,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonDecoder'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonDecoder',
+            '_varJsonDecoder'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonDecoder',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2414,13 +3389,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonDecoderNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonDecoder',
+            '_varJsonDecoderNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonDecoder',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2431,13 +3410,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonEncoder'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonEncoder',
+            '_varJsonEncoder'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonEncoder',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2448,13 +3430,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varJsonEncoderNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'JsonEncoder',
+            '_varJsonEncoderNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'JsonEncoder',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2465,13 +3451,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUtf8Codec'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Utf8Codec',
+            '_varUtf8Codec'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Utf8Codec',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2482,13 +3471,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUtf8CodecNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Utf8Codec',
+            '_varUtf8CodecNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Utf8Codec',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2499,13 +3491,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUtf8Decoder'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Utf8Decoder',
+            '_varUtf8Decoder'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Utf8Decoder',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2516,13 +3511,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUtf8DecoderNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:convert',
-                'Utf8Decoder',
+            '_varUtf8DecoderNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:convert',
+                  'Utf8Decoder',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2533,13 +3532,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varArgumentError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'ArgumentError',
+            '_varArgumentError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'ArgumentError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2550,13 +3552,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varArgumentErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'ArgumentError',
+            '_varArgumentErrorNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'ArgumentError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2567,13 +3573,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varAssertionError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'AssertionError',
+            '_varAssertionError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'AssertionError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2584,13 +3593,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varAssertionErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'AssertionError',
+            '_varAssertionErrorNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'AssertionError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2601,13 +3614,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varbool'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'bool',
+            '_varbool'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'bool',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2618,13 +3634,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varboolNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'bool',
+            '_varboolNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'bool',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2635,13 +3654,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varComparable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Comparable',
+            '_varComparable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Comparable',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2652,13 +3680,23 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varComparableNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Comparable',
+            '_varComparableNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Comparable',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2669,13 +3707,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDateTime'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'DateTime',
+            '_varDateTime'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'DateTime',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2686,13 +3727,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDateTimeNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'DateTime',
+            '_varDateTimeNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'DateTime',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2703,13 +3747,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_vardouble'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'double',
+            '_vardouble'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'double',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2720,13 +3767,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_vardoubleNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'double',
+            '_vardoubleNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'double',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2737,13 +3787,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDuration'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Duration',
+            '_varDuration'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Duration',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2754,13 +3807,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDurationNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Duration',
+            '_varDurationNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Duration',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2771,13 +3827,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Error',
+            '_varError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Error',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2788,13 +3847,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Error',
+            '_varErrorNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Error',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2805,13 +3867,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varException'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Exception',
+            '_varException'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Exception',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2822,13 +3887,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varExceptionNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Exception',
+            '_varExceptionNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Exception',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2839,13 +3907,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFormatException'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'FormatException',
+            '_varFormatException'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'FormatException',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2856,13 +3927,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFormatExceptionNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'FormatException',
+            '_varFormatExceptionNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'FormatException',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2873,13 +3948,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFuture'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Future',
+            '_varFuture'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Future',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2890,13 +3974,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFutureNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Future',
+            '_varFutureNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Future',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2907,13 +4000,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varint'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'int',
+            '_varint'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2924,13 +4020,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varintNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'int',
+            '_varintNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'int',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2941,13 +4040,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varIterable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Iterable',
+            '_varIterable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Iterable',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2958,13 +4066,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varIterableNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Iterable',
+            '_varIterableNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Iterable',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2975,13 +4092,22 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varList'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'List',
+            '_varList'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'List',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -2992,13 +4118,79 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varListNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'List',
+            '_varListNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'List',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  ))
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varStringList': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
+          params: [
+            '_varStringList'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'List',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'String',
+                    ),
+                    [],
+                  )
+                ],
+              ),
+              nullable: false,
+            ))
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varStringListNullable': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
+          params: [
+            '_varStringListNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'List',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'String',
+                    ),
+                    [],
+                  )
+                ],
+              ),
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3009,13 +4201,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMap'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Map',
+            '_varMap'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Map',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3026,13 +4232,97 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMapNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Map',
+            '_varMapNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Map',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varTypedMap': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
+          params: [
+            '_varTypedMap'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Map',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'int',
+                    ),
+                    [],
+                  ),
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'String',
+                    ),
+                    [],
+                  ),
+                ],
+              ),
+              nullable: false,
+            ))
+          ],
+          namedParams: [],
+          generics: {},
+        ),
+        isStatic: false,
+      ),
+      'varTypedMapNullable': dart_eval_bridge.BridgeMethodDef(
+        dart_eval_bridge.BridgeFunctionDef(
+          returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
+          params: [
+            '_varTypedMapNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Map',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'int',
+                    ),
+                    [],
+                  ),
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'String',
+                    ),
+                    [],
+                  ),
+                ],
+              ),
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3043,13 +4333,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMapEntry'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'MapEntry',
+            '_varMapEntry'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'MapEntry',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3060,13 +4364,27 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMapEntryNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'MapEntry',
+            '_varMapEntryNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'MapEntry',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                  dart_eval_bridge.BridgeTypeRef(
+                      dart_eval_bridge.BridgeTypeSpec(
+                    'dart:core',
+                    'dynamic',
+                  )),
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3077,13 +4395,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMatch'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Match',
+            '_varMatch'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Match',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3094,13 +4415,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varMatchNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Match',
+            '_varMatchNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Match',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3111,13 +4435,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varnum'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'num',
+            '_varnum'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'num',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3128,13 +4455,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varnumNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'num',
+            '_varnumNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'num',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3145,13 +4475,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varObject'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Object',
+            '_varObject'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Object',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3162,13 +4495,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varObjectNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Object',
+            '_varObjectNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Object',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3179,13 +4515,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varPattern'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Pattern',
+            '_varPattern'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Pattern',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3196,13 +4535,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varPatternNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Pattern',
+            '_varPatternNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Pattern',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3213,13 +4555,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRangeError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RangeError',
+            '_varRangeError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RangeError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3230,13 +4575,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRangeErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RangeError',
+            '_varRangeErrorNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RangeError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3247,13 +4596,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRegExp'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RegExp',
+            '_varRegExp'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RegExp',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3264,13 +4616,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRegExpNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RegExp',
+            '_varRegExpNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RegExp',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3281,13 +4636,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRegExpMatch'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RegExpMatch',
+            '_varRegExpMatch'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RegExpMatch',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3298,13 +4656,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varRegExpMatchNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'RegExpMatch',
+            '_varRegExpMatchNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'RegExpMatch',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3315,13 +4677,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStackTrace'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StackTrace',
+            '_varStackTrace'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StackTrace',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3332,13 +4697,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStackTraceNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StackTrace',
+            '_varStackTraceNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StackTrace',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3349,13 +4718,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStateError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StateError',
+            '_varStateError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StateError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3366,13 +4738,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStateErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StateError',
+            '_varStateErrorNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StateError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3383,13 +4759,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varString'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'String',
+            '_varString'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'String',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3400,13 +4779,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStringNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'String',
+            '_varStringNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'String',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3417,13 +4799,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStringBuffer'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StringBuffer',
+            '_varStringBuffer'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StringBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3434,13 +4819,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStringBufferNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'StringBuffer',
+            '_varStringBufferNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'StringBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3451,13 +4840,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUnimplementedError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'UnimplementedError',
+            '_varUnimplementedError'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'UnimplementedError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3469,13 +4862,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varUnimplementedErrorNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'UnimplementedError',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'UnimplementedError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3486,13 +4882,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUnsupportedError'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'UnsupportedError',
+            '_varUnsupportedError'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'UnsupportedError',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3503,13 +4902,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUnsupportedErrorNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'UnsupportedError',
+            '_varUnsupportedErrorNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'UnsupportedError',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3520,13 +4923,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUri'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Uri',
+            '_varUri'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Uri',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3537,13 +4943,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUriNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:core',
-                'Uri',
+            '_varUriNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:core',
+                  'Uri',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3554,13 +4963,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDirectory'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'Directory',
+            '_varDirectory'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'Directory',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3571,13 +4983,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varDirectoryNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'Directory',
+            '_varDirectoryNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'Directory',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3588,13 +5003,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFile'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'File',
+            '_varFile'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'File',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3605,13 +5023,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFileNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'File',
+            '_varFileNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'File',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3622,13 +5043,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFileSystemEntity'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'FileSystemEntity',
+            '_varFileSystemEntity'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'FileSystemEntity',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3639,13 +5063,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varFileSystemEntityNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'FileSystemEntity',
+            '_varFileSystemEntityNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'FileSystemEntity',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3656,13 +5084,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varHttpClient'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClient',
+            '_varHttpClient'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClient',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3673,13 +5104,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varHttpClientNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClient',
+            '_varHttpClientNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClient',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3690,13 +5125,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varHttpClientRequest'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClientRequest',
+            '_varHttpClientRequest'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClientRequest',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3708,13 +5146,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varHttpClientRequestNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClientRequest',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClientRequest',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3725,13 +5166,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varHttpClientResponse'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClientResponse',
+            '_varHttpClientResponse'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClientResponse',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3743,13 +5188,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varHttpClientResponseNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'HttpClientResponse',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'HttpClientResponse',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3760,13 +5208,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varInternetAddress'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'InternetAddress',
+            '_varInternetAddress'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'InternetAddress',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3777,13 +5228,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varInternetAddressNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'InternetAddress',
+            '_varInternetAddressNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'InternetAddress',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3794,13 +5249,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varInternetAddressType'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'InternetAddressType',
+            '_varInternetAddressType'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'InternetAddressType',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3812,13 +5271,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
             '_varInternetAddressTypeNullable'
-                .param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'InternetAddressType',
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'InternetAddressType',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3829,13 +5291,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varIOSink'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'IOSink',
+            '_varIOSink'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'IOSink',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3846,13 +5311,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varIOSinkNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'IOSink',
+            '_varIOSinkNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'IOSink',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3863,13 +5331,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStringSink'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'StringSink',
+            '_varStringSink'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'StringSink',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3880,13 +5351,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varStringSinkNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:io',
-                'StringSink',
+            '_varStringSinkNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:io',
+                  'StringSink',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3897,13 +5372,24 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varPoint'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:math',
-                'Point',
+            '_varPoint'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:math',
+                  'Point',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'num',
+                    ),
+                    [],
+                  )
+                ],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3914,13 +5400,24 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varPointNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:math',
-                'Point',
+            '_varPointNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:math',
+                  'Point',
+                ),
+                [
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'num',
+                    ),
+                    [],
+                  )
+                ],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3931,13 +5428,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varByteBuffer'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteBuffer',
+            '_varByteBuffer'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3948,13 +5448,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varByteBufferNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteBuffer',
+            '_varByteBufferNullable'
+                .param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3965,13 +5469,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varByteData'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteData',
+            '_varByteData'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteData',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3982,13 +5489,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varByteDataNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteData',
+            '_varByteDataNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteData',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -3999,13 +5509,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varTypedData'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'TypedData',
+            '_varTypedData'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'TypedData',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -4016,13 +5529,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varTypedDataNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'TypedData',
+            '_varTypedDataNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'TypedData',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -4033,13 +5549,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUint8List'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'Uint8List',
+            '_varUint8List'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'Uint8List',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -4050,13 +5569,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
         dart_eval_bridge.BridgeFunctionDef(
           returns: dart_eval_bridge.CoreTypes.voidType.ref.annotate,
           params: [
-            '_varUint8ListNullable'.param(dart_eval_bridge.BridgeTypeRef(
-              dart_eval_bridge.BridgeTypeSpec(
-                'dart:typed_data',
-                'Uint8List',
+            '_varUint8ListNullable'.param(dart_eval_bridge.BridgeTypeAnnotation(
+              dart_eval_bridge.BridgeTypeRef(
+                dart_eval_bridge.BridgeTypeSpec(
+                  'dart:typed_data',
+                  'Uint8List',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -4070,50 +5592,63 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
             '_varFunction'.param(dart_eval_bridge.BridgeTypeAnnotation(
               dart_eval_bridge.BridgeTypeRef.genericFunction(
                   dart_eval_bridge.BridgeFunctionDef(
-                returns: dart_eval_bridge.BridgeTypeRef(
-                  dart_eval_bridge.BridgeTypeSpec(
-                    'dart:core',
-                    'String',
+                returns: dart_eval_bridge.BridgeTypeAnnotation(
+                  dart_eval_bridge.BridgeTypeRef(
+                    dart_eval_bridge.BridgeTypeSpec(
+                      'dart:core',
+                      'String',
+                    ),
+                    [],
                   ),
-                  [],
-                ).annotate,
+                  nullable: false,
+                ),
                 params: [
                   dart_eval_bridge.BridgeParameter(
                     'a',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotate,
+                      nullable: false,
+                    ),
                     false,
                   )
                 ],
                 namedParams: [
                   dart_eval_bridge.BridgeParameter(
                     'b',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotate,
+                      nullable: false,
+                    ),
                     false,
                   ),
                   dart_eval_bridge.BridgeParameter(
                     'c',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotateNullable,
+                      nullable: true,
+                    ),
                     true,
                   ),
                 ],
+                generics: const {},
               )),
               nullable: false,
             ))
@@ -4134,39 +5669,49 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
                 params: [
                   dart_eval_bridge.BridgeParameter(
                     'a',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotate,
+                      nullable: false,
+                    ),
                     false,
                   ),
                   dart_eval_bridge.BridgeParameter(
                     'b',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotateNullable,
+                      nullable: true,
+                    ),
                     true,
                   ),
                   dart_eval_bridge.BridgeParameter(
                     'c',
-                    dart_eval_bridge.BridgeTypeRef(
-                      dart_eval_bridge.BridgeTypeSpec(
-                        'dart:core',
-                        'String',
+                    dart_eval_bridge.BridgeTypeAnnotation(
+                      dart_eval_bridge.BridgeTypeRef(
+                        dart_eval_bridge.BridgeTypeSpec(
+                          'dart:core',
+                          'String',
+                        ),
+                        [],
                       ),
-                      [],
-                    ).annotateNullable,
+                      nullable: true,
+                    ),
                     true,
                   ),
                 ],
                 namedParams: [],
+                generics: const {},
               )),
               nullable: true,
             ))
@@ -4485,11 +6030,29 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
               ? const stdlib_core.$null()
               : stdlib_core.$List.wrap($);
         }();
+      case 'varStringList':
+        return stdlib_core.$List.wrap($value.varStringList);
+      case 'varStringListNullable':
+        return () {
+          final $ = $value.varStringListNullable;
+          return $ == null
+              ? const stdlib_core.$null()
+              : stdlib_core.$List.wrap($);
+        }();
       case 'varMap':
         return stdlib_core.$Map.wrap($value.varMap);
       case 'varMapNullable':
         return () {
           final $ = $value.varMapNullable;
+          return $ == null
+              ? const stdlib_core.$null()
+              : stdlib_core.$Map.wrap($);
+        }();
+      case 'varTypedMap':
+        return stdlib_core.$Map.wrap($value.varTypedMap);
+      case 'varTypedMapNullable':
+        return () {
+          final $ = $value.varTypedMapNullable;
           return $ == null
               ? const stdlib_core.$null()
               : stdlib_core.$Map.wrap($);
@@ -4848,36 +6411,40 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varCompleter':
         $value.varCompleter = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Completer ? ($.$reified as async.Completer) : $$;
+          return $$ is! async.Completer<core.dynamic>
+              ? ($.$reified as async.Completer<core.dynamic>)
+              : $$;
         }(value);
       case 'varCompleterNullable':
         $value.varCompleterNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Completer?
-                  ? ($.$reified as async.Completer?)
+              : $$ is! async.Completer<core.dynamic>?
+                  ? ($.$reified as async.Completer<core.dynamic>?)
                   : $$;
         }(value);
       case 'varStream':
         $value.varStream = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Stream ? ($.$reified as async.Stream) : $$;
+          return $$ is! async.Stream<core.dynamic>
+              ? ($.$reified as async.Stream<core.dynamic>)
+              : $$;
         }(value);
       case 'varStreamNullable':
         $value.varStreamNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Stream?
-                  ? ($.$reified as async.Stream?)
+              : $$ is! async.Stream<core.dynamic>?
+                  ? ($.$reified as async.Stream<core.dynamic>?)
                   : $$;
         }(value);
       case 'varStreamController':
         $value.varStreamController = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamController
-              ? ($.$reified as async.StreamController)
+          return $$ is! async.StreamController<core.dynamic>
+              ? ($.$reified as async.StreamController<core.dynamic>)
               : $$;
         }(value);
       case 'varStreamControllerNullable':
@@ -4885,15 +6452,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamController?
-                  ? ($.$reified as async.StreamController?)
+              : $$ is! async.StreamController<core.dynamic>?
+                  ? ($.$reified as async.StreamController<core.dynamic>?)
                   : $$;
         }(value);
       case 'varStreamSink':
         $value.varStreamSink = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamSink
-              ? ($.$reified as async.StreamSink)
+          return $$ is! async.StreamSink<core.dynamic>
+              ? ($.$reified as async.StreamSink<core.dynamic>)
               : $$;
         }(value);
       case 'varStreamSinkNullable':
@@ -4901,15 +6468,15 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamSink?
-                  ? ($.$reified as async.StreamSink?)
+              : $$ is! async.StreamSink<core.dynamic>?
+                  ? ($.$reified as async.StreamSink<core.dynamic>?)
                   : $$;
         }(value);
       case 'varStreamSubscription':
         $value.varStreamSubscription = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamSubscription
-              ? ($.$reified as async.StreamSubscription)
+          return $$ is! async.StreamSubscription<core.dynamic>
+              ? ($.$reified as async.StreamSubscription<core.dynamic>)
               : $$;
         }(value);
       case 'varStreamSubscriptionNullable':
@@ -4917,15 +6484,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamSubscription?
-                  ? ($.$reified as async.StreamSubscription?)
+              : $$ is! async.StreamSubscription<core.dynamic>?
+                  ? ($.$reified as async.StreamSubscription<core.dynamic>?)
                   : $$;
         }(value);
       case 'varStreamTransformer':
         $value.varStreamTransformer = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamTransformer
-              ? ($.$reified as async.StreamTransformer)
+          return $$ is! async.StreamTransformer<core.dynamic, core.dynamic>
+              ? ($.$reified
+                  as async.StreamTransformer<core.dynamic, core.dynamic>)
               : $$;
         }(value);
       case 'varStreamTransformerNullable':
@@ -4933,15 +6501,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamTransformer?
-                  ? ($.$reified as async.StreamTransformer?)
+              : $$ is! async.StreamTransformer<core.dynamic, core.dynamic>?
+                  ? ($.$reified
+                      as async.StreamTransformer<core.dynamic, core.dynamic>?)
                   : $$;
         }(value);
       case 'varStreamView':
         $value.varStreamView = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.StreamView
-              ? ($.$reified as async.StreamView)
+          return $$ is! async.StreamView<core.dynamic>
+              ? ($.$reified as async.StreamView<core.dynamic>)
               : $$;
         }(value);
       case 'varStreamViewNullable':
@@ -4949,15 +6518,16 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.StreamView?
-                  ? ($.$reified as async.StreamView?)
+              : $$ is! async.StreamView<core.dynamic>?
+                  ? ($.$reified as async.StreamView<core.dynamic>?)
                   : $$;
         }(value);
       case 'varLinkedHashMap':
         $value.varLinkedHashMap = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! collection.LinkedHashMap
-              ? ($.$reified as collection.LinkedHashMap)
+          return $$ is! collection.LinkedHashMap<core.dynamic, core.dynamic>
+              ? ($.$reified
+                  as collection.LinkedHashMap<core.dynamic, core.dynamic>)
               : $$;
         }(value);
       case 'varLinkedHashMapNullable':
@@ -4965,29 +6535,32 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! collection.LinkedHashMap?
-                  ? ($.$reified as collection.LinkedHashMap?)
+              : $$ is! collection.LinkedHashMap<core.dynamic, core.dynamic>?
+                  ? ($.$reified
+                      as collection.LinkedHashMap<core.dynamic, core.dynamic>?)
                   : $$;
         }(value);
       case 'varCodec':
         $value.varCodec = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! convert.Codec ? ($.$reified as convert.Codec) : $$;
+          return $$ is! convert.Codec<core.dynamic, core.dynamic>
+              ? ($.$reified as convert.Codec<core.dynamic, core.dynamic>)
+              : $$;
         }(value);
       case 'varCodecNullable':
         $value.varCodecNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Codec?
-                  ? ($.$reified as convert.Codec?)
+              : $$ is! convert.Codec<core.dynamic, core.dynamic>?
+                  ? ($.$reified as convert.Codec<core.dynamic, core.dynamic>?)
                   : $$;
         }(value);
       case 'varConverter':
         $value.varConverter = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! convert.Converter
-              ? ($.$reified as convert.Converter)
+          return $$ is! convert.Converter<core.dynamic, core.dynamic>
+              ? ($.$reified as convert.Converter<core.dynamic, core.dynamic>)
               : $$;
         }(value);
       case 'varConverterNullable':
@@ -4995,8 +6568,9 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! convert.Converter?
-                  ? ($.$reified as convert.Converter?)
+              : $$ is! convert.Converter<core.dynamic, core.dynamic>?
+                  ? ($.$reified
+                      as convert.Converter<core.dynamic, core.dynamic>?)
                   : $$;
         }(value);
       case 'varEncoding':
@@ -5144,15 +6718,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varComparable':
         $value.varComparable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Comparable ? ($.$reified as core.Comparable) : $$;
+          return $$ is! core.Comparable<core.dynamic>
+              ? ($.$reified as core.Comparable<core.dynamic>)
+              : $$;
         }(value);
       case 'varComparableNullable':
         $value.varComparableNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Comparable?
-                  ? ($.$reified as core.Comparable?)
+              : $$ is! core.Comparable<core.dynamic>?
+                  ? ($.$reified as core.Comparable<core.dynamic>?)
                   : $$;
         }(value);
       case 'varDateTime':
@@ -5244,15 +6820,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varFuture':
         $value.varFuture = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! async.Future ? ($.$reified as async.Future) : $$;
+          return $$ is! async.Future<core.dynamic>
+              ? ($.$reified as async.Future<core.dynamic>)
+              : $$;
         }(value);
       case 'varFutureNullable':
         $value.varFutureNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! async.Future?
-                  ? ($.$reified as async.Future?)
+              : $$ is! async.Future<core.dynamic>?
+                  ? ($.$reified as async.Future<core.dynamic>?)
                   : $$;
         }(value);
       case 'varint':
@@ -5272,57 +6850,97 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varIterable':
         $value.varIterable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Iterable ? ($.$reified as core.Iterable) : $$;
+          return $$ is! core.Iterable<core.dynamic>
+              ? ($.$reified as core.Iterable<core.dynamic>)
+              : $$;
         }(value);
       case 'varIterableNullable':
         $value.varIterableNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Iterable?
-                  ? ($.$reified as core.Iterable?)
+              : $$ is! core.Iterable<core.dynamic>?
+                  ? ($.$reified as core.Iterable<core.dynamic>?)
                   : $$;
         }(value);
       case 'varList':
         $value.varList = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.List ? ($.$reified as core.List) : $$;
+          return $$ is! core.List<core.dynamic>
+              ? ($.$reified as core.List<core.dynamic>)
+              : $$;
         }(value);
       case 'varListNullable':
         $value.varListNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.List?
-                  ? ($.$reified as core.List?)
+              : $$ is! core.List<core.dynamic>?
+                  ? ($.$reified as core.List<core.dynamic>?)
+                  : $$;
+        }(value);
+      case 'varStringList':
+        $value.varStringList = (dart_eval_bridge.$Value $) {
+          final $$ = ($ as core.dynamic);
+          return $$ is! core.List<core.String>
+              ? ($.$reified as core.List<core.String>)
+              : $$;
+        }(value);
+      case 'varStringListNullable':
+        $value.varStringListNullable = (dart_eval_bridge.$Value $) {
+          final $$ = ($ as core.dynamic);
+          return $$ is stdlib_core.$null
+              ? null
+              : $$ is! core.List<core.String>?
+                  ? ($.$reified as core.List<core.String>?)
                   : $$;
         }(value);
       case 'varMap':
         $value.varMap = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.Map ? ($.$reified as core.Map) : $$;
+          return $$ is! core.Map<core.dynamic, core.dynamic>
+              ? ($.$reified as core.Map<core.dynamic, core.dynamic>)
+              : $$;
         }(value);
       case 'varMapNullable':
         $value.varMapNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.Map?
-                  ? ($.$reified as core.Map?)
+              : $$ is! core.Map<core.dynamic, core.dynamic>?
+                  ? ($.$reified as core.Map<core.dynamic, core.dynamic>?)
+                  : $$;
+        }(value);
+      case 'varTypedMap':
+        $value.varTypedMap = (dart_eval_bridge.$Value $) {
+          final $$ = ($ as core.dynamic);
+          return $$ is! core.Map<core.int, core.String>
+              ? ($.$reified as core.Map<core.int, core.String>)
+              : $$;
+        }(value);
+      case 'varTypedMapNullable':
+        $value.varTypedMapNullable = (dart_eval_bridge.$Value $) {
+          final $$ = ($ as core.dynamic);
+          return $$ is stdlib_core.$null
+              ? null
+              : $$ is! core.Map<core.int?, core.String?>?
+                  ? ($.$reified as core.Map<core.int?, core.String?>?)
                   : $$;
         }(value);
       case 'varMapEntry':
         $value.varMapEntry = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! core.MapEntry ? ($.$reified as core.MapEntry) : $$;
+          return $$ is! core.MapEntry<core.dynamic, core.dynamic>
+              ? ($.$reified as core.MapEntry<core.dynamic, core.dynamic>)
+              : $$;
         }(value);
       case 'varMapEntryNullable':
         $value.varMapEntryNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! core.MapEntry?
-                  ? ($.$reified as core.MapEntry?)
+              : $$ is! core.MapEntry<core.dynamic, core.dynamic>?
+                  ? ($.$reified as core.MapEntry<core.dynamic, core.dynamic>?)
                   : $$;
         }(value);
       case 'varMatch':
@@ -5682,15 +7300,17 @@ class $TypesContainer implements dart_eval_bridge.$Instance {
       case 'varPoint':
         $value.varPoint = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
-          return $$ is! math.Point ? ($.$reified as math.Point) : $$;
+          return $$ is! math.Point<core.num>
+              ? ($.$reified as math.Point<core.num>)
+              : $$;
         }(value);
       case 'varPointNullable':
         $value.varPointNullable = (dart_eval_bridge.$Value $) {
           final $$ = ($ as core.dynamic);
           return $$ is stdlib_core.$null
               ? null
-              : $$ is! math.Point?
-                  ? ($.$reified as math.Point?)
+              : $$ is! math.Point<core.num>?
+                  ? ($.$reified as math.Point<core.num>?)
                   : $$;
         }(value);
       case 'varByteBuffer':

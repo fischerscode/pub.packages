@@ -1,5 +1,4 @@
 import 'dart:core' as core;
-import 'dart:core' show dynamic, num;
 import 'dart:async' as async;
 import 'dart:collection' as collection;
 import 'dart:convert' as convert;
@@ -81,8 +80,12 @@ class TypesContainer {
   core.Iterable? varIterableNullable;
   late core.List varList;
   core.List? varListNullable;
+  late core.List<core.String> varStringList;
+  core.List<core.String>? varStringListNullable;
   late core.Map varMap;
   core.Map? varMapNullable;
+  late core.Map<core.int, core.String> varTypedMap;
+  core.Map<core.int?, core.String?>? varTypedMapNullable;
   late core.MapEntry varMapEntry;
   core.MapEntry? varMapEntryNullable;
   late core.Match varMatch;

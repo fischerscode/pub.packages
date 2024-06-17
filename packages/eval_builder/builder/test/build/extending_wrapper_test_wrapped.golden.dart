@@ -11,13 +11,17 @@ class $BaseClass implements BaseClass, $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -44,13 +48,16 @@ class $BaseClass implements BaseClass, $Instance {
     getters: {
       'propertyFromBase': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:core',
-              'String',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -63,13 +70,16 @@ class $BaseClass implements BaseClass, $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_propertyFromBase'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'String',
+            '_propertyFromBase'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'String',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -192,10 +202,14 @@ class $TestedClass implements TestedClass, $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef($BaseClass.$type),
+      $extends: BridgeTypeRef(
+        $BaseClass.$type,
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -222,13 +236,16 @@ class $TestedClass implements TestedClass, $Instance {
     getters: {
       'propertyFromClass': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:core',
-              'String',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:core',
+                'String',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -241,13 +258,16 @@ class $TestedClass implements TestedClass, $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_propertyFromClass'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:core',
-                'String',
+            '_propertyFromClass'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:core',
+                  'String',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},

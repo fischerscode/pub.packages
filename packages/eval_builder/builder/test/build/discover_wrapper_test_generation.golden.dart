@@ -11,13 +11,17 @@ class WrapWrapped1 implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -112,13 +116,17 @@ class $Wrapped2 implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -213,13 +221,17 @@ class $Parent implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -236,10 +248,13 @@ class $Parent implements $Instance {
     getters: {
       'child1': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            WrapWrapped1.$type,
-            [],
-          ).annotate,
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              WrapWrapped1.$type,
+              [],
+            ),
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -248,10 +263,13 @@ class $Parent implements $Instance {
       ),
       'child1Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            WrapWrapped1.$type,
-            [],
-          ).annotateNullable,
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              WrapWrapped1.$type,
+              [],
+            ),
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -260,10 +278,13 @@ class $Parent implements $Instance {
       ),
       'child2': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            $Wrapped2.$type,
-            [],
-          ).annotate,
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              $Wrapped2.$type,
+              [],
+            ),
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -272,10 +293,13 @@ class $Parent implements $Instance {
       ),
       'child2Nullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            $Wrapped2.$type,
-            [],
-          ).annotateNullable,
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              $Wrapped2.$type,
+              [],
+            ),
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -288,10 +312,13 @@ class $Parent implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_child1'.param(BridgeTypeRef(
-              WrapWrapped1.$type,
-              [],
-            ).annotate)
+            '_child1'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                WrapWrapped1.$type,
+                [],
+              ),
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -302,10 +329,13 @@ class $Parent implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_child1Nullable'.param(BridgeTypeRef(
-              WrapWrapped1.$type,
-              [],
-            ).annotateNullable)
+            '_child1Nullable'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                WrapWrapped1.$type,
+                [],
+              ),
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -316,10 +346,13 @@ class $Parent implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_child2'.param(BridgeTypeRef(
-              $Wrapped2.$type,
-              [],
-            ).annotate)
+            '_child2'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                $Wrapped2.$type,
+                [],
+              ),
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -330,10 +363,13 @@ class $Parent implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_child2Nullable'.param(BridgeTypeRef(
-              $Wrapped2.$type,
-              [],
-            ).annotateNullable)
+            '_child2Nullable'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                $Wrapped2.$type,
+                [],
+              ),
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},

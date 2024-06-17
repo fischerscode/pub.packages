@@ -3,6 +3,7 @@ import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart' as code;
 import 'package:eval_builder/src/build/tools/element_utils.dart';
+import 'package:eval_builder/src/build/tools/generics.dart';
 
 import 'settings.dart';
 import 'tools/code_builder_utils.dart';
@@ -137,9 +138,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
         WellKnownTypeReferences.$Instance,
       ].nonNulls);
 
-    builder.types.addAll([
-      //TODO: Generics
-    ]);
+    builder.types.addAll(wrapped.typeParameters.map((t) => t.refer()));
 
     addConfigureForCompile(builder);
     addConfigureForRuntime(builder);
@@ -484,9 +483,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                   for (var parameter in method.parameters)
                     if (parameter.isNamed)
                       parameter.name: code.refer(parameter.name),
-                }, [
-                  //TODO: Generics
-                ])
+                }, method.typeParameters.map((e) => e.refer()).toList())
                 .returned
                 .statement),
       for (var accessor in accessorsWithPrivate)

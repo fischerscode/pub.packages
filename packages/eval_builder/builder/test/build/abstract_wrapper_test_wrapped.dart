@@ -18,11 +18,11 @@ abstract class TestedClass extends BaseClass {
   String methodFromClass() => 'test';
 
   @override
+  // ignore: overridden_fields
   late String propertyFromBase;
 
   @override
   String methodFromBase() {
-    // TODO: implement methodFromBase
     throw UnimplementedError();
   }
 }

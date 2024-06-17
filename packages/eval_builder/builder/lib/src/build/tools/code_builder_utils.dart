@@ -90,7 +90,7 @@ extension ExpressionChaining on code.Expression {
     switch (type) {
       case ParameterizedType():
         var discovery = WrapperDiscovery.discover(
-            type.element as TypeParameterizedElement, knownWrappers);
+            type.element as TypeParameterizedElement, knownWrappers, type);
 
         if (discovery != null) {
           if (type.isNullable) {

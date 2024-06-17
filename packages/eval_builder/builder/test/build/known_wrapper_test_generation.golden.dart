@@ -11,13 +11,17 @@ class $ToWrap implements $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
@@ -34,13 +38,16 @@ class $ToWrap implements $Instance {
     getters: {
       'child': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'library',
-              'name',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'library',
+                'name',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -49,13 +56,16 @@ class $ToWrap implements $Instance {
       ),
       'childNullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'library',
-              'name',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'library',
+                'name',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -68,13 +78,16 @@ class $ToWrap implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_child'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'library',
-                'name',
+            '_child'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'library',
+                  'name',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -85,13 +98,16 @@ class $ToWrap implements $Instance {
         BridgeFunctionDef(
           returns: CoreTypes.voidType.ref.annotate,
           params: [
-            '_childNullable'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'library',
-                'name',
+            '_childNullable'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'library',
+                  'name',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           namedParams: [],
           generics: {},

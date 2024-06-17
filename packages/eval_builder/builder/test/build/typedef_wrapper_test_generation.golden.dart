@@ -11,35 +11,45 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
   static final $declaration = BridgeClassDef(
     BridgeClassType(
       $type.ref,
-      $extends: BridgeTypeRef(BridgeTypeSpec(
-        'dart:core',
-        'Object',
-      )),
+      $extends: BridgeTypeRef(
+        BridgeTypeSpec(
+          'dart:core',
+          'Object',
+        ),
+        [],
+      ),
       $implements: [],
       $with: [],
       isAbstract: false,
+      generics: {},
     ),
     constructors: {
       '': BridgeConstructorDef(
         BridgeFunctionDef(
           returns: $type.ref.annotate,
           params: [
-            'field'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteBuffer',
+            'field'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotate)
+              nullable: false,
+            ))
           ],
           namedParams: [
-            'fieldNullable'.param(BridgeTypeRef(
-              BridgeTypeSpec(
-                'dart:typed_data',
-                'ByteBuffer',
+            'fieldNullable'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
               ),
-              [],
-            ).annotateNullable)
+              nullable: true,
+            ))
           ],
           generics: {},
         ),
@@ -49,21 +59,27 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     methods: {
       'test': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
-            ),
-            [],
-          ).annotate,
-          params: [
-            't'.param(BridgeTypeRef(
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:typed_data',
                 'ByteBuffer',
               ),
               [],
-            ).annotate)
+            ),
+            nullable: false,
+          ),
+          params: [
+            't'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
+              ),
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -72,21 +88,27 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
       ),
       'staticTest': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
-            ),
-            [],
-          ).annotate,
-          params: [
-            't'.param(BridgeTypeRef(
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
               BridgeTypeSpec(
                 'dart:typed_data',
                 'ByteBuffer',
               ),
               [],
-            ).annotate)
+            ),
+            nullable: false,
+          ),
+          params: [
+            't'.param(BridgeTypeAnnotation(
+              BridgeTypeRef(
+                BridgeTypeSpec(
+                  'dart:typed_data',
+                  'ByteBuffer',
+                ),
+                [],
+              ),
+              nullable: false,
+            ))
           ],
           namedParams: [],
           generics: {},
@@ -97,13 +119,16 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
     getters: {
       'field': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotate,
+            nullable: false,
+          ),
           params: [],
           namedParams: [],
           generics: {},
@@ -112,13 +137,16 @@ class $TypeDefTestClass implements TypeDefTestClass, $Instance {
       ),
       'fieldNullable': BridgeMethodDef(
         BridgeFunctionDef(
-          returns: BridgeTypeRef(
-            BridgeTypeSpec(
-              'dart:typed_data',
-              'ByteBuffer',
+          returns: BridgeTypeAnnotation(
+            BridgeTypeRef(
+              BridgeTypeSpec(
+                'dart:typed_data',
+                'ByteBuffer',
+              ),
+              [],
             ),
-            [],
-          ).annotateNullable,
+            nullable: true,
+          ),
           params: [],
           namedParams: [],
           generics: {},

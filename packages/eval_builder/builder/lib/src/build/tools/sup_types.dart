@@ -1,6 +1,7 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:eval_builder/src/build/tools/dart_type_to_code.dart';
 
 import '../settings.dart';
 import '../well_known_type_references.dart';
@@ -12,10 +13,8 @@ extension ReferableSupTypeWrapperDiscovery on (
 ) {
   /// Create a [WellKnownTypeReferences.bridgeTypeRef]
   code.Expression get ref {
-    return WellKnownTypeReferences.bridgeTypeRef.call([
-      $2.spec,
-      //TODO: Generics
-    ]);
+    return WellKnownTypeReferences.bridgeTypeRef.call(
+        [$2.spec, code.literalList($1.typeArguments.map((e) => e.refer()))]);
   }
 }
 
@@ -30,7 +29,7 @@ extension DiscoverSupTypesExtension on InterfaceElement {
       var nextLayer = <InterfaceType>[];
       for (var current in currentLayer) {
         var discovery =
-            WrapperDiscovery.discover(current.element, knownWrappers);
+            WrapperDiscovery.discover(current.element, knownWrappers, current);
         if (discovery != null) {
           results.add((current, discovery));
         } else {
@@ -52,7 +51,9 @@ extension DiscoverSupTypesExtension on InterfaceElement {
     while (currentLayer.isNotEmpty) {
       var nextLayer = <InterfaceType>[];
       for (var current in currentLayer) {
-        if (WrapperDiscovery.discover(current.element, knownWrappers) == null) {
+        if (WrapperDiscovery.discover(
+                current.element, knownWrappers, current) ==
+            null) {
           results.add(current);
           nextLayer.addAll(sup(current.element));
         }

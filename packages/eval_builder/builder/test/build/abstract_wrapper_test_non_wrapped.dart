@@ -20,7 +20,6 @@ abstract class TestedClass implements BaseClass {
 
   @override
   String methodFromBase() {
-    // TODO: implement methodFromBase
     throw UnimplementedError();
   }
 }

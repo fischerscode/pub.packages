@@ -1,4 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
+import 'package:analyzer/dart/element/type.dart';
+import 'package:eval_builder/src/build/tools/generics.dart';
 import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
@@ -10,23 +12,24 @@ import '../settings.dart';
 import '../well_known_type_references.dart';
 
 sealed class WrapperDiscovery {
-  const WrapperDiscovery._();
+  const WrapperDiscovery._(this.typeArguments);
 
-  static WrapperDiscovery? discover(
-      TypeParameterizedElement element, KnownWrapperMap knownWrappers) {
+  static WrapperDiscovery? discover(TypeParameterizedElement element,
+      KnownWrapperMap knownWrappers, ParameterizedType type) {
     var known = knownWrappers.entries
         .where((k) => k.key.element!.id == element.id)
         .firstOrNull
         ?.value;
 
     if (known != null) {
-      return KnownWrapperDiscovery(spec: known.spec, wrap: known.wrap);
+      return KnownWrapperDiscovery(
+          spec: known.spec, wrap: known.wrap, type.typeArguments);
     }
 
     var wellKnown = WellKnownWrapper.get(element);
 
     if (wellKnown != null) {
-      return WellKnownWrapperDiscovery(wellKnown);
+      return WellKnownWrapperDiscovery(wellKnown, type.typeArguments);
     }
 
     var annotation = element.metadata
@@ -36,7 +39,7 @@ sealed class WrapperDiscovery {
                 'package:eval_builder_annotations/annotations.dart')
         .firstOrNull;
     if (annotation != null) {
-      return AnnotatedWrapperDiscovery(annotation, element);
+      return AnnotatedWrapperDiscovery(annotation, element, type.typeArguments);
     }
 
     return null;
@@ -44,12 +47,21 @@ sealed class WrapperDiscovery {
 
   code.Expression get spec;
 
+  code.Expression ref(InterfaceElement self, KnownWrapperMap knownWrappers) {
+    return WellKnownTypeReferences.bridgeTypeRef.newInstance([
+      spec,
+      code.literalList(typeArguments.map((e) => e.ref(self, knownWrappers)))
+    ]);
+  }
+
   code.Expression wrap(code.Expression inner);
+
+  final List<DartType> typeArguments;
 }
 
 class WellKnownWrapperDiscovery extends WrapperDiscovery {
   final WellKnownWrapper wrapper;
-  WellKnownWrapperDiscovery(this.wrapper) : super._();
+  WellKnownWrapperDiscovery(this.wrapper, super.typeParameters) : super._();
 
   @override
   code.Expression get spec =>
@@ -68,7 +80,7 @@ class KnownWrapperDiscovery extends WrapperDiscovery {
   final ({String library, String name}) _spec;
   final ExecutableElement _wrap;
 
-  KnownWrapperDiscovery(
+  KnownWrapperDiscovery(super.typeParameters,
       {required ({String library, String name}) spec,
       required ExecutableElement wrap})
       : _spec = spec,
@@ -98,13 +110,13 @@ class KnownWrapperDiscovery extends WrapperDiscovery {
           } else {
             return p;
           }
-        case TypeDefiningElement():
+        case TypeParameterizedElement():
           return code.TypeReference((b) => b
             ..symbol = c.name
             ..url = '_library_with_element:${c.id}'
-            ..types.addAll([
-              //TODO: Generics
-            ]));
+            ..types.addAll(c.typeParameters.map((e) => e.refer())));
+        case TypeParameterElement():
+          return c.refer();
         default:
           throw UnsupportedError(
               'Unexpected ${c.runtimeType} in call path of $_wrap');
@@ -117,7 +129,9 @@ class AnnotatedWrapperDiscovery extends WrapperDiscovery {
   final ElementAnnotation annotation;
   final TypeParameterizedElement annotated;
 
-  AnnotatedWrapperDiscovery(this.annotation, this.annotated) : super._();
+  AnnotatedWrapperDiscovery(
+      this.annotation, this.annotated, super.typeArguments)
+      : super._();
 
   @deprecated
   String get name => _name;
