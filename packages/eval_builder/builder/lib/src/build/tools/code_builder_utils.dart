@@ -57,10 +57,9 @@ extension ExpressionChaining on code.Expression {
         : maybeUnpack;
 
     var maybeWithDefault = !required
-        ? code
-            .refer(r'$')
-            .equalTo(code.literalNull)
-            .conditional(defaultExpression ?? code.literalNull, maybeNull)
+        ? code.refer(r'$').equalTo(code.literalNull).conditional(
+            defaultExpression != null ? code.refer(r'$D') : code.literalNull,
+            maybeNull)
         : maybeNull;
 
     return code.Method((b) => b
@@ -68,6 +67,11 @@ extension ExpressionChaining on code.Expression {
         ..name = r'$'
         ..type = WellKnownTypeReferences.$Value.nullable(!required)))
       ..body = code.Block.of([
+        if (defaultExpression != null)
+          code
+              .declareConst(r'$D', type: type.refer())
+              .assign(defaultExpression)
+              .statement,
         code
             .declareFinal(r'$$')
             .assign(code.refer(r'$').asA(WellKnownTypeReferences.dynamic))
