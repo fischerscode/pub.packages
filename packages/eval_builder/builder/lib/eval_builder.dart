@@ -19,8 +19,6 @@ class WrapperGenerator extends GeneratorForAnnotation<Wrapped> {
   Future<String> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep,
       [Element? wrapped]) async {
-    // final library = await buildStep.resolver.libraryFor(buildStep.inputId);
-
     final typeSystem = (wrapped ?? element).library!.typeSystem;
 
     switch (element) {
@@ -34,30 +32,6 @@ class WrapperGenerator extends GeneratorForAnnotation<Wrapped> {
             ? DefaultParameterStrategy.values.firstWhere(
                 (element) => element.name == defaultParameterStrategyField)
             : DefaultParameterStrategy.copyCode;
-
-        // var knownWrappers = <int,
-        //     ({({String library, String name}) spec, code.Expression wrap})>{};
-
-        // for (var known in annotation
-        //     .read('knownWrapped')
-        //     .listValue
-        //     .map((e) => e.toTypeValue()!)) {
-        //   var element = known.element;
-        //   while (element != null) {
-        //     if (element is InstanceElement) {
-        //       knownWrappers[element.id] = ();
-        //     }
-
-        //     if (element is TypeAliasElement) {
-        //       element = element.aliasedElement;
-        //     } else {
-        //       element = null;
-        //     }
-        //   }
-        //   if (known is ParameterizedType) {
-        //     var element = known.element;
-        //   }
-        // }
 
         var knownWrappers = annotation
             .read('knownWrappers')
@@ -74,14 +48,6 @@ class WrapperGenerator extends GeneratorForAnnotation<Wrapped> {
                   ),
                   wrap: value.wrap,
                 )));
-
-        // for (var wrapped in annotation
-        //     .read('knownWrapped')
-        //     .listValue
-        //     .map((e) => e.toTypeValue()!)) {
-        //   print(
-        //       '$wrapped: ${.where((a) => a.element!.enclosingElement!.name == '$Wrapped' && a.element!.librarySource!.uri.toString() == 'package:eval_builder_annotations/annotations.dart').firstOrNull}');
-        // }
 
         final knownWrapped = Map.fromEntries(annotation
             .read('knownWrapped')
