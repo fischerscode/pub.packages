@@ -3,6 +3,7 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
 import 'package:eval_builder/src/build/class_wrapper.dart';
+import 'package:eval_builder/src/build/tools/discovery.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';
 
@@ -29,7 +30,10 @@ void main() {
                   name: r'$TypeDefTestClass',
                   libIdentifier: 'package:my_eval/types.dart',
                   defaultParameterStrategy: DefaultParameterStrategy.copyCode,
-                  knownWrappers: {})).build()
+                  discoverer: WrapperDiscoverer(
+                      knownWrappers: {},
+                      typeSystem: resolved.element.typeSystem,
+                      knownWrapped: {}))).build()
         ]),
         specMatches(
             matchesGolden(

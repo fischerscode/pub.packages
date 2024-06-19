@@ -18,15 +18,14 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
 
   WrapperBuilder(this.wrapped, this.settings) {
     extendedWrapper = wrapped
-        .discoverSupWrappers(
-            (e) => [e.supertype].nonNulls, settings.knownWrappers)
+        .discoverSupWrappers((e) => [e.supertype].nonNulls, settings.discoverer)
         .single; // It's safe to use last, since everything extends Object
     // Discover both interfaces an mixins, since dart_eval doesn't support
     // mixins. https://github.com/ethanblake4/dart_eval/issues/7
     interfaceWrappers = wrapped.discoverSupWrappers(
-        (e) => e.interfaces.followedBy(e.mixins), settings.knownWrappers);
+        (e) => e.interfaces.followedBy(e.mixins), settings.discoverer);
     mixinWrappers =
-        wrapped.discoverSupWrappers((e) => e.mixins, settings.knownWrappers);
+        wrapped.discoverSupWrappers((e) => e.mixins, settings.discoverer);
 
     supTypesTillWrappers = wrapped.discoverSupTillWrapper(
         (e) => [
@@ -34,7 +33,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
               ...e.interfaces,
               ...e.mixins,
             ].nonNulls,
-        settings.knownWrappers);
+        settings.discoverer);
 
     List<MethodElement> lookupMethods(
         Iterable<(InterfaceType, MethodElement)> methods) {
@@ -287,7 +286,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
           "case '${getter.name}':".toCode(),
           (getter.isStatic ? wrapped.thisType.refer() : _$value)
               .property(getter.actualName)
-              .wrapped(getter.returnType, settings.knownWrappers)
+              .wrapped(getter.returnType, settings.discoverer)
               .returned
               .statement,
         ],
@@ -402,7 +401,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                         .access(parameter.type, parameter.isRequired,
                             parameter.defaultValueCode?.asExpression())
               })
-              .wrapped(method.returnType, settings.knownWrappers)
+              .wrapped(method.returnType, settings.discoverer)
               .returned
               .statement,
       ));
@@ -430,7 +429,7 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
             ? wrapped.thisType
                 .refer()
                 .property(accessor.actualName)
-                .wrapped(accessor.returnType, settings.knownWrappers)
+                .wrapped(accessor.returnType, settings.discoverer)
                 .returned
                 .statement
             : code.Block.of([

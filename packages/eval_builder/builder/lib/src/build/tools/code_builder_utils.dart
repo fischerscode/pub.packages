@@ -1,9 +1,7 @@
-import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:code_builder/code_builder.dart' as code;
 
-import '../settings.dart';
 import '../well_known_type_references.dart';
 import 'dart_type_to_code.dart';
 import 'discovery.dart';
@@ -79,7 +77,7 @@ extension ExpressionChaining on code.Expression {
   }
 
   /// Wraps this (has Type [type]) as a [$Value].
-  code.Expression wrapped(DartType type, KnownWrapperMap knownWrappers) {
+  code.Expression wrapped(DartType type, WrapperDiscoverer discoverer) {
     if (type is VoidType) {
       return code.Method((b) => b.body = code.Block.of([
             statement,
@@ -89,8 +87,7 @@ extension ExpressionChaining on code.Expression {
 
     switch (type) {
       case ParameterizedType():
-        var discovery = WrapperDiscovery.discover(
-            type.element as TypeParameterizedElement, knownWrappers, type);
+        var discovery = discoverer.discover(type);
 
         if (discovery != null) {
           if (type.isNullable) {
@@ -152,7 +149,7 @@ extension ExpressionChaining on code.Expression {
                                 .access(parameter.type, parameter.isRequired,
                                     parameter.defaultValueCode?.asExpression())
                       })
-                      .wrapped(type.returnType, knownWrappers)
+                      .wrapped(type.returnType, discoverer)
                       .returned
                       .statement,
               ).closure,

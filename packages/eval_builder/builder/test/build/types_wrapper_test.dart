@@ -3,6 +3,7 @@
 import 'package:eval_builder/src/build/prefix_resolver.dart';
 import 'package:eval_builder/src/build/settings.dart';
 import 'package:eval_builder/src/build/class_wrapper.dart';
+import 'package:eval_builder/src/build/tools/discovery.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:test/test.dart';
 
@@ -28,7 +29,10 @@ void main() {
                       bimodal: false,
                       defaultParameterStrategy:
                           DefaultParameterStrategy.copyCode,
-                      knownWrappers: {},
+                      discoverer: WrapperDiscoverer(
+                          knownWrappers: {},
+                          typeSystem: resolved.element.typeSystem,
+                          knownWrapped: {}),
                       libIdentifier: 'package:my_eval/types.dart',
                       name: r'$TypesContainer'))
               .build()

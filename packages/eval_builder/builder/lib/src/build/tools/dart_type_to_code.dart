@@ -5,7 +5,6 @@ import 'package:eval_builder/src/build/tools/generics.dart';
 import 'package:eval_builder_annotations/annotations.dart';
 import 'package:code_builder/code_builder.dart' as code;
 
-import '../settings.dart';
 import '../well_known_type_references.dart';
 import 'discovery.dart';
 
@@ -15,15 +14,14 @@ extension DartTypeToCode on DartType {
   }
 
   /// Get the [BridgeTypeRef] [code.Expression] of this type.
-  code.Expression ref(InterfaceElement self, KnownWrapperMap knownWrappers) {
+  code.Expression ref(InterfaceElement self, WrapperDiscoverer discoverer) {
     var this$ = this;
     switch (this$) {
       case ParameterizedType():
-        var discovery = WrapperDiscovery.discover(
-            this$.element as TypeParameterizedElement, knownWrappers, this$);
+        var discovery = discoverer.discover(this$);
 
         if (discovery != null) {
-          return discovery.ref(self, knownWrappers);
+          return discovery.ref(self, discoverer);
         }
 
         throw UnimplementedError(
@@ -32,13 +30,13 @@ extension DartTypeToCode on DartType {
         return WellKnownTypeReferences.bridgeTypeRef
             .newInstanceNamed('genericFunction', [
           WellKnownTypeReferences.bridgeFunctionDef.newInstance([], {
-            'returns': this$.returnType.annotated(self, knownWrappers),
+            'returns': this$.returnType.annotated(self, discoverer),
             'params': code.literalList([
               for (var parameter in this$.parameters)
                 if (parameter.isPositional)
                   WellKnownTypeReferences.bridgeParameter.newInstance([
                     code.literalString(parameter.name),
-                    parameter.type.annotated(self, knownWrappers),
+                    parameter.type.annotated(self, discoverer),
                     code.literalBool(parameter.isOptional)
                   ]),
             ]),
@@ -47,7 +45,7 @@ extension DartTypeToCode on DartType {
                 if (parameter.isNamed)
                   WellKnownTypeReferences.bridgeParameter.newInstance([
                     code.literalString(parameter.name),
-                    parameter.type.annotated(self, knownWrappers),
+                    parameter.type.annotated(self, discoverer),
                     code.literalBool(parameter.isOptional)
                   ]),
             ]),
@@ -138,7 +136,7 @@ extension DartTypeToCode on DartType {
   }
 
   code.Expression annotated(
-      InterfaceElement self, KnownWrapperMap knownWrappers) {
+      InterfaceElement self, WrapperDiscoverer discoverer) {
     if (this is VoidType) {
       return WellKnownTypeReferences.coreTypes
           .property('voidType')
@@ -154,7 +152,7 @@ extension DartTypeToCode on DartType {
     }
 
     return WellKnownTypeReferences.bridgeTypeAnnotation.newInstance([
-      ref(self, knownWrappers),
+      ref(self, discoverer),
     ], {
       'nullable': code.literalBool(isNullable)
     });

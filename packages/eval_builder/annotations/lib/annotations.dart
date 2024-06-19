@@ -26,6 +26,14 @@ class Wrapped {
         $Instance Function(Never) wrap,
       })> knownWrappers;
 
+  /// A list of @[Wrapped] annotated [Type]s that can't be auto detected.
+  ///
+  /// This is useful when @[Wrapped] annotating typedefs referring to a package
+  /// you don't maintain.
+  ///
+  /// [knownWrappers] takes priority.
+  final List<Type> knownWrapped;
+
   /// The strategy for dealing with default parameters.
   /// Defaults to [DefaultParameterStrategy.copyCode].
   final DefaultParameterStrategy? defaultParameterStrategy;
@@ -35,6 +43,7 @@ class Wrapped {
       this.bimodal = false,
       this.libIdentifier,
       this.knownWrappers = const {},
+      this.knownWrapped = const [],
       this.defaultParameterStrategy});
 }
 

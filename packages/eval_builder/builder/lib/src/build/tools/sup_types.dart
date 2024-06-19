@@ -3,7 +3,6 @@ import 'package:analyzer/dart/element/type.dart';
 import 'package:code_builder/code_builder.dart' as code;
 import 'package:eval_builder/src/build/tools/dart_type_to_code.dart';
 
-import '../settings.dart';
 import '../well_known_type_references.dart';
 import 'discovery.dart';
 
@@ -21,15 +20,14 @@ extension ReferableSupTypeWrapperDiscovery on (
 extension DiscoverSupTypesExtension on InterfaceElement {
   List<(InterfaceType, WrapperDiscovery)> discoverSupWrappers(
       Iterable<InterfaceType> Function(InterfaceElement) sup,
-      KnownWrapperMap knownWrappers) {
+      WrapperDiscoverer discoverer) {
     var results = <(InterfaceType, WrapperDiscovery)>[];
     var currentLayer = sup(this);
 
     while (currentLayer.isNotEmpty) {
       var nextLayer = <InterfaceType>[];
       for (var current in currentLayer) {
-        var discovery =
-            WrapperDiscovery.discover(current.element, knownWrappers, current);
+        var discovery = discoverer.discover(current);
         if (discovery != null) {
           results.add((current, discovery));
         } else {
@@ -44,16 +42,14 @@ extension DiscoverSupTypesExtension on InterfaceElement {
 
   List<InterfaceType> discoverSupTillWrapper(
       Iterable<InterfaceType> Function(InterfaceElement) sup,
-      KnownWrapperMap knownWrappers) {
+      WrapperDiscoverer discoverer) {
     var results = <InterfaceType>[];
     var currentLayer = sup(this);
 
     while (currentLayer.isNotEmpty) {
       var nextLayer = <InterfaceType>[];
       for (var current in currentLayer) {
-        if (WrapperDiscovery.discover(
-                current.element, knownWrappers, current) ==
-            null) {
+        if (discoverer.discover(current) == null) {
           results.add(current);
           nextLayer.addAll(sup(current.element));
         }

@@ -62,7 +62,7 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
                 param.name:
                     WellKnownTypeReferences.bridgeGenericParam.newInstance([], {
                   r'$extends':
-                      param.bound?.annotated(wrapped, settings.knownWrappers) ??
+                      param.bound?.annotated(wrapped, settings.discoverer) ??
                           code.literalNull,
                 }),
             })
@@ -74,26 +74,26 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
               if (wrapped.isConstructable || constructor.isFactory)
                 code.literalString(constructor.name):
                     WellKnownTypeReferences.bridgeConstructorDef.call(
-                        [constructor.functionDef(wrapped, settings)],
+                        [constructor.functionDef(wrapped, settings.discoverer)],
                         {'isFactory': code.literalBool(constructor.isFactory)}),
           }),
           'methods': code.literalMap({
             for (var method in newMethods)
               code.literalString(method.name):
-                  method.methodDef(wrapped, settings),
+                  method.methodDef(wrapped, settings.discoverer),
           }),
           'getters': code.literalMap({
             for (var accessor in newAccessors)
               if (accessor.isGetter)
                 code.literalString(accessor.name):
-                    accessor.methodDef(wrapped, settings),
+                    accessor.methodDef(wrapped, settings.discoverer),
           }),
           'setters': code.literalMap({
             for (var accessor in newAccessors)
               if (accessor.isSetter)
                 code.literalString(
                         accessor.name.substring(0, accessor.name.length - 1)):
-                    accessor.methodDef(wrapped, settings),
+                    accessor.methodDef(wrapped, settings.discoverer),
           }),
           // 'fields': code.literalMap({
           //   for (var field in element.fields)

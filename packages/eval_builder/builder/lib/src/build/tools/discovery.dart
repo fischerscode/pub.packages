@@ -1,5 +1,6 @@
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
+import 'package:analyzer/dart/element/type_system.dart';
 import 'package:eval_builder/src/build/tools/generics.dart';
 import 'package:eval_builder/src/build/wrapper.dart';
 import 'package:eval_builder_annotations/annotations.dart';
@@ -11,46 +12,83 @@ import '../well_known_wrappers.dart';
 import '../settings.dart';
 import '../well_known_type_references.dart';
 
-sealed class WrapperDiscovery {
-  const WrapperDiscovery._(this.typeArguments);
+class WrapperDiscoverer {
+  final KnownWrapperMap knownWrappers;
+  final TypeSystem typeSystem;
+  final Map<DartType, ElementAnnotation> knownWrapped;
 
-  static WrapperDiscovery? discover(TypeParameterizedElement element,
-      KnownWrapperMap knownWrappers, ParameterizedType type) {
-    var known = knownWrappers.entries
-        .where((k) => k.key.element!.id == element.id)
-        .firstOrNull
-        ?.value;
+  WrapperDiscoverer(
+      {required this.knownWrappers,
+      required this.typeSystem,
+      required this.knownWrapped});
 
-    if (known != null) {
+  WrapperDiscovery? discover(
+    ParameterizedType type,
+  ) {
+    var knownWrapperMatch = _findBestMatch(type, knownWrappers, typeSystem);
+
+    if (knownWrapperMatch != null) {
       return KnownWrapperDiscovery(
-          spec: known.spec, wrap: known.wrap, type.typeArguments);
+          spec: knownWrapperMatch.value.spec,
+          wrap: knownWrapperMatch.value.wrap,
+          type.typeArguments);
     }
 
-    var wellKnown = WellKnownWrapper.get(element);
+    var knownWrappedMatch = _findBestMatch(type, knownWrapped, typeSystem);
+
+    if (knownWrappedMatch != null) {
+      return AnnotatedWrapperDiscovery(
+          knownWrappedMatch.value,
+          knownWrappedMatch.key.element as TypeParameterizedElement,
+          type.typeArguments);
+    }
+
+    var wellKnown =
+        WellKnownWrapper.get(type.element as TypeParameterizedElement);
 
     if (wellKnown != null) {
       return WellKnownWrapperDiscovery(wellKnown, type.typeArguments);
     }
 
-    var annotation = element.metadata
+    var annotation = type.element!.metadata
         .where((a) =>
             a.element!.enclosingElement!.name == '$Wrapped' &&
             a.element!.librarySource!.uri.toString() ==
                 'package:eval_builder_annotations/annotations.dart')
         .firstOrNull;
     if (annotation != null) {
-      return AnnotatedWrapperDiscovery(annotation, element, type.typeArguments);
+      return AnnotatedWrapperDiscovery(annotation,
+          type.element as TypeParameterizedElement, type.typeArguments);
     }
 
     return null;
   }
 
+  static MapEntry<DartType, K>? _findBestMatch<K>(
+      DartType targetType, Map<DartType, K> typeMap, TypeSystem typeSystem) {
+    targetType = typeSystem.promoteToNonNull(targetType);
+    MapEntry<DartType, K>? bestMatch;
+    for (var entry in typeMap.entries) {
+      if (typeSystem.isSubtypeOf(targetType, entry.key)) {
+        if (bestMatch == null ||
+            typeSystem.isSubtypeOf(entry.key, bestMatch.key)) {
+          bestMatch = entry;
+        }
+      }
+    }
+    return bestMatch;
+  }
+}
+
+sealed class WrapperDiscovery {
+  const WrapperDiscovery._(this.typeArguments);
+
   code.Expression get spec;
 
-  code.Expression ref(InterfaceElement self, KnownWrapperMap knownWrappers) {
+  code.Expression ref(InterfaceElement self, WrapperDiscoverer discoverer) {
     return WellKnownTypeReferences.bridgeTypeRef.newInstance([
       spec,
-      code.literalList(typeArguments.map((e) => e.ref(self, knownWrappers)))
+      code.literalList(typeArguments.map((e) => e.ref(self, discoverer)))
     ]);
   }
 
@@ -132,9 +170,6 @@ class AnnotatedWrapperDiscovery extends WrapperDiscovery {
   AnnotatedWrapperDiscovery(
       this.annotation, this.annotated, super.typeArguments)
       : super._();
-
-  @deprecated
-  String get name => _name;
 
   String get _name => annotation
       .computeConstantValue()!
