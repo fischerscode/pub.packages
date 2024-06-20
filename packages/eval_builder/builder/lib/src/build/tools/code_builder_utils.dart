@@ -84,7 +84,18 @@ extension ExpressionChaining on code.Expression {
               .statement,
       ).closure;
     } else {
-      reified = code.refer(r'$').property(r'$reified').asA(type.refer());
+      reified = code.refer(r'$').property(r'$reified');
+
+      //TODO: All types with generics might need special treatment.
+      if (type.isDartCoreList) {
+        reified = reified
+            .asA(WellKnownTypeReferences.list)
+            .property('cast')
+            .call([], {},
+                [(type as ParameterizedType).typeArguments.first.refer()]);
+      } else {
+        reified = reified.asA(type.refer());
+      }
     }
 
     var maybeUnpack = code
