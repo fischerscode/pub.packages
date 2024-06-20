@@ -286,7 +286,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
           "case '${getter.name}':".toCode(),
           (getter.isStatic ? wrapped.thisType.refer() : _$value)
               .property(getter.actualName)
-              .wrapped(getter.returnType, settings.discoverer)
+              .wrapped(
+                  getter.returnType, code.refer('runtime'), settings.discoverer)
               .returned
               .statement,
         ],
@@ -324,7 +325,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
               .property(setter.actualName)
               .assign(code
                   .refer('value') //
-                  .access(setter.parameters.first.type, true))
+                  .access(setter.parameters.first.type, true,
+                      code.refer('runtime'), settings.discoverer))
               .statement,
         ],
         'default:'.toCode(),
@@ -389,7 +391,11 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                         .refer('args')
                         .index(code.literalNum(index))
                         .maybeNullChecked(parameter.isRequired)
-                        .access(parameter.type, parameter.isRequired,
+                        .access(
+                            parameter.type,
+                            parameter.isRequired,
+                            code.refer('runtime'),
+                            settings.discoverer,
                             parameter.defaultValueCode?.asExpression())
               ], {
                 for (var (index, parameter) in method.parameters.indexed)
@@ -398,10 +404,15 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                         .refer('args')
                         .index(code.literalNum(index))
                         .maybeNullChecked(parameter.isRequired)
-                        .access(parameter.type, parameter.isRequired,
+                        .access(
+                            parameter.type,
+                            parameter.isRequired,
+                            code.refer('runtime'),
+                            settings.discoverer,
                             parameter.defaultValueCode?.asExpression())
               })
-              .wrapped(method.returnType, settings.discoverer)
+              .wrapped(
+                  method.returnType, code.refer('runtime'), settings.discoverer)
               .returned
               .statement,
       ));
@@ -429,7 +440,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
             ? wrapped.thisType
                 .refer()
                 .property(accessor.actualName)
-                .wrapped(accessor.returnType, settings.discoverer)
+                .wrapped(accessor.returnType, code.refer('runtime'),
+                    settings.discoverer)
                 .returned
                 .statement
             : code.Block.of([
@@ -440,7 +452,8 @@ abstract class WrapperBuilder<WrappedElement extends InterfaceElement> {
                         .refer('args')
                         .index(code.literalNum(0))
                         .nullChecked
-                        .access(accessor.parameters.first.type, true))
+                        .access(accessor.parameters.first.type, true,
+                            code.refer('runtime'), settings.discoverer))
                     .statement,
                 code.literalNull.returned.statement,
               ])));

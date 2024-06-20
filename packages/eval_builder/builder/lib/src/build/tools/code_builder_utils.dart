@@ -1,6 +1,8 @@
+import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:dart_eval/dart_eval_bridge.dart';
 import 'package:code_builder/code_builder.dart' as code;
+import 'package:eval_builder/src/build/tools/generics.dart';
 
 import '../well_known_type_references.dart';
 import 'dart_type_to_code.dart';
@@ -34,7 +36,8 @@ extension ExpressionChaining on code.Expression {
 
   /// Access this as [type].
   /// Will call $value or $reified when needed.
-  code.Expression access(DartType type, bool required,
+  code.Expression access(DartType type, bool required, code.Expression runtime,
+      WrapperDiscoverer discoverer,
       [code.Expression? defaultExpression]) {
     if (!required && !type.isNullable && defaultExpression == null) {
       throw UnsupportedError(
@@ -45,9 +48,49 @@ extension ExpressionChaining on code.Expression {
     assert(!(required && defaultExpression != null),
         'Unexpected default for required parameter.');
 
-    var maybeUnpack = code.refer(r'$$').isNotA(type.refer()).conditional(
-        code.refer(r'$').property(r'$reified').asA(type.refer()),
-        code.refer(r'$$'));
+    code.Expression reified;
+    if (type is FunctionType) {
+      reified = code.Method(
+        (b) => b
+          ..requiredParameters.addAll(type.parameters
+              .where((p) => p.isRequiredPositional)
+              .map((p) => code.Parameter((b) => b
+                ..name = p.name
+                ..type = p.type.refer()
+                ..defaultTo = p.defaultValueCode?.asExpression().code)))
+          ..optionalParameters.addAll(type.parameters
+              .where((p) => !p.isRequiredPositional)
+              .map((p) => code.Parameter((b) => b
+                ..name = p.name
+                ..named = p.isNamed
+                ..required = p.isRequired
+                ..type = p.type.refer()
+                ..defaultTo = p.defaultValueCode?.asExpression().code)))
+          ..types.addAll(type.typeFormals.map((e) => e.refer()))
+          ..body = asA(WellKnownTypeReferences.evalCallable)
+              .property(r'call')
+              .call([
+                runtime,
+                code.literalNull,
+                code.literalList([
+                  for (var p in type.parameters)
+                    p.name.asExpression().wrapped(p.type, runtime, discoverer)
+                ])
+              ])
+              .maybeNullChecked(type.returnType is! VoidType)
+              .access(type.returnType, type.returnType is! VoidType, runtime,
+                  discoverer)
+              .returned
+              .statement,
+      ).closure;
+    } else {
+      reified = code.refer(r'$').property(r'$reified').asA(type.refer());
+    }
+
+    var maybeUnpack = code
+        .refer(r'$$')
+        .isNotA(type.refer())
+        .conditional(reified, code.refer(r'$$'));
 
     var maybeNull = type.isNullable
         ? code
@@ -81,7 +124,8 @@ extension ExpressionChaining on code.Expression {
   }
 
   /// Wraps this (has Type [type]) as a [$Value].
-  code.Expression wrapped(DartType type, WrapperDiscoverer discoverer) {
+  code.Expression wrapped(
+      DartType type, code.Expression runtime, WrapperDiscoverer discoverer) {
     if (type is VoidType) {
       return code.Method((b) => b.body = code.Block.of([
             statement,
@@ -141,7 +185,11 @@ extension ExpressionChaining on code.Expression {
                                 .refer('args')
                                 .index(code.literalNum(index))
                                 .maybeNullChecked(parameter.isRequired)
-                                .access(parameter.type, parameter.isRequired,
+                                .access(
+                                    parameter.type,
+                                    parameter.isRequired,
+                                    runtime,
+                                    discoverer,
                                     parameter.defaultValueCode?.asExpression())
                       ], {
                         for (var (index, parameter) in type.parameters.indexed)
@@ -150,10 +198,14 @@ extension ExpressionChaining on code.Expression {
                                 .refer('args')
                                 .index(code.literalNum(index))
                                 .maybeNullChecked(parameter.isRequired)
-                                .access(parameter.type, parameter.isRequired,
+                                .access(
+                                    parameter.type,
+                                    parameter.isRequired,
+                                    runtime,
+                                    discoverer,
                                     parameter.defaultValueCode?.asExpression())
                       })
-                      .wrapped(type.returnType, discoverer)
+                      .wrapped(type.returnType, runtime, discoverer)
                       .returned
                       .statement,
               ).closure,

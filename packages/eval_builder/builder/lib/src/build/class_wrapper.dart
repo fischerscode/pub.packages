@@ -141,7 +141,11 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
                           .refer('args')
                           .index(code.literalNum(index))
                           .maybeNullChecked(parameter.isRequired)
-                          .access(parameter.type, parameter.isRequired,
+                          .access(
+                              parameter.type,
+                              parameter.isRequired,
+                              code.refer('runtime'),
+                              settings.discoverer,
                               parameter.defaultValueCode?.asExpression())
                 ], {
                   for (var (index, parameter) in constructor.parameters.indexed)
@@ -150,7 +154,11 @@ class ClassWrapperBuilder extends WrapperBuilder<ClassElement> {
                           .refer('args')
                           .index(code.literalNum(index))
                           .maybeNullChecked(parameter.isRequired)
-                          .access(parameter.type, parameter.isRequired,
+                          .access(
+                              parameter.type,
+                              parameter.isRequired,
+                              code.refer('runtime'),
+                              settings.discoverer,
                               parameter.defaultValueCode?.asExpression())
                 })
               ])

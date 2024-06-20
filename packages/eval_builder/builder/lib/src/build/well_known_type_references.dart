@@ -74,6 +74,9 @@ class WellKnownTypeReferences {
   static final bridgeGenericParam = code.TypeReference((b) => b
     ..symbol = 'BridgeGenericParam'
     ..url = dartEvalBridgePackage);
+  static final evalCallable = code.TypeReference((b) => b
+    ..symbol = 'EvalCallable'
+    ..url = dartEvalBridgePackage);
 
   static final runtime = code.TypeReference((b) => b
     ..symbol = r'Runtime'
