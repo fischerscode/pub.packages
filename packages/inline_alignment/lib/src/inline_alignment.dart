@@ -100,7 +100,13 @@ class _InlineAlignmentLayoutWidget extends SlottedMultiChildRenderObjectWidget<
   Widget? childForSlot(slot) {
     return switch (slot) {
       _InlineAlignmentLayoutSlots.content => Text.rich(
-          widget.content,
+          TextSpan(children: [
+            widget.content,
+            const WidgetSpan(
+                child: SizedBox(), alignment: PlaceholderAlignment.top),
+            const WidgetSpan(
+                child: SizedBox(), alignment: PlaceholderAlignment.bottom),
+          ]),
           locale: widget.locale,
           maxLines: widget.maxLines,
           overflow: widget.overflow,
@@ -158,93 +164,39 @@ class _RenderInlineAlignmentLayout extends RenderBox
     final timeBox = _timeBox;
 
     contentBox.layout(constraints, parentUsesSize: true);
-
-    final placeholderBoxes = <PlaceholderDimensions>[];
-    contentBox.visitChildren((c) {
-      final child = c as RenderBox;
-      final TextParentData parentData = child.parentData! as TextParentData;
-
-      final PlaceholderSpan? span = parentData.span;
-      assert(span != null);
-      placeholderBoxes.add(span == null
-          ? PlaceholderDimensions.empty
-          : PlaceholderDimensions(
-              size: c.size,
-              alignment: span.alignment,
-              baseline: span.baseline,
-              baselineOffset: switch (span.alignment) {
-                PlaceholderAlignment.aboveBaseline ||
-                PlaceholderAlignment.belowBaseline ||
-                PlaceholderAlignment.bottom ||
-                PlaceholderAlignment.middle ||
-                PlaceholderAlignment.top =>
-                  null,
-                PlaceholderAlignment.baseline => ChildLayoutHelper.getBaseline(
-                    child,
-                    BoxConstraints(maxWidth: constraints.maxWidth),
-                    span.baseline!),
-              },
-            ));
-    });
+    _positionChild(contentBox, Offset.zero);
 
     timeBox.layout(constraints.loosen(), parentUsesSize: true);
 
-    final TextStyle baseStyle = contentBox.text.style ?? const TextStyle();
+    final (top, bottom) = _accessLastLineOffsets();
 
-    final builder = ParagraphBuilder(baseStyle.getParagraphStyle(
-      textAlign: contentBox.textAlign,
-      textDirection: contentBox.textDirection,
-      textScaler: contentBox.textScaler,
-      maxLines: contentBox.maxLines,
-      textHeightBehavior: contentBox.textHeightBehavior,
-      ellipsis: contentBox.overflow == TextOverflow.ellipsis ? '\u2026' : null,
-      locale: contentBox.locale,
-      strutStyle: contentBox.strutStyle,
-    ));
-
-    contentBox.text.build(builder,
-        textScaler: contentBox.textScaler, dimensions: placeholderBoxes);
-    final paragraph = builder.build();
-    paragraph.layout(ParagraphConstraints(width: contentBox.size.width));
-
-    _positionChild(contentBox, Offset.zero);
-    if (paragraph.numberOfLines > 0) {
-      final lastLine = paragraph.getLineMetricsAt(paragraph.numberOfLines - 1)!;
-
-      switch (contentBox.textDirection) {
-        case TextDirection.ltr:
-          if (contentBox.size.width - (lastLine.left + lastLine.width) >=
-              timeBox.size.width) {
-            // The time fits
-            //TODO: consider cases where the time is higher then the last line
-            //TODO: alignment options
-            //TODO: make shure the size calculation is correct.
-            _positionChild(
-                timeBox,
-                Offset(contentBox.size.width - timeBox.size.width,
-                    contentBox.size.height - lastLine.height));
-            size = Size(
-                contentBox.size.width,
-                contentBox.size.height +
-                    max(0, timeBox.size.height - lastLine.height));
-          } else {
-            // Time goes into the next line
-            //TODO: consider cases where the time is wider then the content.
-            _positionChild(
-                timeBox,
-                Offset(contentBox.size.width - timeBox.size.width,
-                    contentBox.size.height));
-            size = Size(contentBox.size.width,
-                contentBox.size.height + timeBox.size.height);
-          }
-        case TextDirection.rtl:
-          //TODO: Implement TextDirection.rtl
-          throw UnimplementedError(
-              'TextDirection.ltr is currently unimplemented');
-      }
-    } else {
-      _positionChild(timeBox, Offset.zero);
-      size = constraints.constrain(timeBox.size);
+    switch (contentBox.textDirection) {
+      case TextDirection.ltr:
+        if (contentBox.size.width - (top.dx) >= timeBox.size.width) {
+          // The time fits
+          //TODO: consider cases where the time is higher then the last line
+          //TODO: alignment options
+          //TODO: make shure the size calculation is correct.
+          _positionChild(timeBox,
+              Offset(contentBox.size.width - timeBox.size.width, top.dy));
+          size = Size(
+              contentBox.size.width,
+              contentBox.size.height +
+                  max(0, timeBox.size.height - (bottom.dy - top.dy)));
+        } else {
+          // Time goes into the next line
+          //TODO: consider cases where the time is wider then the content.
+          _positionChild(
+              timeBox,
+              Offset(contentBox.size.width - timeBox.size.width,
+                  contentBox.size.height));
+          size = Size(contentBox.size.width,
+              contentBox.size.height + timeBox.size.height);
+        }
+      case TextDirection.rtl:
+        //TODO: Implement TextDirection.rtl
+        throw UnimplementedError(
+            'TextDirection.ltr is currently unimplemented');
     }
   }
 
@@ -261,5 +213,22 @@ class _RenderInlineAlignmentLayout extends RenderBox
 
     paintChild(_timeBox, context, offset);
     paintChild(_contentBox, context, offset);
+  }
+
+  (Offset lastLineTop, Offset lastLineBottom) _accessLastLineOffsets() {
+    final contentBox = _contentBox;
+
+    final children = <RenderObject>[];
+    contentBox.visitChildren(children.add);
+
+    assert(children.length >= 2);
+
+    final topIndicator = children[children.length - 2];
+    final bottomIndicator = children[children.length - 1];
+
+    return (
+      (topIndicator.parentData as TextParentData).offset!,
+      (bottomIndicator.parentData as TextParentData).offset!
+    );
   }
 }

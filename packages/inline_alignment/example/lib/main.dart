@@ -59,15 +59,8 @@ class MyHomePage extends StatelessWidget {
                     content: TextSpan(children: [
                       TextSpan(
                         text:
-                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. -',
-                      ),
-                      WidgetSpan(
-                        child: Container(
-                          width: 10,
-                          height: 10,
-                          color: Colors.amber,
-                        ),
-                      ),
+                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua',
+                      )
                     ], style: style),
                     time: Text(
                       '14:55',
@@ -84,21 +77,21 @@ class MyHomePage extends StatelessWidget {
                   borderRadius: BorderRadius.all(Radius.circular(20)),
                 ),
                 padding: const EdgeInsets.all(10),
-                //   child: InlineAlignmentLayoutWidget(
-                //       overflow: TextOverflow.ellipsis,
-                //       softWrap: true,
-                //       maxLines: 30,
-                //       style: style,
-                //       textWidthBasis: TextWidthBasis.longestLine,
-                //       textAlign: TextAlign.left,
-                //       content: TextSpan(
-                //           text:
-                //               'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.',
-                //           style: style),
-                //       time: Text(
-                //         '14:55xx',
-                //         style: timeStamptStyle,
-                //       )),
+                child: InlineAlignmentLayoutWidget(
+                    overflow: TextOverflow.ellipsis,
+                    softWrap: true,
+                    maxLines: 30,
+                    style: style,
+                    textWidthBasis: TextWidthBasis.longestLine,
+                    textAlign: TextAlign.left,
+                    content: TextSpan(
+                        text:
+                            'Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua',
+                        style: style),
+                    time: Text(
+                      '14:55xx',
+                      style: timeStamptStyle,
+                    )),
               ),
             ),
           ]),
