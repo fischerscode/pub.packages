@@ -1,9 +1,7 @@
 import 'dart:math';
-import 'dart:ui';
 
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:inline_alignment/src/intercepting_paragraph_builder.dart';
 
 class InlineAlignmentLayoutWidget extends StatelessWidget implements Text {
   const InlineAlignmentLayoutWidget({
