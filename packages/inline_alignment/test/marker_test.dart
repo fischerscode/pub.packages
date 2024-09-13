@@ -1,21 +1,33 @@
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:inline_alignment/src/marker.dart';
+import 'package:inline_alignment/src/stack.dart';
+
+class _DummyMakerCollector extends SingleChildRenderObjectWidget {
+  const _DummyMakerCollector({super.child});
+  @override
+  RenderObject createRenderObject(BuildContext context) {
+    return _RenderDummyMarkerCollector();
+  }
+}
+
+class _RenderDummyMarkerCollector extends RenderProxyBox with MarkerCollector {}
 
 void main() {
   testWidgets(
       'InlineAlignmentMarker adds RenderInlineAlignmentMarker to the tree',
       (WidgetTester tester) async {
-    final testWidget = RichText(
-      text: const TextSpan(
-        children: [
-          TextSpan(text: 'Hello, '),
-          InlineAlignmentMarker(alignment: PlaceholderAlignment.top),
-          InlineAlignmentMarker(alignment: PlaceholderAlignment.baseline),
-          InlineAlignmentMarker(alignment: PlaceholderAlignment.bottom),
-          TextSpan(text: 'world!'),
-        ],
+    final testWidget = _DummyMakerCollector(
+      child: RichText(
+        text: const TextSpan(
+          children: [
+            TextSpan(text: 'Hello, '),
+            InlineAlignmentMarker(alignment: PlaceholderAlignment.top),
+            InlineAlignmentMarker(alignment: PlaceholderAlignment.baseline),
+            InlineAlignmentMarker(alignment: PlaceholderAlignment.bottom),
+            TextSpan(text: 'world!'),
+          ],
+        ),
       ),
     );
 

@@ -1,5 +1,4 @@
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
+part of 'stack.dart';
 
 /// An [InlineAlignmentMarker] tracks an inline position in a paragraph.
 /// By injecting an [InlineAlignmentMarkerWidget] that is backed by a
@@ -28,6 +27,19 @@ class RenderInlineAlignmentMarker extends RenderBox {
   bool get sizedByParent => true;
 
   @override
+  void performLayout() {
+    var parent = this.parent;
+    while (parent != null) {
+      if (parent is MarkerCollector) {
+        parent._markers.add(() => offset);
+        break;
+      }
+      parent = parent.parent;
+    }
+    super.performLayout();
+  }
+
+  @override
   Size computeDryLayout(covariant BoxConstraints constraints) {
     return constraints.constrain(Size.zero);
   }
@@ -35,19 +47,18 @@ class RenderInlineAlignmentMarker extends RenderBox {
   Offset get offset {
     RenderObject? box = this;
     while (box != null) {
-      if (box.parent is RenderParagraph) {
-        final offset = (box.parentData as TextParentData).offset;
-        if (offset != null) {
-          return offset;
-        } else {
-          throw FlutterError('RenderInlineAlignmentMarker needs to be layed '
-              'out before accessing offset.');
-        }
+      final parent = box.parent;
+      if (parent is MarkerCollector) {
+        return parent.globalToLocal(localToGlobal(Offset.zero));
       }
 
-      box = box.parent;
+      box = parent;
     }
     throw FlutterError(
-        'RenderInlineAlignmentMarker is not a child of a RenderParagraph.');
+        'RenderInlineAlignmentMarker is not a child of a MarkerCollector.');
   }
+}
+
+mixin MarkerCollector on RenderBox {
+  List<Offset Function()> _markers = [];
 }
