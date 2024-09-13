@@ -1,33 +1,20 @@
-import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:inline_alignment/src/stack.dart';
-
-class _DummyMakerCollector extends SingleChildRenderObjectWidget {
-  const _DummyMakerCollector({super.child});
-  @override
-  RenderObject createRenderObject(BuildContext context) {
-    return _RenderDummyMarkerCollector();
-  }
-}
-
-class _RenderDummyMarkerCollector extends RenderProxyBox with MarkerCollector {}
 
 void main() {
   testWidgets(
       'InlineAlignmentMarker adds RenderInlineAlignmentMarker to the tree',
       (WidgetTester tester) async {
-    final testWidget = _DummyMakerCollector(
-      child: RichText(
-        text: const TextSpan(
-          children: [
-            TextSpan(text: 'Hello, '),
-            InlineAlignmentMarker(alignment: PlaceholderAlignment.top),
-            InlineAlignmentMarker(alignment: PlaceholderAlignment.baseline),
-            InlineAlignmentMarker(alignment: PlaceholderAlignment.bottom),
-            TextSpan(text: 'world!'),
-          ],
-        ),
+    final testWidget = RichText(
+      text: const TextSpan(
+        children: [
+          TextSpan(text: 'Hello, '),
+          InlineMarker(alignment: PlaceholderAlignment.top),
+          InlineMarker(alignment: PlaceholderAlignment.baseline),
+          InlineMarker(alignment: PlaceholderAlignment.bottom),
+          TextSpan(text: 'world!'),
+        ],
       ),
     );
 
@@ -36,16 +23,20 @@ void main() {
       child: testWidget,
     ));
 
-    final finder = find.byType(InlineAlignmentMarkerWidget);
+    final finder = find.byType(InlineMarkerWidget);
     expect(finder, findsNWidgets(3));
 
     final markers = tester.renderObjectList(finder);
     expect(markers, hasLength(3));
-    expect(markers, everyElement(isA<RenderInlineAlignmentMarker>()));
+    expect(markers, everyElement(isA<RenderInlineMarker>()));
 
-    final offsets =
-        markers.map((e) => (e as RenderInlineAlignmentMarker).offset).toList();
-
+    final offsets = markers
+        .map((e) => (e as RenderInlineMarker).localToGlobal(Offset.zero))
+        .toList();
+    expect(
+        offsets,
+        everyElement(predicate<Offset>((o) => o.dx == offsets.first.dx,
+            'the x coordinates should all be the same.')));
     expect(
         offsets,
         predicate<List<Offset>>(

@@ -9,6 +9,7 @@ void main() {
         child: InlineAlignedStack.callback(
           callback: (List<Size> sizes, List<Offset> markers,
               BoxConstraints constraints) {
+            expect(markers, hasLength(6));
             return [
               Offset.zero,
               Offset.zero,
@@ -19,9 +20,9 @@ void main() {
             const Text.rich(TextSpan(
               children: [
                 TextSpan(text: 'Hello, '),
-                InlineAlignmentMarker(alignment: PlaceholderAlignment.top),
-                InlineAlignmentMarker(alignment: PlaceholderAlignment.baseline),
-                InlineAlignmentMarker(alignment: PlaceholderAlignment.bottom),
+                InlineMarker(alignment: PlaceholderAlignment.top),
+                InlineMarker(alignment: PlaceholderAlignment.baseline),
+                InlineMarker(alignment: PlaceholderAlignment.bottom),
                 TextSpan(text: 'world!'),
               ],
             )),
@@ -30,10 +31,9 @@ void main() {
               child: Text.rich(TextSpan(
                 children: [
                   TextSpan(text: 'Hello, '),
-                  InlineAlignmentMarker(alignment: PlaceholderAlignment.top),
-                  InlineAlignmentMarker(
-                      alignment: PlaceholderAlignment.baseline),
-                  InlineAlignmentMarker(alignment: PlaceholderAlignment.bottom),
+                  InlineMarker(alignment: PlaceholderAlignment.top),
+                  InlineMarker(alignment: PlaceholderAlignment.baseline),
+                  InlineMarker(alignment: PlaceholderAlignment.bottom),
                   TextSpan(text: 'world!'),
                 ],
               )),

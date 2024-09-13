@@ -10,7 +10,7 @@ abstract class InlineAlignmentDelegate {
 
   /// {@template inline_aligner.positionChildren}
   /// Positions the children of an [InlineAlignedStack] based on their sizes,
-  /// the [InlineAlignmentMarker]s and the constraints of the parent.
+  /// the [InlineMarker]s and the constraints of the parent.
   ///
   /// The result must have the same length as [sizes].
   /// {@endtemplate}
@@ -39,7 +39,7 @@ class _CallbackInlineAlignmentDelegate extends InlineAlignmentDelegate {
 }
 
 /// A [Stack] like widget that uses a [InlineAlignmentDelegate] to align its
-/// [children] based on [InlineAlignmentMarker]s in the [Text]s.
+/// [children] based on [InlineMarker]s in the [Text]s.
 class InlineAlignedStack extends MultiChildRenderObjectWidget {
   const InlineAlignedStack({
     super.key,
@@ -57,24 +57,58 @@ class InlineAlignedStack extends MultiChildRenderObjectWidget {
   final InlineAlignmentDelegate delegate;
 
   @override
-  RenderInlineAlignedStack createRenderObject(BuildContext context) {
-    return RenderInlineAlignedStack(delegate);
+  RenderDelegatingInlineAlignedStack createRenderObject(BuildContext context) {
+    return RenderDelegatingInlineAlignedStack(delegate);
   }
 
   @override
-  void updateRenderObject(
-      BuildContext context, covariant RenderInlineAlignedStack renderObject) {
+  void updateRenderObject(BuildContext context,
+      covariant RenderDelegatingInlineAlignedStack renderObject) {
     renderObject.delegate = delegate;
   }
 }
 
-class RenderInlineAlignedStack extends RenderBox
+/// Renders multiple widgets in a
+abstract class RenderInlineAlignedStack extends RenderBox
     with
         ContainerRenderObjectMixin<RenderBox, InlineAlignedParentData>,
         RenderBoxContainerDefaultsMixin<RenderBox, InlineAlignedParentData>,
         DebugOverflowIndicatorMixin,
-        MarkerCollector {
-  RenderInlineAlignedStack(this._delegate);
+        MarkerCollectorMixin {
+  @override
+  void setupParentData(covariant RenderObject child) {
+    if (child.parentData is! InlineAlignedParentData) {
+      child.parentData = InlineAlignedParentData();
+    }
+  }
+
+  @override
+  void performLayout() {
+    size = constraints.constrain(layoutChildren(
+        layoutChild: ChildLayoutHelper.layoutChild, constraints: constraints));
+  }
+
+  /// Lays out the children and returns the Size of the smallest box containing
+  /// all the children.
+  Size layoutChildren(
+      {required ChildLayouter layoutChild,
+      required BoxConstraints constraints});
+
+  @override
+  void paint(PaintingContext context, Offset offset) {
+    defaultPaint(context, offset);
+  }
+
+  @override
+  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
+    return defaultHitTestChildren(result, position: position);
+  }
+}
+
+/// A [RenderInlineAlignedStack] that uses a [InlineAlignmentDelegate] to
+/// layout the children.
+class RenderDelegatingInlineAlignedStack extends RenderInlineAlignedStack {
+  RenderDelegatingInlineAlignedStack(this._delegate);
 
   InlineAlignmentDelegate get delegate => _delegate;
   InlineAlignmentDelegate _delegate;
@@ -90,26 +124,26 @@ class RenderInlineAlignedStack extends RenderBox
   }
 
   @override
-  void setupParentData(covariant RenderObject child) {
-    if (child.parentData is! InlineAlignedParentData) {
-      child.parentData = InlineAlignedParentData();
-    }
-  }
-
-  @override
-  void performLayout() {
-    _markers = [];
+  Size layoutChildren(
+      {required ChildLayouter layoutChild,
+      required BoxConstraints constraints}) {
+    final markers = <RenderInlineMarker>[];
+    registerOnMarkerRegisterCallback(markers.add, MarkerRegisterReason.layout);
 
     final sizes = <Size>[];
     var child = firstChild;
     while (child != null) {
-      child.layout(constraints.loosen(), parentUsesSize: true);
-      sizes.add(child.size);
+      sizes.add(layoutChild(child, constraints.loosen()));
       child = (child.parentData as InlineAlignedParentData).nextSibling;
     }
 
+    removeOnMarkerRegisterCallback(markers.add, MarkerRegisterReason.layout);
     final offsets = delegate.positionChildren(
-        sizes, _markers.map((c) => c()).toList(), constraints);
+        sizes,
+        markers
+            .map((c) => globalToLocal(c.localToGlobal(Offset.zero)))
+            .toList(),
+        constraints);
 
     var width = constraints.minWidth;
     var height = constraints.minHeight;
@@ -124,17 +158,7 @@ class RenderInlineAlignedStack extends RenderBox
       child = parentData.nextSibling;
     }
 
-    size = constraints.constrain(Size(width, height));
-  }
-
-  @override
-  void paint(PaintingContext context, Offset offset) {
-    defaultPaint(context, offset);
-  }
-
-  @override
-  bool hitTestChildren(BoxHitTestResult result, {required Offset position}) {
-    return defaultHitTestChildren(result, position: position);
+    return Size(width, height);
   }
 }
 
