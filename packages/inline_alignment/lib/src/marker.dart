@@ -7,7 +7,7 @@ class InlineMarker extends WidgetSpan {
   const InlineMarker({super.alignment})
       : super(
             child: const InlineMarkerWidget(),
-            baseline: TextBaseline.ideographic);
+            baseline: TextBaseline.alphabetic);
 }
 
 /// The widget used by an [InlineMarker] to track positions in a
