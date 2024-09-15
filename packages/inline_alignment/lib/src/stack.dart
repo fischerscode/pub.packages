@@ -141,7 +141,7 @@ class RenderDelegatingInlineAlignedStack extends RenderInlineAlignedStack {
     final offsets = delegate.positionChildren(
         sizes,
         markers
-            .map((c) => globalToLocal(c.localToGlobal(Offset.zero)))
+            .map((c) => c.localToGlobal(Offset.zero, ancestor: this))
             .toList(),
         constraints);
 
