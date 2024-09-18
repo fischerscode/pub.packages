@@ -25,12 +25,9 @@ class InlineMarkerWidget extends LeafRenderObjectWidget {
 /// render tree.
 class RenderInlineMarker extends RenderBox {
   @override
-  bool get sizedByParent => true;
-
-  @override
   void performLayout() {
     registerMarker(MarkerRegisterReason.layout);
-    super.performLayout();
+    size = constraints.constrain(Size.zero);
   }
 
   /// Registers this marker at the closest parent [MarkerCollector].
